@@ -1,5 +1,4 @@
 # YING_SHURAN_06010567
-# MSc_Shuran_Ying
 #  Analysing spatiotemporal characteristics of arbovirus genomic surveillance in Brazil
 
 This repository contains a pipeline to clean and merge genomic sequence metadata with reported cases, perform exploratory analysis, and fit Bayesian models to assess sequencing performance (including a posterior residual gap analysis).
