@@ -1,0 +1,398 @@
+---
+title: "O1: Arbovirus Sequence Data"
+author: "Shuran Ying"
+output: 
+  bookdown::pdf_book:
+    toc: true
+    number_sections: true
+    keep_tex: yes
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+library(here)
+library(dplyr)
+library(lubridate)
+library(ggplot2)
+library(tidyr)
+library(knitr)
+library(ggsci)
+library(MMWRweek)
+```
+
+# 1. Introduction
+
+This document reports the harmonisation and exploratory analysis of arbovirus genomic sequence metadata from Brazil, focusing on three priority viruses: dengue, Zika and chikungunya. The dataset includes time-stamped and geo-referenced information extracted from GISAID-EpiArbo.
+
+# 2. Methods
+
+## 2.1 Data Sources
+
+GISAID: https://gisaid.org/
+
+## 2.2 State Generation
+
+```{r find_state_fn, echo=FALSE}
+find_state <- function(location_string) {
+  location_parts <- trimws(tolower(strsplit(location_string, "/")[[1]]))
+
+  keywords <- list(
+    "mato grosso do sul" = c("mato grosso do sul", "ms", "campo grande"),
+    "mato grosso" = c("mato grosso", "mt", "cuiaba"),
+    "rio grande do sul" = c("rio grande do sul", "rs", "porto alegre"),
+    "rio grande do norte" = c("rio grande do norte", "rn"),
+    "distrito federal" = c("distrito federal", "df", "brasilia"),
+    "sao paulo" = c("sao paulo", "sp", "campinas", "ribeirao preto"),
+    "minas gerais" = c("minas gerais", "mg", "belo horizonte", "uberaba"),
+    "bahia" = c("bahia", "ba", "salvador"),
+    "ceara" = c("ceara", "ce"),
+    "pernambuco" = c("pernambuco", "pe", "recife"),
+    "parana" = c("parana", "pr", "curitiba"),
+    "para" = c("para", "pa", "belem"),
+    "paraiba" = c("paraiba", "pb"),
+    "piaui" = c("piaui", "pi"),
+    "alagoas" = c("alagoas", "al"),
+    "sergipe" = c("sergipe", "se"),
+    "goias" = c("goias", "go", "goiania"),
+    "maranhao" = c("maranhao", "ma"),
+    "amazonas" = c("amazonas", "am"),
+    "roraima" = c("roraima", "rr"),
+    "rondonia" = c("rondonia", "ro"),
+    "tocantins" = c("tocantins", "to", "palmas"),
+    "santa catarina" = c("santa catarina", "sc", "florianopolis"),
+    "espirito santo" = c("espirito santo", "es", "vitoria"),
+    "acre" = c("acre", "rio branco"),
+    "amapa" = c("amapa", "ap", "macapa"),
+    "rio de janeiro" = c("rio de janeiro", "rj", "niteroi", "petropolis")
+  )
+
+  valid_states <- names(keywords)
+
+  for (state in valid_states) {
+    if (any(keywords[[state]] %in% location_parts)) return(state)
+  }
+
+  if (length(location_parts) >= 3) {
+    candidate <- location_parts[3]
+    if (candidate %in% valid_states) return(candidate)
+  }
+
+  return(NA)
+}
+```
+
+## 2.3 Missingness Cleaning Function
+
+```{r na_clean_fn, echo=FALSE}
+convert_to_na <- function(x) {
+  if (is.character(x)) {
+    x <- trimws(tolower(x))
+    x[x %in% c("", "na", "n/a")] <- NA
+  }
+  return(x)
+}
+```
+
+# 3. Results
+
+## 3.1 Dengue
+
+```{r data, echo=FALSE}
+# Read Data
+gisaid_sequence_data_dengue_B <- read.delim(here::here("01_Data", "01_Raw_Data", "Brazil_Dengue_gisaid.tsv"))
+gisaid_time_dengue_B <- read.delim(here::here("01_Data", "01_Raw_Data", "Brazil_Dengue_Submissiontime.tsv"))
+
+gisaid_data_dengue_B <- left_join(
+  gisaid_sequence_data_dengue_B,
+  gisaid_time_dengue_B %>% select(Accession.ID, Submission.date),
+  by = "Accession.ID"
+)
+
+gisaid_data_dengue_B$Collection.date <- as.Date(gisaid_data_dengue_B$Collection.date)
+gisaid_data_dengue_B$Submission.date <- as.Date(gisaid_data_dengue_B$Submission.date)
+
+# Generate State
+gisaid_data_dengue_B$FU <- sapply(gisaid_data_dengue_B$Location, find_state)
+
+# Check missingness
+gisaid_data_dengue_B <- gisaid_data_dengue_B %>%
+  mutate(across(everything(), convert_to_na))
+
+gisaid_missing <- data.frame(
+  Variable = names(gisaid_data_dengue_B),
+  MissingRate = round(colMeans(is.na(gisaid_data_dengue_B)), 2),
+  Source = "GISAID"
+)
+
+kable(gisaid_missing, caption = "Missing Rate by Variable (Dengue, Brazil)")
+```
+
+```{r TAT, echo=FALSE, fig.cap="Turnaround Time (TAT) Distribution (Dengue, Brazil)", fig.pos="H", fig.width=6, fig.height=4}
+# Compute Turnaround time(TAT)
+gisaid_data_dengue_B$TAT <- as.numeric(gisaid_data_dengue_B$Submission.date -
+                                       gisaid_data_dengue_B$Collection.date)
+
+ggplot(filter(gisaid_data_dengue_B, is.finite(TAT)), aes(x = TAT)) +
+  geom_histogram(bins = 50, color = "white", fill = pal_npg()(1)) +
+  labs(title = "Turnaround Time (TAT) Distribution", x = "Days", y = "Count") +
+  theme_minimal(base_size = 13)
+```
+
+```{r year, echo=FALSE, fig.cap="Number of Dengue Sequences per Year (Brazil)", fig.pos="H", fig.width=6, fig.height=4}
+# Sequence data by year
+gisaid_data_dengue_B$Year <- year(gisaid_data_dengue_B$Collection.date)
+gisaid_data_dengue_B$Month = month(gisaid_data_dengue_B$Collection.date)
+gisaid_data_dengue_B <- gisaid_data_dengue_B %>%
+  mutate(
+    MMWR = MMWRweek(Collection.date),
+    epi_year = MMWR$MMWRyear,
+    epi_week = MMWR$MMWRweek,
+    EW = as.integer(paste0(epi_year, sprintf("%02d", epi_week)))
+  )
+
+gisaid_years <- gisaid_data_dengue_B %>%
+  filter(!is.na(Year)) %>%
+  count(Year) %>%
+  mutate(Source = "GISAID")
+
+ggplot(gisaid_years, aes(x = Year, y = n)) +
+  geom_bar(stat = "identity", fill = pal_npg()(1)) +
+  labs(title = "Number of Dengue Sequences per Year", x = "Year", y = "Count") +
+  theme_minimal(base_size = 10)
+```
+
+```{r state, echo=FALSE, fig.cap="State Coverage (Dengue, Brazil)", fig.pos="H", fig.width=6, fig.height=4}
+# Sequence data by state
+gisaid_states <- gisaid_data_dengue_B %>%
+  filter(!is.na(FU)) %>%
+  group_by(FU) %>%
+  summarise(n = n()) %>%
+  arrange(desc(n))
+
+ggplot(gisaid_states, aes(x = reorder(FU, n), y = n)) +
+  geom_bar(stat = "identity", fill = pal_npg()(1)) +
+  coord_flip() +
+  labs(title = "State Coverage: Dengue Sequences in GISAID",
+       x = "FU", y = "Number of Sequences") +
+  theme_minimal(base_size = 13) +
+  theme(plot.title = element_text(size = 9))
+```
+
+## 3.2 Zika
+
+```{r data2, echo=FALSE}
+# Read Data
+gisaid_sequence_data_zika_B <- read.delim(here::here("01_Data", "01_Raw_Data", "Brazil_Zika_gisaid.tsv"))
+gisaid_time_zika_B <- read.delim(here::here("01_Data", "01_Raw_Data", "Brazil_Zika_Submissiontime.tsv"))
+
+gisaid_data_zika_B <- left_join(
+  gisaid_sequence_data_zika_B,
+  gisaid_time_zika_B %>% select(Accession.ID, Submission.date),
+  by = "Accession.ID"
+)
+
+gisaid_data_zika_B$Collection.date <- as.Date(gisaid_data_zika_B$Collection.date)
+gisaid_data_zika_B$Submission.date <- as.Date(gisaid_data_zika_B$Submission.date)
+
+# Generate State
+gisaid_data_zika_B$FU <- sapply(gisaid_data_zika_B$Location, find_state)
+
+# Check missingness
+gisaid_data_zika_B <- gisaid_data_zika_B %>%
+  mutate(across(everything(), convert_to_na))
+
+gisaid_missing <- data.frame(
+  Variable = names(gisaid_data_zika_B),
+  MissingRate = round(colMeans(is.na(gisaid_data_zika_B)), 2),
+  Source = "GISAID"
+)
+
+kable(gisaid_missing, caption = "Missing Rate by Variable (Zika, Brazil)", longtable = TRUE)
+```
+
+```{r TAT2, echo=FALSE, fig.cap="Turnaround Time (TAT) Distribution (Zika, Brazil)", fig.pos="H", fig.width=6, fig.height=4}
+# Compute Turnaround time(TAT)
+gisaid_data_zika_B$TAT <- as.numeric(gisaid_data_zika_B$Submission.date -
+                                     gisaid_data_zika_B$Collection.date)
+
+ggplot(filter(gisaid_data_zika_B, is.finite(TAT)), aes(x = TAT)) +
+  geom_histogram(bins = 50, color = "white", fill = pal_npg()(1)) +
+  labs(title = "Turnaround Time (TAT) Distribution", x = "Days", y = "Count") +
+  theme_minimal(base_size = 13)
+```
+
+```{r year2, echo=FALSE, fig.cap="Number of Zika Sequences per Year (Brazil)", fig.pos="H", fig.width=6, fig.height=4}
+# Sequence data by year
+gisaid_data_zika_B$Year <- year(gisaid_data_zika_B$Collection.date)
+gisaid_data_zika_B$Month = month(gisaid_data_zika_B$Collection.date)
+gisaid_data_zika_B <- gisaid_data_zika_B %>%
+  mutate(
+    MMWR = MMWRweek(Collection.date),
+    epi_year = MMWR$MMWRyear,
+    epi_week = MMWR$MMWRweek,
+    EW = as.integer(paste0(epi_year, sprintf("%02d", epi_week)))
+  )
+
+gisaid_years <- gisaid_data_zika_B %>%
+  filter(!is.na(Year)) %>%
+  count(Year) %>%
+  mutate(Source = "GISAID")
+
+ggplot(gisaid_years, aes(x = Year, y = n)) +
+  geom_bar(stat = "identity", fill = pal_npg()(1)) +
+  # labs(title = "Number of Zika Sequences per Year", x = "Year", y = "Count") +
+  theme_minimal(base_size = 10)
+```
+
+```{r state2, echo=FALSE, fig.cap="State Coverage (Zika, Brazil)", fig.pos="H", fig.width=6, fig.height=4}
+# Sequence data by state
+gisaid_states <- gisaid_data_zika_B %>%
+  filter(!is.na(FU)) %>%
+  group_by(FU) %>%
+  summarise(n = n()) %>%
+  arrange(desc(n))
+
+ggplot(gisaid_states, aes(x = reorder(FU, n), y = n)) +
+  geom_bar(stat = "identity", fill = pal_npg()(1)) +
+  coord_flip() +
+  labs(title = "State Coverage: Zika Sequences in GISAID",
+       x = "FU", y = "Number of Sequences") +
+  theme_minimal(base_size = 13) +
+  theme(plot.title = element_text(size = 9))
+```
+
+## 3.3 Chikungunya
+
+```{r data3, echo=FALSE}
+# Read Data
+gisaid_sequence_data_chi_B <- read.delim(here::here("01_Data", "01_Raw_Data", "Brazil_Chi_gisaid.tsv"))
+gisaid_time_chi_B <- read.delim(here::here("01_Data", "01_Raw_Data", "Brazil_Chi_Submissiontime.tsv"))
+
+gisaid_data_chi_B <- left_join(
+  gisaid_sequence_data_chi_B,
+  gisaid_time_chi_B %>% select(Accession.ID, Submission.date),
+  by = "Accession.ID"
+)
+
+gisaid_data_chi_B$Collection.date <- as.Date(gisaid_data_chi_B$Collection.date)
+gisaid_data_chi_B$Submission.date <- as.Date(gisaid_data_chi_B$Submission.date)
+
+# Generate State
+gisaid_data_chi_B$FU <- sapply(gisaid_data_chi_B$Location, find_state)
+
+# Check missingness
+gisaid_data_chi_B <- gisaid_data_chi_B %>%
+  mutate(across(everything(), convert_to_na))
+
+gisaid_missing <- data.frame(
+  Variable = names(gisaid_data_chi_B),
+  MissingRate = round(colMeans(is.na(gisaid_data_chi_B)), 2),
+  Source = "GISAID"
+)
+
+kable(gisaid_missing, caption = "Missing Rate by Variable (Chikungunya, Brazil)", longtable = TRUE)
+```
+
+```{r TAT3, echo=FALSE, fig.cap="Turnaround Time (TAT) Comparison (Chikungunya, Brazil)", fig.pos="H", fig.width=6, fig.height=4}
+# Compute Turnaround time(TAT)
+gisaid_data_chi_B$TAT <- as.numeric(gisaid_data_chi_B$Submission.date -
+                                    gisaid_data_chi_B$Collection.date)
+
+ggplot(filter(gisaid_data_chi_B, is.finite(TAT)), aes(x = TAT)) +
+  geom_histogram(bins = 50, color = "white", fill = pal_npg()(1)) +
+  labs(title = "Turnaround Time (TAT) Distribution", x = "Days", y = "Count") +
+  theme_minimal(base_size = 13)
+```
+
+```{r year3, echo=FALSE, fig.cap="Number of Chikungunya Sequences per Year (Brazil)", fig.pos="H", fig.width=6, fig.height=4}
+# Sequence data by year
+gisaid_data_chi_B$Year <- year(gisaid_data_chi_B$Collection.date)
+gisaid_data_chi_B$Month = month(gisaid_data_chi_B$Collection.date)
+gisaid_data_chi_B <- gisaid_data_chi_B %>%
+  mutate(
+    MMWR = MMWRweek(Collection.date),
+    epi_year = MMWR$MMWRyear,
+    epi_week = MMWR$MMWRweek,
+    EW = as.integer(paste0(epi_year, sprintf("%02d", epi_week)))
+  )
+
+gisaid_years <- gisaid_data_chi_B %>%
+  filter(!is.na(Year)) %>%
+  count(Year) %>%
+  mutate(Source = "GISAID")
+
+ggplot(gisaid_years, aes(x = Year, y = n)) +
+  geom_bar(stat = "identity", fill = pal_npg()(1)) +
+  # labs(title = "Number of Chikungunya Sequences per Year", x = "Year", y = "Count") +
+  theme_minimal(base_size = 10)
+```
+
+```{r state3, echo=FALSE, fig.cap="State Coverage (Chikungunya, Brazil)", fig.pos="H", fig.width=6, fig.height=4}
+# Sequence data by state
+gisaid_states <- gisaid_data_chi_B %>%
+  filter(!is.na(FU)) %>%
+  group_by(FU) %>%
+  summarise(n = n()) %>%
+  arrange(desc(n))
+
+ggplot(gisaid_states, aes(x = reorder(FU, n), y = n)) +
+  geom_bar(stat = "identity", fill = pal_npg()(1)) +
+  coord_flip() +
+  labs(title = "State Coverage: Chikungunya Sequences in GISAID",
+       x = "FU", y = "Number of Sequences") +
+  theme_minimal(base_size = 13) +
+  theme(plot.title = element_text(size = 9))
+```
+
+
+# 4 Dataset Combination and Sequencing Intensity
+
+```{r combination, echo=FALSE}
+gisaid_data_dengue_B$Virus <- "Dengue"
+gisaid_data_zika_B$Virus <- "Zika"
+gisaid_data_chi_B$Virus <- "Chikungunya"
+
+brazil_gisaid_all <- bind_rows(
+  gisaid_data_dengue_B,
+  gisaid_data_zika_B,
+  gisaid_data_chi_B
+)
+
+brazil_gisaid_all <- brazil_gisaid_all %>%
+  mutate(Virus = tolower(Virus)) %>%
+  select(Collection.date, Location, Sequence.Length, Submission.date, FU, TAT, Year, EW, Virus, Month)
+
+brazil_seq_summary_gisaid <- brazil_gisaid_all %>%
+  filter(!is.na(Year), !is.na(Virus)) %>%
+  mutate(Virus = tolower(Virus),
+         Country = sapply(strsplit(Location, "/"), function(x) {
+    x <- trimws(x)
+    if (length(x) >= 2) tolower(x[2]) else NA
+  })) %>%
+  group_by(Country, Virus, Year, FU, EW, Month) %>%
+  summarise(N_sequences = n(), .groups = "drop")
+```
+
+# 4. Output
+
+```{r save, echo=FALSE}
+# Datasets for each virus
+write.csv(gisaid_data_dengue_B, here("01_Data", "01_Raw_Data", "Brazil_Dengue_GISAID_clean.csv"))
+
+write.csv(gisaid_data_zika_B, here("01_Data", "01_Raw_Data", "Brazil_Zika_GISAID_clean.csv"))
+
+write.csv(gisaid_data_chi_B, here("01_Data", "01_Raw_Data", "Brazil_Chi_GISAID_clean.csv"))
+
+if (!dir.exists(here::here("01_Data", "02_Clean_Data"))) {
+  dir.create(here::here("01_Data", "02_Clean_Data"), recursive = TRUE)
+}
+
+# Combined datasets for Brazil
+write.csv(brazil_gisaid_all, here("01_Data", "02_Clean_Data", "Brazil_GISAID_all.csv"), row.names = FALSE)
+
+# Sequencing intensity
+write.csv(brazil_seq_summary_gisaid, here("01_Data", "02_Clean_Data", "Brazil_seq_summary_gisaid.csv"), row.names = FALSE)
+```

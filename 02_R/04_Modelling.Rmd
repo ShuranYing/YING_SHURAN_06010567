@@ -1,0 +1,1762 @@
+---
+title: '04 Modelling'
+subtitle: ""
+output:
+  bookdown::pdf_book:
+    keep_tex: yes
+  bookdown::html_document2:
+    toc: yes
+    toc_float: yes
+    highlight: tango
+  html_document:
+    toc: yes
+    df_print: paged
+link-citations: true
+
+---
+
+<style type="text/css">
+h1{
+  font-size: 24pt;
+}
+h2{
+  font-size: 18pt;
+}
+body{
+  font-size: 12pt;
+}
+</style>
+
+```{r setup, include = FALSE, tidy=TRUE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+include_solutions <- TRUE
+```
+```{r setup2, include=FALSE, tidy=TRUE}
+require(here)
+require(terra)       
+require(sf)      
+require(dplyr)
+require(readr)
+require(readxl)
+require(tidyr)
+require(stringr)
+require(xml2)
+require(geobr)
+require(stringi)
+require(brms)
+require(ggplot2)
+require(ggsci)
+require(patchwork)
+require(purrr)
+require(loo)
+require(cowplot)
+require(tibble)
+require(knitr)
+require(kableExtra)
+require(bayesplot)
+require(posterior)
+```
+
+```{r data, echo=FALSE}
+capacity_summary_B <- read.csv(here("01_Data", "02_Clean_Data", "Model_Data.csv"))
+```
+
+```{r DengueHistogram, echo=FALSE, fig.cap="Histograms of raw and log-transformed sequencing capacity for Dengue."}
+capacity_summary_B <- capacity_summary_B %>% mutate(logTR = log(Transmission_risk),
+                                                    covid = if_else(Year >= 2020, 1, 0))
+
+dengue_data <- filter(capacity_summary_B, Virus == "dengue",
+                      is.finite(sequencing_proportion), sequencing_proportion > 0)
+
+ratio <- dengue_data$N_sequences / dengue_data$cases_reported
+summary(log(ratio))
+
+ggplot(dengue_data, aes(x = N_sequences)) +
+  geom_histogram(bins = 30, fill = pal_npg()(1), color = "white") +
+  theme_minimal() +
+  labs(title = "Distribution of Dengue Sequences")
+
+summary(dengue_data$N_sequences)
+var(dengue_data$N_sequences)
+
+zika_data <- filter(capacity_summary_B, Virus == "zika",
+                      is.finite(sequencing_proportion), sequencing_proportion > 0)
+
+ratio <- zika_data$N_sequences / zika_data$cases_reported
+summary(log(ratio))
+
+ggplot(zika_data, aes(x = N_sequences)) +
+  geom_histogram(bins = 30, fill = pal_npg()(1), color = "white") +
+  theme_minimal() +
+  labs(title = "Distribution of Zika Sequences")
+
+summary(zika_data$N_sequences)
+var(zika_data$N_sequences)
+
+chi_data <- filter(capacity_summary_B, Virus == "chikungunya",
+                      is.finite(sequencing_proportion), sequencing_proportion > 0)
+
+ratio <- chi_data$N_sequences / chi_data$cases_reported
+summary(log(ratio))
+
+ggplot(chi_data, aes(x = N_sequences)) +
+  geom_histogram(bins = 30, fill = pal_npg()(1), color = "white") +
+  theme_minimal() +
+  labs(title = "Distribution of Chikungunya Sequences")
+
+summary(chi_data$N_sequences)
+var(chi_data$N_sequences)
+```
+
+
+```{r}
+# Uncomment when having these models in local file.
+# dengue_model_1 <- readRDS(here("02_R", "05_outputs", "dengue_model_1.rds"))
+# dengue_model_2 <- readRDS(here("02_R", "05_outputs", "dengue_model_2.rds"))
+# dengue_model_3 <- readRDS(here("02_R", "05_outputs", "dengue_model_3.rds"))
+# dengue_model_4 <- readRDS(here("02_R", "05_outputs", "dengue_model_4.rds"))
+# dengue_model_5 <- readRDS(here("02_R", "05_outputs", "dengue_model_5.rds"))
+# dengue_model_6 <- readRDS(here("02_R", "05_outputs", "dengue_model_6.rds"))
+
+# zika_model_1 <- readRDS(here("02_R", "05_outputs", "zika_model_1.rds"))
+# zika_model_2 <- readRDS(here("02_R", "05_outputs", "zika_model_2.rds"))
+# zika_model_3 <- readRDS(here("02_R", "05_outputs", "zika_model_3.rds"))
+# zika_model_4 <- readRDS(here("02_R", "05_outputs", "zika_model_4.rds"))
+# zika_model_5 <- readRDS(here("02_R", "05_outputs", "zika_model_5.rds"))
+# zika_model_6 <- readRDS(here("02_R", "05_outputs", "zika_model_6.rds"))
+# zika_model_7 <- readRDS(here("02_R", "05_outputs", "zika_model_7.rds"))
+# zika_model_8 <- readRDS(here("02_R", "05_outputs", "zika_model_8.rds"))
+# zika_model_9 <- readRDS(here("02_R", "05_outputs", "zika_model_9.rds"))
+
+# chi_model_1 <- readRDS(here("02_R", "05_outputs", "chi_model_1.rds"))
+# chi_model_2 <- readRDS(here("02_R", "05_outputs", "chi_model_2.rds"))
+# chi_model_3 <- readRDS(here("02_R", "05_outputs", "chi_model_3.rds"))
+# chi_model_4 <- readRDS(here("02_R", "05_outputs", "chi_model_4.rds"))
+# chi_model_5 <- readRDS(here("02_R", "05_outputs", "chi_model_5.rds"))
+# chi_model_6 <- readRDS(here("02_R", "05_outputs", "chi_model_6.rds"))
+# chi_model_7 <- readRDS(here("02_R", "05_outputs", "chi_model_7.rds"))
+# chi_model_8 <- readRDS(here("02_R", "05_outputs", "chi_model_8.rds"))
+# chi_model_9 <- readRDS(here("02_R", "05_outputs", "chi_model_9.rds"))
+
+# tat_dengue_model_1 <- readRDS(here("02_R", "05_outputs", "tat_dengue_model_1.rds"))
+# tat_dengue_model_2 <- readRDS(here("02_R", "05_outputs", "tat_dengue_model_2.rds"))
+
+# tat_zika_model_1 <- readRDS(here("02_R", "05_outputs", "tat_zika_model_1.rds"))
+# tat_zika_model_2 <- readRDS(here("02_R", "05_outputs", "tat_zika_model_2.rds"))
+# tat_zika_model_3 <- readRDS(here("02_R", "05_outputs", "tat_zika_model_3.rds"))
+# tat_zika_model_4 <- readRDS(here("02_R", "05_outputs", "tat_zika_model_4.rds"))
+# tat_zika_model_5 <- readRDS(here("02_R", "05_outputs", "tat_zika_model_5.rds"))
+# tat_zika_model_6 <- readRDS(here("02_R", "05_outputs", "tat_zika_model_6.rds"))
+
+# tat_chi_model_1 <- readRDS(here("02_R", "05_outputs", "tat_chi_model_1.rds"))
+# tat_chi_model_2 <- readRDS(here("02_R", "05_outputs", "tat_chi_model_2.rds"))
+# tat_chi_model_3 <- readRDS(here("02_R", "05_outputs", "tat_chi_model_3.rds"))
+# tat_chi_model_4 <- readRDS(here("02_R", "05_outputs", "tat_chi_model_4.rds"))
+# tat_chi_model_5 <- readRDS(here("02_R", "05_outputs", "tat_chi_model_5.rds"))
+
+# combined_model_1 <- readRDS(here("02_R", "05_outputs", "combined_model_1.rds"))
+# combined_model_2 <- readRDS(here("02_R", "05_outputs", "combined_model_2.rds"))
+# combined_model_3 <- readRDS(here("02_R", "05_outputs", "combined_model_3.rds"))
+# combined_model_4 <- readRDS(here("02_R", "05_outputs", "combined_model_4.rds"))
+
+# tat_combined_model_1 <- readRDS(here("02_R", "05_outputs", "tat_combined_model_1.rds"))
+# tat_combined_model_2 <- readRDS(here("02_R", "05_outputs", "tat_combined_model_2.rds"))
+# tat_combined_model_3 <- readRDS(here("02_R", "05_outputs", "tat_combined_model_3.rds"))
+# tat_combined_model_4 <- readRDS(here("02_R", "05_outputs", "tat_combined_model_4.rds"))
+```
+
+```{r}
+dengue_model_1 <- brm(
+  N_sequences ~ scale(schooling_year) + scale(HDI) + Region + scale(unemployment) + scale(hospital) +
+    Year + scale(logTR) + (1 | FU) + offset(log(cases_reported)),
+  data = dengue_data,
+  family = poisson(),
+  prior = c(
+    prior(normal(0, 2), class = "b"),
+    prior(normal(0, 5), class = "Intercept"),
+    prior(cauchy(0, 1), class = "sd")
+  ),
+  seed = 123,
+  chains = 4, cores = 4, iter = 2000, warmup = 1000,
+  control = list(adapt_delta = 0.99)
+)
+summary(dengue_model_1)
+saveRDS(dengue_model_1, file = here("02_R", "05_outputs", "dengue_model_1.rds"))
+
+dengue_model_2 <- brm(
+  N_sequences ~ scale(schooling_year) + scale(HDI) + Region + scale(unemployment) + scale(hospital) +
+    as.factor(Year) + scale(logTR) + (1 | FU) + offset(log(cases_reported)),
+  data = dengue_data,
+  family = poisson(),
+  prior = c(
+    prior(normal(0, 2), class = "b"),
+    prior(normal(0, 5), class = "Intercept"),
+    prior(cauchy(0, 1), class = "sd")
+  ),
+  seed = 123,
+  chains = 4, cores = 4, iter = 2000, warmup = 1000,
+  control = list(adapt_delta = 0.99)
+)
+summary(dengue_model_2)
+saveRDS(dengue_model_2, file = here("02_R", "05_outputs", "dengue_model_2.rds"))
+
+dengue_model_3 <- brm(
+  N_sequences ~ scale(schooling_year) + scale(HDI) + Region + scale(unemployment) + scale(hospital) +
+    s(Year) + scale(logTR) + (1 | FU) + offset(log(cases_reported)),
+  data = dengue_data,
+  family = poisson(),
+  prior = c(
+    prior(normal(0, 2), class = "b"),
+    prior(normal(0, 5), class = "Intercept"),
+    prior(cauchy(0, 1), class = "sd")
+  ),
+  seed = 123,
+  chains = 4, cores = 4, iter = 2000, warmup = 1000,
+  control = list(adapt_delta = 0.99)
+)
+summary(dengue_model_3)
+saveRDS(dengue_model_3, file = here("02_R", "05_outputs", "dengue_model_3.rds"))
+```
+
+```{r}
+dengue_model_4 <- brm(
+  N_sequences ~ scale(schooling_year) + scale(HDI) + Region + scale(unemployment) + scale(hospital) + scale(logTR) +
+    s(Year) + (1 | FU) + offset(log(cases_reported)),
+  data = dengue_data,
+  family = negbinomial(),
+  prior = c(
+    prior(normal(0, 2), class = "b"),
+    prior(normal(0, 5), class = "Intercept"),
+    prior(cauchy(0, 1), class = "sd"),
+    prior(exponential(1), class = "shape")
+  ),
+  seed = 123,
+  chains = 4, cores = 4, iter = 2000, warmup = 1000,
+  control = list(adapt_delta = 0.99)
+)
+summary(dengue_model_4)
+saveRDS(dengue_model_4, file = here("02_R", "05_outputs", "dengue_model_4.rds"))
+
+dengue_model_5 <- brm(
+  N_sequences ~ scale(schooling_year) + scale(unemployment) + scale(HDI) + scale(hospital) * scale(logTR) + Region +
+    s(Year) + (1 | FU) + offset(log(cases_reported)),
+  data = dengue_data,
+  family = negbinomial(),
+  prior = c(
+    prior(normal(0, 2), class = "b"),
+    prior(normal(0, 5), class = "Intercept"),
+    prior(cauchy(0, 1), class = "sd"),
+    prior(exponential(1), class = "shape")
+  ),
+  seed = 123,
+  chains = 4, cores = 4, iter = 2000, warmup = 1000,
+  control = list(adapt_delta = 0.99)
+)
+summary(dengue_model_5)
+saveRDS(dengue_model_5, file = here("02_R", "05_outputs", "dengue_model_5.rds"))
+
+dengue_model_6 <- brm(
+  N_sequences ~ scale(schooling_year) + scale(logTR) * scale(HDI) + Region + scale(unemployment) + scale(hospital) +
+    s(Year) + (1 | FU) + offset(log(cases_reported)),
+  data = dengue_data,
+  family = negbinomial(),
+  prior = c(
+    prior(normal(0, 2), class = "b"),
+    prior(normal(0, 5), class = "Intercept"),
+    prior(cauchy(0, 1), class = "sd"),
+    prior(exponential(1), class = "shape")
+  ),
+  seed = 123,
+  chains = 4, cores = 4, iter = 2000, warmup = 1000,
+  control = list(adapt_delta = 0.99)
+)
+summary(dengue_model_6)
+saveRDS(dengue_model_6, file = here("02_R", "05_outputs", "dengue_model_6.rds"))
+```
+
+```{r ModelComparison, echo=FALSE}
+loo1 <- loo(dengue_model_1)
+loo2 <- loo(dengue_model_2)
+loo3 <- loo(dengue_model_3)
+loo4 <- loo(dengue_model_4)
+loo5 <- loo(dengue_model_5)
+loo6 <- loo(dengue_model_6)
+
+loo_compare(loo1, loo2, loo3, loo4, loo5, loo6)
+
+plots <- list(
+  pp_check(dengue_model_1) + ggtitle("Model 1") +
+    theme(text = element_text(size = 20),
+          plot.title = element_text(size = 18, face = "bold"),
+          legend.text = element_text(size = 16)),
+  pp_check(dengue_model_2) + ggtitle("Model 2") +
+    theme(text = element_text(size = 20),
+          plot.title = element_text(size = 18, face = "bold"),
+          legend.text = element_text(size = 16)),
+  pp_check(dengue_model_3) + ggtitle("Model 3") +
+    theme(text = element_text(size = 20),
+          plot.title = element_text(size = 18, face = "bold"),
+          legend.text = element_text(size = 16)),
+  pp_check(dengue_model_4) + ggtitle("Model 4") +
+    theme(text = element_text(size = 20),
+          plot.title = element_text(size = 18, face = "bold"),
+          legend.text = element_text(size = 16)),
+  pp_check(dengue_model_5) + ggtitle("Model 5") +
+    theme(text = element_text(size = 20),
+          plot.title = element_text(size = 18, face = "bold"),
+          legend.text = element_text(size = 16)),
+  pp_check(dengue_model_6) + ggtitle("Model 6") +
+    theme(text = element_text(size = 20),
+          plot.title = element_text(size = 18, face = "bold"),
+          legend.text = element_text(size = 16))
+)
+plot_grid(plotlist = plots, ncol = 3)
+ggsave("pp_1.pdf", width = 14, height = 8)
+```
+
+```{r ModelTable, echo=FALSE, results='asis'}
+model_comparison <- tibble::tibble(
+  Model = paste0("Model ", 1:6),
+  Socioeconomic = c(
+    "schooling_year + HDI + unemployment + hospital",
+    "schooling_year + HDI + unemployment + hospital",
+    "schooling_year + HDI + unemployment + hospital",
+    "schooling_year + HDI + unemployment + hospital",
+    "schooling_year + HDI + unemployment + hospital",
+    "schooling_year + HDI + unemployment + hospital"
+  ),
+  Family = c(rep("Poisson", 3), rep("NegBin", 3)),
+  Time = c("Year", "as.factor(Year)", "s(Year)", "s(Year)", "s(Year)", "s(Year)"),
+  Interaction = c("-", "-", "-", "-", "hospital * logTR", "HDI  * logTR"),
+  elpd = c(
+    loo1$estimates["elpd_loo", "Estimate"],
+    loo2$estimates["elpd_loo", "Estimate"],
+    loo3$estimates["elpd_loo", "Estimate"],
+    loo4$estimates["elpd_loo", "Estimate"],
+    loo5$estimates["elpd_loo", "Estimate"],
+    loo6$estimates["elpd_loo", "Estimate"]
+  ) %>% round(1)
+)
+
+cat(
+  kable(model_comparison, format = "latex", booktabs = TRUE, caption = "Model comparison using ELPD."),
+  sep = "\n"
+)
+```
+
+```{r ZikaModel, echo=FALSE}
+zika_model_1 <- brm(
+  N_sequences ~ scale(schooling_year) + scale(HDI) + Region + scale(unemployment) + scale(logTR)+
+    Year + (1 | FU) + offset(log(cases_reported)),
+  data = zika_data,
+  family = poisson(),
+  prior = c(
+    prior(normal(0, 2), class = "b"),
+    prior(normal(0, 5), class = "Intercept"),
+    prior(cauchy(0, 1), class = "sd")
+  ),
+  seed = 123,
+  chains = 4, cores = 4, iter = 2000, warmup = 1000,
+  control = list(adapt_delta = 0.99)
+)
+summary(zika_model_1)
+saveRDS(zika_model_1, file = here("02_R", "05_outputs", "zika_model_1.rds"))
+
+zika_model_2 <- brm(
+  N_sequences ~ scale(schooling_year) + scale(HDI) + Region + scale(unemployment) + scale(logTR)+
+    as.factor(Year) + (1 | FU) + offset(log(cases_reported)),
+  data = zika_data,
+  family = poisson(),
+  prior = c(
+    prior(normal(0, 2), class = "b"),
+    prior(normal(0, 5), class = "Intercept"),
+    prior(cauchy(0, 1), class = "sd")
+  ),
+  seed = 123,
+  chains = 4, cores = 4, iter = 2000, warmup = 1000,
+  control = list(adapt_delta = 0.99)
+)
+summary(zika_model_2)
+saveRDS(zika_model_2, file = here("02_R", "05_outputs", "zika_model_2.rds"))
+
+zika_model_3 <- brm(
+  N_sequences ~ scale(schooling_year) + scale(HDI) + Region + scale(unemployment) + scale(logTR)+
+    s(Year, k=4) + (1 | FU) + offset(log(cases_reported)),
+  data = zika_data,
+  family = poisson(),
+  prior = c(
+    prior(normal(0, 2), class = "b"),
+    prior(normal(0, 5), class = "Intercept"),
+    prior(cauchy(0, 1), class = "sd")
+  ),
+  seed = 123,
+  chains = 4, cores = 4, iter = 2000, warmup = 1000,
+  control = list(adapt_delta = 0.99)
+)
+summary(zika_model_3)
+saveRDS(zika_model_3, file = here("02_R", "05_outputs", "zika_model_3.rds"))
+
+zika_model_4 <- brm(
+  N_sequences ~ scale(schooling_year) + scale(HDI) + Region + scale(unemployment) + scale(logTR)+
+    as.factor(Year) + (1 | FU) + offset(log(cases_reported)),
+  data = zika_data,
+  family = negbinomial(),
+  prior = c(
+    prior(normal(0, 2), class = "b"),
+    prior(normal(0, 5), class = "Intercept"),
+    prior(cauchy(0, 1), class = "sd"),
+    prior(exponential(1), class = "shape")
+  ),
+  seed = 123,
+  chains = 4, cores = 4, iter = 2000, warmup = 1000,
+  control = list(adapt_delta = 0.99)
+)
+summary(zika_model_4)
+saveRDS(zika_model_4, file = here("02_R", "05_outputs", "zika_model_4.rds"))
+
+zika_model_5 <- brm(
+  N_sequences ~ scale(schooling_year) + scale(HDI) + Region + scale(unemployment) + scale(logTR)+
+    s(Year, k=4) + (1 | FU) + offset(log(cases_reported)),
+  data = zika_data,
+  family = negbinomial(),
+  prior = c(
+    prior(normal(0, 2), class = "b"),
+    prior(normal(0, 5), class = "Intercept"),
+    prior(cauchy(0, 1), class = "sd"),
+    prior(exponential(1), class = "shape")
+  ),
+  seed = 123,
+  chains = 4, cores = 4, iter = 2000, warmup = 1000,
+  control = list(adapt_delta = 0.99)
+)
+summary(zika_model_5)
+saveRDS(zika_model_5, file = here("02_R", "05_outputs", "zika_model_5.rds"))
+
+zika_model_6 <- brm(
+  N_sequences ~ scale(schooling_year) + Region + scale(unemployment) + scale(logTR)+
+    as.factor(Year) + (1 | FU) + offset(log(cases_reported)),
+  data = zika_data,
+  family = negbinomial(),
+  prior = c(
+    prior(normal(0, 2), class = "b"),
+    prior(normal(0, 5), class = "Intercept"),
+    prior(cauchy(0, 1), class = "sd"),
+    prior(exponential(1), class = "shape")
+  ),
+  seed = 123,
+  chains = 4, cores = 4, iter = 2000, warmup = 1000,
+  control = list(adapt_delta = 0.99)
+)
+summary(zika_model_6)
+saveRDS(zika_model_6, file = here("02_R", "05_outputs", "zika_model_6.rds"))
+
+zika_model_7 <- brm(
+  N_sequences ~ scale(schooling_year) * scale(logTR) + Region + scale(unemployment) +
+    as.factor(Year) + (1 | FU) + offset(log(cases_reported)),
+  data = zika_data,
+  family = negbinomial(),
+  prior = c(
+    prior(normal(0, 2), class = "b"),
+    prior(normal(0, 5), class = "Intercept"),
+    prior(cauchy(0, 1), class = "sd"),
+    prior(exponential(1), class = "shape")
+  ),
+  seed = 123,
+  chains = 4, cores = 4, iter = 2000, warmup = 1000,
+  control = list(adapt_delta = 0.99)
+)
+summary(zika_model_7)
+saveRDS(zika_model_7, file = here("02_R", "05_outputs", "zika_model_7.rds"))
+
+zika_model_8 <- brm(
+  N_sequences ~ scale(GDP_per_capita) + Region + scale(unemployment) + scale(logTR)+
+    as.factor(Year) + (1 | FU) + offset(log(cases_reported)),
+  data = zika_data,
+  family = negbinomial(),
+  prior = c(
+    prior(normal(0, 2), class = "b"),
+    prior(normal(0, 5), class = "Intercept"),
+    prior(cauchy(0, 1), class = "sd"),
+    prior(exponential(1), class = "shape")
+  ),
+  seed = 123,
+  chains = 4, cores = 4, iter = 2000, warmup = 1000,
+  control = list(adapt_delta = 0.99)
+)
+summary(zika_model_8)
+saveRDS(zika_model_8, file = here("02_R", "05_outputs", "zika_model_8.rds"))
+
+zika_model_9 <- brm(
+  N_sequences ~ scale(GDP_per_capita) + Region + scale(unemployment) + scale(logTR)+
+    s(Year, k=4) + (1 | FU) + offset(log(cases_reported)),
+  data = zika_data,
+  family = negbinomial(),
+  prior = c(
+    prior(normal(0, 2), class = "b"),
+    prior(normal(0, 5), class = "Intercept"),
+    prior(cauchy(0, 1), class = "sd"),
+    prior(exponential(1), class = "shape")
+  ),
+  seed = 123,
+  chains = 4, cores = 4, iter = 2000, warmup = 1000,
+  control = list(adapt_delta = 0.99)
+)
+summary(zika_model_9)
+saveRDS(zika_model_9, file = here("02_R", "05_outputs", "zika_model_9.rds"))
+```
+
+```{r ModelComparison2, echo=FALSE}
+loo1 <- loo(zika_model_1)
+loo2 <- loo(zika_model_2)
+loo3 <- loo(zika_model_3)
+loo4 <- loo(zika_model_4)
+loo5 <- loo(zika_model_5)
+loo6 <- loo(zika_model_6)
+loo7 <- loo(zika_model_7)
+loo8 <- loo(zika_model_8)
+loo9 <- loo(zika_model_9)
+
+loo_compare(loo1, loo2, loo3, loo4, loo5, loo6, loo7, loo8, loo9)
+
+plots <- list(
+  pp_check(zika_model_1) + ggtitle("Model 1") +
+    theme(text = element_text(size = 20),
+          plot.title = element_text(size = 18, face = "bold"),
+          legend.text = element_text(size = 16)),
+  pp_check(zika_model_2) + ggtitle("Model 2") +
+    theme(text = element_text(size = 20),
+          plot.title = element_text(size = 18, face = "bold"),
+          legend.text = element_text(size = 16)),
+  pp_check(zika_model_3) + ggtitle("Model 3") +
+    theme(text = element_text(size = 20),
+          plot.title = element_text(size = 18, face = "bold"),
+          legend.text = element_text(size = 16)),
+  pp_check(zika_model_4) + ggtitle("Model 4") +
+    theme(text = element_text(size = 20),
+          plot.title = element_text(size = 18, face = "bold"),
+          legend.text = element_text(size = 16)),
+  pp_check(zika_model_5) + ggtitle("Model 5") +
+    theme(text = element_text(size = 20),
+          plot.title = element_text(size = 18, face = "bold"),
+          legend.text = element_text(size = 16)),
+  pp_check(zika_model_6) + ggtitle("Model 6") +
+    theme(text = element_text(size = 20),
+          plot.title = element_text(size = 18, face = "bold"),
+          legend.text = element_text(size = 16)),
+  pp_check(zika_model_7) + ggtitle("Model 7") +
+    theme(text = element_text(size = 20),
+          plot.title = element_text(size = 18, face = "bold"),
+          legend.text = element_text(size = 16)),
+  pp_check(zika_model_8) + ggtitle("Model 8") +
+    theme(text = element_text(size = 20),
+          plot.title = element_text(size = 18, face = "bold"),
+          legend.text = element_text(size = 16)),
+  pp_check(zika_model_9) + ggtitle("Model 9") +
+    theme(text = element_text(size = 20),
+          plot.title = element_text(size = 18, face = "bold"),
+          legend.text = element_text(size = 16))
+)
+plot_grid(plotlist = plots, ncol = 3)
+ggsave("pp_2.pdf", width = 14, height = 8)
+```
+
+```{r ModelTable2, echo=FALSE, results='asis'}
+model_comparison <- tibble::tibble(
+  Model = paste0("Model ", 1:9),
+  Socioeconomic = c(
+    "schooling year + HDI + unemployment",
+    "schooling year + HDI + unemployment",
+    "schooling year + HDI + unemployment",
+    "schooling year + HDI + unemployment",
+    "schooling year + HDI + unemployment",
+    "schooling year + unemployment",
+    "schooling year + unemployment",
+    "GDP per capita + unemployment",
+    "GDP per capita + unemployment"
+  ),
+  Family = c(rep("Poisson", 3), rep("NegBin", 6)),
+  Time = c("Year", "as.factor(Year)", "s(Year)", "as.factor(Year)", "s(Year)", "as.factor(Year)", "as.factor(Year)", "as.factor(Year)", "s(Year)"),
+  Interaction = c("-", "-", "-", "-", "-", "-", "schooling * logTR", "-", "-"),
+  elpd = c(
+    loo1$estimates["elpd_loo", "Estimate"],
+    loo2$estimates["elpd_loo", "Estimate"],
+    loo3$estimates["elpd_loo", "Estimate"],
+    loo4$estimates["elpd_loo", "Estimate"],
+    loo5$estimates["elpd_loo", "Estimate"],
+    loo6$estimates["elpd_loo", "Estimate"],
+    loo7$estimates["elpd_loo", "Estimate"],
+    loo8$estimates["elpd_loo", "Estimate"],
+    loo9$estimates["elpd_loo", "Estimate"]
+  ) %>% round(1)
+)
+
+cat(
+  kable(model_comparison, format = "latex", booktabs = TRUE, caption = "Model comparison using ELPD."),
+  sep = "\n"
+)
+```
+
+```{r ChiModel, echo=FALSE}
+chi_model_1 <- brm(
+  N_sequences ~ scale(schooling_year) + scale(HDI) + Region + scale(unemployment) + scale(hospital) +
+    Year + scale(logTR) + (1 | FU) + offset(log(cases_reported)),
+  data = chi_data,
+  family = poisson(),
+  prior = c(
+    prior(normal(0, 2), class = "b"),
+    prior(normal(0, 5), class = "Intercept"),
+    prior(cauchy(0, 1), class = "sd")
+  ),
+  seed = 123,
+  chains = 4, cores = 4, iter = 2000, warmup = 1000,
+  control = list(adapt_delta = 0.99)
+)
+summary(chi_model_1)
+saveRDS(chi_model_1, file = here("02_R", "05_outputs", "chi_model_1.rds"))
+
+chi_model_2 <- brm(
+  N_sequences ~ scale(schooling_year) + scale(HDI) + Region + scale(unemployment) + scale(hospital) +
+    as.factor(Year) + scale(logTR) + (1 | FU) + offset(log(cases_reported)),
+  data = chi_data,
+  family = poisson(),
+  prior = c(
+    prior(normal(0, 2), class = "b"),
+    prior(normal(0, 5), class = "Intercept"),
+    prior(cauchy(0, 1), class = "sd")
+  ),
+  seed = 123,
+  chains = 4, cores = 4, iter = 2000, warmup = 1000,
+  control = list(adapt_delta = 0.99)
+)
+summary(chi_model_2)
+saveRDS(chi_model_2, file = here("02_R", "05_outputs", "chi_model_2.rds"))
+
+chi_model_3 <- brm(
+  N_sequences ~ scale(schooling_year) + scale(HDI) + Region + scale(unemployment) + scale(hospital) +
+    covid + scale(logTR) + (1 | FU) + offset(log(cases_reported)),
+  data = chi_data,
+  family = poisson(),
+  prior = c(
+    prior(normal(0, 2), class = "b"),
+    prior(normal(0, 5), class = "Intercept"),
+    prior(cauchy(0, 1), class = "sd")
+  ),
+  seed = 123,
+  chains = 4, cores = 4, iter = 2000, warmup = 1000,
+  control = list(adapt_delta = 0.99)
+)
+summary(chi_model_3)
+saveRDS(chi_model_3, file = here("02_R", "05_outputs", "chi_model_3.rds"))
+
+chi_model_4 <- brm(
+  N_sequences ~ scale(schooling_year) + scale(HDI) + Region + scale(unemployment) + scale(hospital) +
+    s(Year) + scale(logTR) + (1 | FU) + offset(log(cases_reported)),
+  data = chi_data,
+  family = poisson(),
+  prior = c(
+    prior(normal(0, 2), class = "b"),
+    prior(normal(0, 5), class = "Intercept"),
+    prior(cauchy(0, 1), class = "sd")
+  ),
+  seed = 123,
+  chains = 4, cores = 4, iter = 2000, warmup = 1000,
+  control = list(adapt_delta = 0.99)
+)
+summary(chi_model_4)
+saveRDS(chi_model_4, file = here("02_R", "05_outputs", "chi_model_4.rds"))
+
+chi_model_5 <- brm(
+  N_sequences ~ scale(schooling_year) + scale(HDI) + Region + scale(unemployment) + scale(hospital) + scale(logTR) +
+    s(Year) + (1 | FU) + offset(log(cases_reported)),
+  data = chi_data,
+  family = negbinomial(),
+  prior = c(
+    prior(normal(0, 2), class = "b"),
+    prior(normal(0, 5), class = "Intercept"),
+    prior(cauchy(0, 1), class = "sd"),
+    prior(exponential(1), class = "shape")
+  ),
+  seed = 123,
+  chains = 4, cores = 4, iter = 2000, warmup = 1000,
+  control = list(adapt_delta = 0.99)
+)
+summary(chi_model_5)
+saveRDS(chi_model_5, file = here("02_R", "05_outputs", "chi_model_5.rds"))
+
+chi_model_6 <- brm(
+  N_sequences ~ scale(schooling_year) + scale(unemployment) + scale(HDI) + scale(hospital) * scale(logTR) + Region +
+    s(Year) + (1 | FU) + offset(log(cases_reported)),
+  data = chi_data,
+  family = negbinomial(),
+  prior = c(
+    prior(normal(0, 2), class = "b"),
+    prior(normal(0, 5), class = "Intercept"),
+    prior(cauchy(0, 1), class = "sd"),
+    prior(exponential(1), class = "shape")
+  ),
+  seed = 123,
+  chains = 4, cores = 4, iter = 2000, warmup = 1000,
+  control = list(adapt_delta = 0.99)
+)
+summary(chi_model_6)
+saveRDS(chi_model_6, file = here("02_R", "05_outputs", "chi_model_6.rds"))
+
+chi_model_7 <- brm(
+  N_sequences ~ scale(schooling_year) + scale(logTR) * scale(HDI) + Region + scale(unemployment) + scale(hospital) +
+    s(Year) + (1 | FU) + offset(log(cases_reported)),
+  data = chi_data,
+  family = negbinomial(),
+  prior = c(
+    prior(normal(0, 2), class = "b"),
+    prior(normal(0, 5), class = "Intercept"),
+    prior(cauchy(0, 1), class = "sd"),
+    prior(exponential(1), class = "shape")
+  ),
+  seed = 123,
+  chains = 4, cores = 4, iter = 2000, warmup = 1000,
+  control = list(adapt_delta = 0.99)
+)
+summary(chi_model_7)
+saveRDS(chi_model_7, file = here("02_R", "05_outputs", "chi_model_7.rds"))
+```
+
+```{r chimodel2, echo=FALSE}
+chi_model_8 <- brm(
+  N_sequences ~ scale(schooling_year) + scale(logTR) * scale(HDI) + Region + scale(hospital) +
+    s(Year) + (1 | FU) + offset(log(cases_reported)),
+  data = chi_data,
+  family = negbinomial(),
+  prior = c(
+    prior(normal(0, 2), class = "b"),
+    prior(normal(0, 5), class = "Intercept"),
+    prior(cauchy(0, 1), class = "sd"),
+    prior(exponential(1), class = "shape")
+  ),
+  seed = 123,
+  chains = 4, cores = 4, iter = 2000, warmup = 1000,
+  control = list(adapt_delta = 0.99)
+)
+summary(chi_model_8)
+saveRDS(chi_model_8, file = here("02_R", "05_outputs", "chi_model_8.rds"))
+
+chi_model_9 <- brm(
+  N_sequences ~ scale(GDP_per_capita) + scale(logTR) * scale(HDI) + Region + scale(hospital) +
+    s(Year) + (1 | FU) + offset(log(cases_reported)),
+  data = chi_data,
+  family = negbinomial(),
+  prior = c(
+    prior(normal(0, 2), class = "b"),
+    prior(normal(0, 5), class = "Intercept"),
+    prior(cauchy(0, 1), class = "sd"),
+    prior(exponential(1), class = "shape")
+  ),
+  seed = 123,
+  chains = 4, cores = 4, iter = 2000, warmup = 1000,
+  control = list(adapt_delta = 0.99)
+)
+summary(chi_model_9)
+saveRDS(chi_model_9, file = here("02_R", "05_outputs", "chi_model_9.rds"))
+
+```
+
+```{r ModelComparison3, echo=FALSE}
+loo1 <- loo(chi_model_1)
+loo2 <- loo(chi_model_2)
+loo3 <- loo(chi_model_3)
+loo4 <- loo(chi_model_4)
+loo5 <- loo(chi_model_5)
+loo6 <- loo(chi_model_6)
+loo7 <- loo(chi_model_7)
+loo8 <- loo(chi_model_8)
+loo9 <- loo(chi_model_9)
+
+loo_compare(loo1, loo2, loo3, loo4, loo5, loo6, loo7, loo8, loo9)
+
+plots <- list(
+  pp_check(chi_model_1) + ggtitle("Model 1") +
+    theme(text = element_text(size = 20),
+          plot.title = element_text(size = 18, face = "bold"),
+          legend.text = element_text(size = 16)),
+  pp_check(chi_model_2) + ggtitle("Model 2") +
+    theme(text = element_text(size = 20),
+          plot.title = element_text(size = 18, face = "bold"),
+          legend.text = element_text(size = 16)),
+  pp_check(chi_model_3) + ggtitle("Model 3") +
+    theme(text = element_text(size = 20),
+          plot.title = element_text(size = 18, face = "bold"),
+          legend.text = element_text(size = 16)),
+  pp_check(chi_model_4) + ggtitle("Model 4") +
+    theme(text = element_text(size = 20),
+          plot.title = element_text(size = 18, face = "bold"),
+          legend.text = element_text(size = 16)),
+  pp_check(chi_model_5) + ggtitle("Model 5") +
+    theme(text = element_text(size = 20),
+          plot.title = element_text(size = 18, face = "bold"),
+          legend.text = element_text(size = 16)),
+  pp_check(chi_model_6) + ggtitle("Model 6") +
+    theme(text = element_text(size = 20),
+          plot.title = element_text(size = 18, face = "bold"),
+          legend.text = element_text(size = 16)),
+  pp_check(chi_model_7) + ggtitle("Model 7") +
+    theme(text = element_text(size = 20),
+          plot.title = element_text(size = 18, face = "bold"),
+          legend.text = element_text(size = 16)),
+  pp_check(chi_model_8) + ggtitle("Model 8") +
+    theme(text = element_text(size = 20),
+          plot.title = element_text(size = 18, face = "bold"),
+          legend.text = element_text(size = 16)),
+  pp_check(chi_model_9) + ggtitle("Model 9") +
+    theme(text = element_text(size = 20),
+          plot.title = element_text(size = 18, face = "bold"),
+          legend.text = element_text(size = 16))
+)
+plot_grid(plotlist = plots, ncol = 3)
+ggsave("pp_3.pdf", width = 14, height = 8)
+```
+
+```{r ModelTable3, echo=FALSE, results='asis'}
+model_comparison <- tibble::tibble(
+  Model = paste0("Model ", 1:9),
+  Socioeconomic = c(
+    "schooling year + HDI + unemployment + hospital",
+    "schooling year + HDI + unemployment + hospital",
+    "schooling year + HDI + unemployment + hospital",
+    "schooling year + HDI + unemployment + hospital",
+    "schooling year + HDI + unemployment + hospital",
+    "schooling year + HDI + unemployment + hospital",
+    "schooling year + HDI + unemployment + hospital",
+    "schooling year + HDI + hospital",
+    "GDP per capita + HDI + hospital"
+  ),
+  Family = c(rep("Poisson", 4), rep("NegBin", 5)),
+  Time = c("Year", "as.factor(Year)", "covid", "s(Year)", "s(Year)", "s(Year)", "s(Year)", "s(Year)", "s(Year)"),
+  Interaction = c("-", "-", "-", "-", "-", "hospital * logTR", "hospital * logTR", "-", "HDI * logTR"),
+  elpd = c(
+    loo1$estimates["elpd_loo", "Estimate"],
+    loo2$estimates["elpd_loo", "Estimate"],
+    loo3$estimates["elpd_loo", "Estimate"],
+    loo4$estimates["elpd_loo", "Estimate"],
+    loo5$estimates["elpd_loo", "Estimate"],
+    loo6$estimates["elpd_loo", "Estimate"],
+    loo7$estimates["elpd_loo", "Estimate"],
+    loo8$estimates["elpd_loo", "Estimate"],
+    loo9$estimates["elpd_loo", "Estimate"]
+  ) %>% round(1)
+)
+
+cat(
+  kable(model_comparison, format = "latex", booktabs = TRUE, caption = "Model comparison using ELPD."),
+  sep = "\n"
+)
+```
+
+```{r alldata, echo=FALSE}
+all_data <- filter(capacity_summary_B,
+                   !is.na(FU),
+                    is.finite(sequencing_proportion), sequencing_proportion > 0)
+
+ratio <- all_data$N_sequences / all_data$cases_reported
+summary(log(ratio))
+
+ggplot(all_data, aes(x = N_sequences)) +
+  geom_histogram(bins = 30, fill = pal_npg()(1), color = "white") +
+  theme_minimal() +
+  labs(title = "Distribution of All Sequences")
+
+summary(all_data$N_sequences)
+var(all_data$N_sequences)
+```
+
+```{r combinedmodel, echo=FALSE}
+combined_model_1 <- brm(
+  N_sequences ~ scale(schooling_year) + scale(HDI) + Region + scale(unemployment) + scale(hospital) + scale(logTR) +
+    as.factor(Year) + (1 | FU) + offset(log(cases_reported)) + Virus,
+  data = all_data,
+  family = negbinomial(),
+  prior = c(
+    prior(normal(0, 2), class = "b"),
+    prior(normal(0, 5), class = "Intercept"),
+    prior(cauchy(0, 1), class = "sd"),
+    prior(exponential(1), class = "shape")
+  ),
+  seed = 123,
+  chains = 4, cores = 4, iter = 2000, warmup = 1000,
+  control = list(adapt_delta = 0.99)
+)
+summary(combined_model_1)
+saveRDS(combined_model_1, file = here("02_R", "05_outputs", "combined_model_1.rds"))
+
+combined_model_2 <- brm(
+  N_sequences ~ scale(schooling_year) + scale(HDI) + Region + scale(unemployment) + scale(hospital) + scale(logTR) +
+    s(Year) + (1 | FU) + offset(log(cases_reported)) + Virus,
+  data = all_data,
+  family = negbinomial(),
+  prior = c(
+    prior(normal(0, 2), class = "b"),
+    prior(normal(0, 5), class = "Intercept"),
+    prior(cauchy(0, 1), class = "sd"),
+    prior(exponential(1), class = "shape")
+  ),
+  seed = 123,
+  chains = 4, cores = 4, iter = 2000, warmup = 1000,
+  control = list(adapt_delta = 0.99)
+)
+summary(combined_model_2)
+saveRDS(combined_model_2, file = here("02_R", "05_outputs", "combined_model_2.rds"))
+
+combined_model_3 <- brm(
+  N_sequences ~ scale(schooling_year) + scale(unemployment) + scale(HDI) + scale(hospital) * scale(logTR) + Region +
+    s(Year) + (1 | FU) + offset(log(cases_reported)) + Virus,
+  data = all_data,
+  family = negbinomial(),
+  prior = c(
+    prior(normal(0, 2), class = "b"),
+    prior(normal(0, 5), class = "Intercept"),
+    prior(cauchy(0, 1), class = "sd"),
+    prior(exponential(1), class = "shape")
+  ),
+  seed = 123,
+  chains = 4, cores = 4, iter = 2000, warmup = 1000,
+  control = list(adapt_delta = 0.99)
+)
+summary(combined_model_3)
+saveRDS(combined_model_3, file = here("02_R", "05_outputs", "combined_model_3.rds"))
+
+combined_model_4 <- brm(
+  N_sequences ~ scale(schooling_year) + scale(logTR) * scale(HDI) + Region + scale(unemployment) + scale(hospital) +
+    s(Year) + (1 | FU) + offset(log(cases_reported)) + Virus,
+  data = all_data,
+  family = negbinomial(),
+  prior = c(
+    prior(normal(0, 2), class = "b"),
+    prior(normal(0, 5), class = "Intercept"),
+    prior(cauchy(0, 1), class = "sd"),
+    prior(exponential(1), class = "shape")
+  ),
+  seed = 123,
+  chains = 4, cores = 4, iter = 2000, warmup = 1000,
+  control = list(adapt_delta = 0.99)
+)
+summary(combined_model_4)
+saveRDS(combined_model_4, file = here("02_R", "05_outputs", "combined_model_4.rds"))
+
+```
+
+```{r ModelComparison7, echo=FALSE}
+loo1 <- loo(combined_model_1)
+loo2 <- loo(combined_model_2)
+loo3 <- loo(combined_model_3)
+loo4 <- loo(combined_model_4)
+
+loo_compare(loo1, loo2, loo3, loo4)
+
+plots <- list(
+  pp_check(combined_model_1) + ggtitle("Model 1") +
+    theme(text = element_text(size = 20),
+          plot.title = element_text(size = 18, face = "bold"),
+          legend.text = element_text(size = 16)),
+  pp_check(combined_model_2) + ggtitle("Model 2") +
+    theme(text = element_text(size = 20),
+          plot.title = element_text(size = 18, face = "bold"),
+          legend.text = element_text(size = 16)),
+  pp_check(combined_model_3) + ggtitle("Model 3") +
+    theme(text = element_text(size = 20),
+          plot.title = element_text(size = 18, face = "bold"),
+          legend.text = element_text(size = 16)),
+  pp_check(combined_model_4) + ggtitle("Model 4") +
+    theme(text = element_text(size = 20),
+          plot.title = element_text(size = 18, face = "bold"),
+          legend.text = element_text(size = 16))
+)
+plot_grid(plotlist = plots, ncol = 3)
+ggsave("pp_7.pdf", width = 14, height = 8)
+```
+
+
+```{r ModelTable7, echo=FALSE, results='asis'}
+model_comparison <- tibble::tibble(
+  Model = paste0("Model ", 1:4),
+  Socioeconomic = c(
+    "schooling year + HDI + unemployment + hospital",
+    "schooling year + HDI + unemployment + hospital",
+    "schooling year + HDI + unemployment + hospital",
+    "schooling year + HDI + unemployment + hospital"
+  ),
+  Family = c(rep("NegBin", 4)),
+  Time = c("as.factor(Year)", "s(Year)", "s(Year)", "s(Year)"),
+  Interaction = c("-", "-", "hospital * logTR", "HDI * logTR"),
+  elpd = c(
+    loo1$estimates["elpd_loo", "Estimate"],
+    loo2$estimates["elpd_loo", "Estimate"],
+    loo3$estimates["elpd_loo", "Estimate"],
+    loo4$estimates["elpd_loo", "Estimate"]
+  ) %>% round(1)
+)
+
+cat(
+  kable(model_comparison, format = "latex", booktabs = TRUE, caption = "Combined count model comparison using ELPD."),
+  sep = "\n"
+)
+```
+
+```{r TATdistribution, echo=FALSE, fig.cap="Distributions of TAT and log-TAT"}
+# Dengue
+pd1 <- ggplot(dengue_data, aes(x = TAT_mean_year, fill = "TAT")) +
+  geom_histogram(bins = 50, color = "white") +
+  scale_fill_npg() +
+  labs(title = "Dengue: TAT_mean", x = "TAT_mean_year", y = "Frequency") +
+  theme_minimal(base_size = 20) +
+  theme(legend.position = "none")
+
+pd2 <- ggplot(dengue_data, aes(x = log(TAT_mean_year), fill = "logTAT")) +
+  geom_histogram(bins = 50, color = "white") +
+  scale_fill_npg() +
+  labs(title = "Dengue: log(TAT_mean)", x = "log(TAT_mean_year)", y = "Frequency") +
+  theme_minimal(base_size = 20) +
+  theme(legend.position = "none")
+
+# Zika
+pz1 <- ggplot(zika_data, aes(x = TAT_mean_year, fill = "TAT")) +
+  geom_histogram(bins = 50, color = "white") +
+  scale_fill_npg() +
+  labs(title = "Zika: TAT_mean", x = "TAT_mean_year", y = "Frequency") +
+  theme_minimal(base_size = 20) +
+  theme(legend.position = "none")
+
+pz2 <- ggplot(zika_data, aes(x = log(TAT_mean_year), fill = "logTAT")) +
+  geom_histogram(bins = 50, color = "white") +
+  scale_fill_npg() +
+  labs(title = "Zika: log(TAT_mean)", x = "log(TAT_mean_year)", y = "Frequency") +
+  theme_minimal(base_size = 20) +
+  theme(legend.position = "none")
+
+# Chikungunya
+pc1 <- ggplot(chi_data, aes(x = TAT_mean_year, fill = "TAT")) +
+  geom_histogram(bins = 50, color = "white") +
+  scale_fill_npg() +
+  labs(title = "Chikungunya: TAT_mean", x = "TAT_mean_year", y = "Frequency") +
+  theme_minimal(base_size = 20) +
+  theme(legend.position = "none")
+
+pc2 <- ggplot(chi_data, aes(x = log(TAT_mean_year), fill = "logTAT")) +
+  geom_histogram(bins = 50, color = "white") +
+  scale_fill_npg() +
+  labs(title = "Chikungunya: log(TAT_mean)", x = "log(TAT_mean_year)", y = "Frequency") +
+  theme_minimal(base_size = 20) +
+  theme(legend.position = "none")
+
+# All viruses combined
+pa1 <- ggplot(all_data, aes(x = TAT_mean_year, fill = "TAT")) +
+  geom_histogram(bins = 50, color = "white") +
+  scale_fill_npg() +
+  labs(title = "All viruses: TAT_mean", x = "TAT_mean_year", y = "Frequency") +
+  theme_minimal(base_size = 20) +
+  theme(legend.position = "none")
+
+pa2 <- ggplot(all_data, aes(x = log(TAT_mean_year), fill = "logTAT")) +
+  geom_histogram(bins = 50, color = "white") +
+  scale_fill_npg() +
+  labs(title = "All viruses: log(TAT_mean)", x = "log(TAT_mean_year)", y = "Frequency") +
+  theme_minimal(base_size = 20) +
+  theme(legend.position = "none")
+
+final_plot <- plot_grid(
+  pd1, pd2,
+  pz1, pz2,
+  pc1, pc2,
+  pa1, pa2,
+  ncol = 2, labels = "AUTO"
+)
+
+plot_grid(title, final_plot, ncol = 1, rel_heights = c(0.1, 1))
+ggsave("TAT_distribution.pdf", width = 14, height = 10)
+```
+
+```{r TATModelD, echo=FALSE}
+tat_dengue_model_1 <- brm(
+  TAT_mean_year ~ scale(Transmission_risk) * scale(GDP_per_capita) + Region + scale(unemployment) + scale(hospital) +
+    s(Year) + (1 | FU) + scale(HDI),
+  data = dengue_data,
+  family = lognormal(),
+  prior = c(
+  prior(normal(0, 2), class = "b"),                  # fixed effects
+  prior(normal(0, 5), class = "Intercept"),          # intercept
+  prior(cauchy(0, 1), class = "sd"),                 # random effect std dev
+  prior(cauchy(0, 1), class = "sigma")               # residual std dev
+  ),
+  seed = 123,
+  cores = 4, chains = 4, iter = 2000, warmup = 1000,
+  control = list(adapt_delta = 0.99)
+)
+summary(tat_dengue_model_1)
+saveRDS(tat_dengue_model_1, file = here("02_R", "05_outputs", "tat_dengue_model_1.rds"))
+
+tat_dengue_model_2 <- brm(
+  TAT_mean_year ~ scale(Transmission_risk) * scale(GDP_per_capita) + Region + scale(unemployment) + scale(hospital) +
+    as.factor(Year) + (1 | FU) + scale(HDI),
+  data = dengue_data,
+  family = lognormal(),
+  prior = c(
+  prior(normal(0, 2), class = "b"),                  # fixed effects
+  prior(normal(0, 5), class = "Intercept"),          # intercept
+  prior(cauchy(0, 1), class = "sd"),                 # random effect std dev
+  prior(cauchy(0, 1), class = "sigma")               # residual std dev
+  ),
+  seed = 123,
+  cores = 4, chains = 4, iter = 2000, warmup = 1000,
+  control = list(adapt_delta = 0.99)
+)
+summary(tat_dengue_model_2)
+saveRDS(tat_dengue_model_2, file = here("02_R", "05_outputs", "tat_dengue_model_2.rds"))
+```
+
+```{r ModelComparison4, echo=FALSE}
+loo1 <- loo(tat_dengue_model_1)
+loo2 <- loo(tat_dengue_model_2)
+
+loo_compare(loo1, loo2)
+
+plots <- list(
+  pp_check(tat_dengue_model_1) + ggtitle("Model 1") +
+    theme(text = element_text(size = 20),
+          plot.title = element_text(size = 18, face = "bold"),
+          legend.text = element_text(size = 16)),
+  pp_check(tat_dengue_model_1) + ggtitle("Model 2") +
+    theme(text = element_text(size = 20),
+          plot.title = element_text(size = 18, face = "bold"),
+          legend.text = element_text(size = 16))
+)
+plot_grid(plotlist = plots, ncol = 3)
+ggsave("pp_4.pdf", width = 14, height = 8)
+```
+
+```{r ModelTable4, echo=FALSE, results='asis'}
+model_comparison <- tibble::tibble(
+  Model = paste0("Model ", 1:2),
+  Socioeconomic = c(
+    "GDP per capita + unemployment + hospital + HDI",
+    "GDP per capita + unemployment + hospital + HDI"
+  ),
+  Family = c(rep("Lognormal", 2)),
+  Time = c("s(Year)", "as.factor(Year)"),
+  Interaction = c("GDP per capita * Transmission risk", "GDP per capita * Transmission risk"),
+  elpd = c(
+    loo1$estimates["elpd_loo", "Estimate"],
+    loo2$estimates["elpd_loo", "Estimate"]
+  ) %>% round(1)
+)
+
+cat(
+  kable(model_comparison, format = "latex", booktabs = TRUE, caption = "Dengue TAT model comparison using ELPD."),
+  sep = "\n"
+)
+```
+
+```{r TATModelZ, echo=FALSE}
+tat_zika_model_1 <- brm(
+  TAT_mean_year ~ scale(Transmission_risk) * scale(GDP_per_capita) + scale(unemployment) + Region + 
+    s(Year, k=4)+ (1 | FU) + scale(HDI),
+  data = zika_data,
+  family = lognormal(),
+  prior = c(
+  prior(normal(0, 2), class = "b"),                  # fixed effects
+  prior(normal(0, 5), class = "Intercept"),          # intercept
+  prior(cauchy(0, 1), class = "sd"),                 # random effect std dev
+  prior(cauchy(0, 1), class = "sigma")               # residual std dev
+  ),
+  seed = 123,
+  cores = 4, chains = 4, iter = 2000, warmup = 1000,
+  control = list(adapt_delta = 0.99)
+)
+summary(tat_zika_model_1)
+saveRDS(tat_zika_model_1, file = here("02_R", "05_outputs", "tat_zika_model_1.rds"))
+
+tat_zika_model_2 <- brm(
+  TAT_mean_year ~ scale(Transmission_risk) * scale(GDP_per_capita) + scale(unemployment) + Region + 
+    s(Year, k=4)+ (1 | FU) + scale(HDI),
+  data = zika_data,
+  family = Gamma(link = "log"),
+  prior = c(
+    prior(normal(0, 2), class = "b"),
+    prior(normal(5, 2), class = "Intercept"),
+    prior(cauchy(0, 1), class = "sd"),
+    prior(exponential(1), class = "shape")
+  ),
+  seed = 123,
+  chains = 4, cores = 4, iter = 2000, warmup = 1000,
+  control = list(adapt_delta = 0.99)
+)
+summary(tat_zika_model_2)
+saveRDS(tat_zika_model_2, file = here("02_R", "05_outputs", "tat_zika_model_2.rds"))
+
+tat_zika_model_3 <- brm(
+  log(TAT_mean_year) ~ scale(Transmission_risk) * scale(GDP_per_capita) + scale(unemployment) + Region + 
+    s(Year, k=4)+ (1 | FU) + scale(HDI),
+  data = zika_data,
+  family = gaussian(),
+  prior = c(
+    prior(normal(0, 2), class = "b"),
+    prior(normal(5, 2), class = "Intercept"),
+    prior(cauchy(0, 1), class = "sd")
+  ),
+  seed = 123,
+  chains = 4, cores = 4, iter = 2000, warmup = 1000,
+  control = list(adapt_delta = 0.99)
+)
+summary(tat_zika_model_3)
+saveRDS(tat_zika_model_3, file = here("02_R", "05_outputs", "tat_zika_model_3.rds"))
+
+tat_zika_model_4 <- brm(
+  TAT_mean_year ~ scale(Transmission_risk) * scale(GDP_per_capita) + scale(unemployment) + Region + 
+    as.factor(Year)+ (1 | FU) + scale(HDI),
+  data = zika_data,
+  family = lognormal(),
+  prior = c(
+  prior(normal(0, 2), class = "b"),                  # fixed effects
+  prior(normal(0, 5), class = "Intercept"),          # intercept
+  prior(cauchy(0, 1), class = "sd"),                 # random effect std dev
+  prior(cauchy(0, 1), class = "sigma")               # residual std dev
+  ),
+  seed = 123,
+  cores = 4, chains = 4, iter = 2000, warmup = 1000,
+  control = list(adapt_delta = 0.99)
+)
+summary(tat_zika_model_4)
+saveRDS(tat_zika_model_4, file = here("02_R", "05_outputs", "tat_zika_model_4.rds"))
+
+tat_zika_model_5 <- brm(
+  TAT_mean_year ~ scale(Transmission_risk) * scale(GDP_per_capita) + scale(unemployment) + Region + 
+    as.factor(Year)+ (1 | FU),
+  data = zika_data,
+  family = lognormal(),
+  prior = c(
+  prior(normal(0, 2), class = "b"),                  # fixed effects
+  prior(normal(0, 5), class = "Intercept"),          # intercept
+  prior(cauchy(0, 1), class = "sd"),                 # random effect std dev
+  prior(cauchy(0, 1), class = "sigma")               # residual std dev
+  ),
+  seed = 123,
+  cores = 4, chains = 4, iter = 2000, warmup = 1000,
+  control = list(adapt_delta = 0.99)
+)
+summary(tat_zika_model_5)
+saveRDS(tat_zika_model_5, file = here("02_R", "05_outputs", "tat_zika_model_5.rds"))
+
+tat_zika_model_6 <- brm(
+  TAT_mean_year ~ scale(Transmission_risk) + scale(schooling_year) + scale(unemployment) + Region + 
+    as.factor(Year)+ (1 | FU),
+  data = zika_data,
+  family = lognormal(),
+  prior = c(
+  prior(normal(0, 2), class = "b"),                  # fixed effects
+  prior(normal(0, 5), class = "Intercept"),          # intercept
+  prior(cauchy(0, 1), class = "sd"),                 # random effect std dev
+  prior(cauchy(0, 1), class = "sigma")               # residual std dev
+  ),
+  seed = 123,
+  cores = 4, chains = 4, iter = 2000, warmup = 1000,
+  control = list(adapt_delta = 0.99)
+)
+summary(tat_zika_model_6)
+saveRDS(tat_zika_model_6, file = here("02_R", "05_outputs", "tat_zika_model_6.rds"))
+```
+
+```{r ModelComparison5, echo=FALSE}
+loo1 <- loo(tat_zika_model_1)
+loo2 <- loo(tat_zika_model_2)
+loo3 <- loo(tat_zika_model_3)
+loo4 <- loo(tat_zika_model_4)
+loo5 <- loo(tat_zika_model_5)
+loo6 <- loo(tat_zika_model_6)
+
+loo_compare(loo1, loo2, loo3, loo4, loo5, loo6)
+
+y_obs <- zika_data$TAT_mean_year
+get_yrep_raw <- function(fit, nd = 50, is_log_response = FALSE) {
+  yrep <- posterior_predict(fit, ndraws = nd)
+  if (is_log_response) yrep <- exp(yrep)
+  yrep
+}
+
+yrep_1 <- get_yrep_raw(tat_zika_model_1, nd = 50, is_log_response = FALSE)  # lognormal
+yrep_2 <- get_yrep_raw(tat_zika_model_2, nd = 50, is_log_response = FALSE)  # gamma (log link)
+yrep_3 <- get_yrep_raw(tat_zika_model_3, nd = 50, is_log_response = TRUE)   # gaussian on log(TAT) back-transform
+yrep_4 <- get_yrep_raw(tat_zika_model_4, nd = 50, is_log_response = FALSE)  # lognormal
+yrep_5 <- get_yrep_raw(tat_zika_model_5, nd = 50, is_log_response = FALSE)  # lognormal
+yrep_6 <- get_yrep_raw(tat_zika_model_6, nd = 50, is_log_response = FALSE)  # lognormal
+
+p1 <- ppc_dens_overlay(y_obs, yrep_1) + ggtitle("Model 1")
+p2 <- ppc_dens_overlay(y_obs, yrep_2) + ggtitle("Model 2")
+p3 <- ppc_dens_overlay(y_obs, yrep_3) + ggtitle("Model 3 (back-transformed)")
+p4 <- ppc_dens_overlay(y_obs, yrep_4) + ggtitle("Model 4")
+p5 <- ppc_dens_overlay(y_obs, yrep_5) + ggtitle("Model 5")
+p6 <- ppc_dens_overlay(y_obs, yrep_6) + ggtitle("Model 6")
+
+plot_grid(p1, p2, p3, p4, p5, p6, ncol = 3)
+ggsave("pp_5.pdf", width = 14, height = 8)
+```
+
+```{r ModelTable5, echo=FALSE, results='asis'}
+model_comparison <- tibble::tibble(
+  Model = paste0("Model ", 1:6),
+  Socioeconomic = c(
+    "GDP per capita + unemployment + HDI",
+    "GDP per capita + unemployment + HDI",
+    "GDP per capita + unemployment + HDI",
+    "GDP per capita + unemployment + HDI",
+    "GDP per capita + unemployment",
+    "schooling year + unemployment"
+  ),
+  Family = c("Lognormal", "Gamma", "Gaussian", rep("Lognormal", 3)),
+  Time = c("s(Year)", "s(Year)", "s(Year)", "as.factor(Year)", "as.factor(Year)", "as.factor(Year)"),
+  Interaction = c("GDP per capita * Transmission risk", "GDP per capita * Transmission risk", "GDP per capita * Transmission risk", "GDP per capita * Transmission risk", "GDP per capita * Transmission risk", "-"),
+  elpd = c(
+    loo1$estimates["elpd_loo", "Estimate"],
+    loo2$estimates["elpd_loo", "Estimate"],
+    loo3$estimates["elpd_loo", "Estimate"],
+    loo4$estimates["elpd_loo", "Estimate"],
+    loo5$estimates["elpd_loo", "Estimate"],
+    loo6$estimates["elpd_loo", "Estimate"]
+  ) %>% round(1)
+)
+
+cat(
+  kable(model_comparison, format = "latex", booktabs = TRUE, caption = "Zika TAT model comparison using ELPD."),
+  sep = "\n"
+)
+```
+
+```{r TATModelC, echo=FALSE}
+tat_chi_model_1 <- brm(
+  TAT_mean_year ~ scale(Transmission_risk) * scale(GDP_per_capita) + Region + scale(hospital) +
+    s(Year) + (1 | FU) + scale(HDI),
+  data = chi_data,
+  family = lognormal(),
+  prior = c(
+  prior(normal(0, 2), class = "b"),                  # fixed effects
+  prior(normal(0, 5), class = "Intercept"),          # intercept
+  prior(cauchy(0, 1), class = "sd"),                 # random effect std dev
+  prior(cauchy(0, 1), class = "sigma")               # residual std dev
+  ),
+  seed = 123,
+  cores = 4, chains = 4, iter = 2000, warmup = 1000,
+  control = list(adapt_delta = 0.99)
+)
+summary(tat_chi_model_1)
+saveRDS(tat_chi_model_1, file = here("02_R", "05_outputs", "tat_chi_model_1.rds"))
+
+tat_chi_model_2 <- brm(
+  TAT_mean_year ~ scale(Transmission_risk) * scale(GDP_per_capita) + Region + scale(hospital) +
+    as.factor(Year) + (1 | FU) + scale(HDI),
+  data = chi_data,
+  family = lognormal(),
+  prior = c(
+  prior(normal(0, 2), class = "b"),                  # fixed effects
+  prior(normal(0, 5), class = "Intercept"),          # intercept
+  prior(cauchy(0, 1), class = "sd"),                 # random effect std dev
+  prior(cauchy(0, 1), class = "sigma")               # residual std dev
+  ),
+  seed = 123,
+  cores = 4, chains = 4, iter = 2000, warmup = 1000,
+  control = list(adapt_delta = 0.99)
+)
+summary(tat_chi_model_2)
+saveRDS(tat_chi_model_2, file = here("02_R", "05_outputs", "tat_chi_model_2.rds"))
+
+tat_chi_model_3 <- brm(
+  TAT_mean_year ~ scale(Transmission_risk) + scale(schooling_year) + Region + scale(unemployment) + scale(hospital) +
+    s(Year) + (1 | FU) + scale(HDI),
+  data = chi_data,
+  family = lognormal(),
+  prior = c(
+  prior(normal(0, 2), class = "b"),                  # fixed effects
+  prior(normal(0, 5), class = "Intercept"),          # intercept
+  prior(cauchy(0, 1), class = "sd"),                 # random effect std dev
+  prior(cauchy(0, 1), class = "sigma")               # residual std dev
+  ),
+  seed = 123,
+  cores = 4, chains = 4, iter = 2000, warmup = 1000,
+  control = list(adapt_delta = 0.99)
+)
+summary(tat_chi_model_3)
+saveRDS(tat_chi_model_3, file = here("02_R", "05_outputs", "tat_chi_model_3.rds"))
+
+tat_chi_model_4 <- brm(
+  TAT_mean_year ~ scale(Transmission_risk) * scale(HDI) + scale(schooling_year) + Region + scale(unemployment) + scale(hospital) +
+    s(Year) + (1 | FU),
+  data = chi_data,
+  family = lognormal(),
+  prior = c(
+  prior(normal(0, 2), class = "b"),                  # fixed effects
+  prior(normal(0, 5), class = "Intercept"),          # intercept
+  prior(cauchy(0, 1), class = "sd"),                 # random effect std dev
+  prior(cauchy(0, 1), class = "sigma")               # residual std dev
+  ),
+  seed = 123,
+  cores = 4, chains = 4, iter = 2000, warmup = 1000,
+  control = list(adapt_delta = 0.99)
+)
+summary(tat_chi_model_4)
+saveRDS(tat_chi_model_4, file = here("02_R", "05_outputs", "tat_chi_model_4.rds"))
+
+tat_chi_model_5 <- brm(
+  TAT_mean_year ~ scale(Transmission_risk) * scale(hospital) + scale(schooling_year) + Region + scale(unemployment) + scale(HDI) +
+    s(Year) + (1 | FU),
+  data = chi_data,
+  family = lognormal(),
+  prior = c(
+  prior(normal(0, 2), class = "b"),                  # fixed effects
+  prior(normal(0, 5), class = "Intercept"),          # intercept
+  prior(cauchy(0, 1), class = "sd"),                 # random effect std dev
+  prior(cauchy(0, 1), class = "sigma")               # residual std dev
+  ),
+  seed = 123,
+  cores = 4, chains = 4, iter = 2000, warmup = 1000,
+  control = list(adapt_delta = 0.99)
+)
+summary(tat_chi_model_5)
+saveRDS(tat_chi_model_5, file = here("02_R", "05_outputs", "tat_chi_model_5.rds"))
+```
+
+```{r ModelComparison6, echo=FALSE}
+loo1 <- loo(tat_chi_model_1)
+loo2 <- loo(tat_chi_model_2)
+loo3 <- loo(tat_chi_model_3)
+loo4 <- loo(tat_chi_model_4)
+loo5 <- loo(tat_chi_model_5)
+
+loo_compare(loo1, loo2, loo3, loo4, loo5)
+
+plots <- list(
+  pp_check(tat_chi_model_1) + ggtitle("Model 1") +
+    theme(text = element_text(size = 20),
+          plot.title = element_text(size = 18, face = "bold"),
+          legend.text = element_text(size = 16)),
+  pp_check(tat_chi_model_2) + ggtitle("Model 2") +
+    theme(text = element_text(size = 20),
+          plot.title = element_text(size = 18, face = "bold"),
+          legend.text = element_text(size = 16)),
+  pp_check(tat_chi_model_3) + ggtitle("Model 3") +
+    theme(text = element_text(size = 20),
+          plot.title = element_text(size = 18, face = "bold"),
+          legend.text = element_text(size = 16)),
+  pp_check(tat_chi_model_4) + ggtitle("Model 4") +
+    theme(text = element_text(size = 20),
+          plot.title = element_text(size = 18, face = "bold"),
+          legend.text = element_text(size = 16)),
+  pp_check(tat_chi_model_5) + ggtitle("Model 5") +
+    theme(text = element_text(size = 20),
+          plot.title = element_text(size = 18, face = "bold"),
+          legend.text = element_text(size = 16))
+)
+plot_grid(plotlist = plots, ncol = 3)
+ggsave("pp_6.pdf", width = 14, height = 8)
+```
+
+```{r ModelTable6, echo=FALSE, results='asis'}
+model_comparison <- tibble::tibble(
+  Model = paste0("Model ", 1:5),
+  Socioeconomic = c(
+    "GDP per capita + hospital + HDI",
+    "GDP per capita + hospital + HDI",
+    "schooling year + unemployment + hospital + HDI",
+    "schooling year + unemployment + hospital + HDI",
+    "schooling year + unemployment + hospital + HDI"
+  ),
+  Family = c(rep("Lognormal", 5)),
+  Time = c("s(Year)", "as.factor(Year)", "s(Year)", "s(Year)", "s(Year)"),
+  Interaction = c("GDP per capita * Transmission risk", "GDP per capita * Transmission risk", "-", "HDI * Transmission risk", "hospital * Transmission risk"),
+  elpd = c(
+    loo1$estimates["elpd_loo", "Estimate"],
+    loo2$estimates["elpd_loo", "Estimate"],
+    loo3$estimates["elpd_loo", "Estimate"],
+    loo4$estimates["elpd_loo", "Estimate"],
+    loo5$estimates["elpd_loo", "Estimate"]
+  ) %>% round(1)
+)
+
+cat(
+  kable(model_comparison, format = "latex", booktabs = TRUE, caption = "Chikungunya TAT model comparison using ELPD."),
+  sep = "\n"
+)
+```
+
+```{r TATModelA, echo=FALSE}
+tat_combined_model_1 <- brm(
+  TAT_mean_year ~ scale(Transmission_risk) * scale(GDP_per_capita) + Region + scale(hospital) +
+    s(Year) + (1 | FU) + scale(HDI) + Virus,
+  data = all_data,
+  family = lognormal(),
+  prior = c(
+  prior(normal(0, 2), class = "b"),                  # fixed effects
+  prior(normal(0, 5), class = "Intercept"),          # intercept
+  prior(cauchy(0, 1), class = "sd"),                 # random effect std dev
+  prior(cauchy(0, 1), class = "sigma")               # residual std dev
+  ),
+  seed = 123,
+  cores = 4, chains = 4, iter = 2000, warmup = 1000,
+  control = list(adapt_delta = 0.99)
+)
+summary(tat_combined_model_1)
+saveRDS(tat_combined_model_1, file = here("02_R", "05_outputs", "tat_combined_model_1.rds"))
+
+tat_combined_model_2 <- brm(
+  TAT_mean_year ~ scale(Transmission_risk) * scale(GDP_per_capita) + Region + scale(hospital) +
+    as.factor(Year) + (1 | FU) + scale(HDI) + Virus,
+  data = all_data,
+  family = lognormal(),
+  prior = c(
+  prior(normal(0, 2), class = "b"),                  # fixed effects
+  prior(normal(0, 5), class = "Intercept"),          # intercept
+  prior(cauchy(0, 1), class = "sd"),                 # random effect std dev
+  prior(cauchy(0, 1), class = "sigma")               # residual std dev
+  ),
+  seed = 123,
+  cores = 4, chains = 4, iter = 2000, warmup = 1000,
+  control = list(adapt_delta = 0.99)
+)
+summary(tat_combined_model_2)
+saveRDS(tat_combined_model_2, file = here("02_R", "05_outputs", "tat_combined_model_2.rds"))
+
+tat_combined_model_3 <- brm(
+  TAT_mean_year ~ scale(Transmission_risk) + scale(GDP_per_capita) + Region + scale(hospital) +
+    as.factor(Year) + (1 | FU) + scale(HDI) + Virus,
+  data = all_data,
+  family = lognormal(),
+  prior = c(
+  prior(normal(0, 2), class = "b"),                  # fixed effects
+  prior(normal(0, 5), class = "Intercept"),          # intercept
+  prior(cauchy(0, 1), class = "sd"),                 # random effect std dev
+  prior(cauchy(0, 1), class = "sigma")               # residual std dev
+  ),
+  seed = 123,
+  cores = 4, chains = 4, iter = 2000, warmup = 1000,
+  control = list(adapt_delta = 0.99)
+)
+summary(tat_combined_model_3)
+saveRDS(tat_combined_model_3, file = here("02_R", "05_outputs", "tat_combined_model_3.rds"))
+
+tat_combined_model_4 <- brm(
+  TAT_mean_year ~ scale(Transmission_risk) + scale(schooling_year) + Region + scale(hospital) + scale(unemployment) +
+    as.factor(Year) + (1 | FU) + scale(HDI) + Virus,
+  data = all_data,
+  family = lognormal(),
+  prior = c(
+  prior(normal(0, 2), class = "b"),                  # fixed effects
+  prior(normal(0, 5), class = "Intercept"),          # intercept
+  prior(cauchy(0, 1), class = "sd"),                 # random effect std dev
+  prior(cauchy(0, 1), class = "sigma")               # residual std dev
+  ),
+  seed = 123,
+  cores = 4, chains = 4, iter = 2000, warmup = 1000,
+  control = list(adapt_delta = 0.99)
+)
+summary(tat_combined_model_4)
+saveRDS(tat_combined_model_4, file = here("02_R", "05_outputs", "tat_combined_model_4.rds"))
+```
+
+```{r ModelComparison8, echo=FALSE}
+loo1 <- loo(tat_combined_model_1)
+loo2 <- loo(tat_combined_model_2)
+loo3 <- loo(tat_combined_model_3)
+loo4 <- loo(tat_combined_model_4)
+
+loo_compare(loo1, loo2, loo3, loo4)
+
+plots <- list(
+  pp_check(tat_combined_model_1) + ggtitle("Model 1") +
+    theme(text = element_text(size = 20),
+          plot.title = element_text(size = 18, face = "bold"),
+          legend.text = element_text(size = 16)),
+  pp_check(tat_combined_model_2) + ggtitle("Model 2") +
+    theme(text = element_text(size = 20),
+          plot.title = element_text(size = 18, face = "bold"),
+          legend.text = element_text(size = 16)),
+  pp_check(tat_combined_model_3) + ggtitle("Model 3") +
+    theme(text = element_text(size = 20),
+          plot.title = element_text(size = 18, face = "bold"),
+          legend.text = element_text(size = 16)),
+  pp_check(tat_combined_model_4) + ggtitle("Model 4") +
+    theme(text = element_text(size = 20),
+          plot.title = element_text(size = 18, face = "bold"),
+          legend.text = element_text(size = 16))
+)
+plot_grid(plotlist = plots, ncol = 3)
+ggsave("pp_8.pdf", width = 14, height = 8)
+```
+
+```{r ModelTable8, echo=FALSE, results='asis'}
+model_comparison <- tibble::tibble(
+  Model = paste0("Model ", 1:4),
+  Socioeconomic = c(
+    "GDP per capita + hospital + HDI",
+    "GDP per capita + hospital + HDI",
+    "GDP per capita + hospital + HDI",
+    "schooling year + unemployment + hospital + HDI"
+  ),
+  Family = c(rep("Lognormal", 4)),
+  Time = c("s(Year)", "as.factor(Year)", "as.factor(Year)", "as.factor(Year)"),
+  Interaction = c("GDP per capita * Transmission risk", "GDP per capita * Transmission risk", "GDP per capita * Transmission risk", "-"),
+  elpd = c(
+    loo1$estimates["elpd_loo", "Estimate"],
+    loo2$estimates["elpd_loo", "Estimate"],
+    loo3$estimates["elpd_loo", "Estimate"],
+    loo4$estimates["elpd_loo", "Estimate"]
+  ) %>% round(1)
+)
+
+cat(
+  kable(model_comparison, format = "latex", booktabs = TRUE, caption = "Combined TAT model comparison using ELPD."),
+  sep = "\n"
+)
+```
+
+```{r best, echo=FALSE}
+summary(dengue_model_6)
+summary(zika_model_6)
+summary(chi_model_9)
+summary(tat_dengue_model_2)
+summary(tat_zika_model_3)
+summary(tat_chi_model_4)
+summary(combined_model_4)
+summary(tat_combined_model_4)
+```
+
+```{r residual, echo=FALSE, fig.cap="Posterior residual"}
+fu_map <- tribble(
+  ~FU_clean,             ~FU_full,
+  "acre",                "Acre",
+  "alagoas",             "Alagoas",
+  "amapa",               "Amap\u00E1",
+  "amazonas",            "Amazonas",
+  "bahia",               "Bahia",
+  "ceara",               "Cear\u00E1",
+  "distrito federal",    "Distrito Federal",
+  "espirito santo",      "Esp\u00EDrito Santo",
+  "goias",               "Goi\u00E1s",
+  "maranhao",            "Maranh\u00E3o",
+  "mato grosso",         "Mato Grosso",
+  "mato grosso do sul",  "Mato Grosso do Sul",
+  "minas gerais",        "Minas Gerais",
+  "para",                "Par\u00E1",
+  "paraiba",             "Para\u00EDba",
+  "parana",              "Paran\u00E1",
+  "pernambuco",          "Pernambuco",
+  "piaui",               "Piau\u00ED",
+  "rio de janeiro",      "Rio de Janeiro",
+  "rio grande do norte", "Rio Grande do Norte",
+  "rio grande do sul",   "Rio Grande do Sul",
+  "rondonia",            "Rond\u00F4nia",
+  "roraima",             "Roraima",
+  "santa catarina",      "Santa Catarina",
+  "sao paulo",           "S\u00E3o Paulo",
+  "sergipe",             "Sergipe",
+  "tocantins",           "Tocantins"
+)
+
+epred_draws <- brms::posterior_epred(combined_model_4)  
+resid_draws <- sweep(epred_draws, 2, all_data$N_sequences, FUN = function(mu, y) y - mu)
+residual_med_obs <- apply(resid_draws, 2, median, na.rm = TRUE)
+
+predicted_obs <- tibble(
+  FU   = all_data$FU,
+  Year = all_data$Year,
+  residual_med = residual_med_obs
+)
+
+predicted_year <- predicted_obs %>%
+  group_by(FU, Year) %>%
+  summarise(residual_med = median(residual_med, na.rm = TRUE), .groups = "drop")
+
+risk_state <- all_data %>%
+  group_by(FU) %>%
+  summarise(risk = first(na.omit(Transmission_risk)), .groups = "drop")
+
+q75 <- quantile(risk_state$risk, 0.75, na.rm = TRUE)
+q25 <- quantile(risk_state$risk, 0.25, na.rm = TRUE)
+
+predicted_year <- predicted_year %>%
+  left_join(risk_state, by = "FU") %>%
+  mutate(
+    mismatch_category = case_when(
+      risk >= q75 & residual_med < 0 ~ "Under-sequenced high-risk",
+      risk <= q25 & residual_med > 0 ~ "Over-sequenced low-risk",
+      TRUE ~ "Other"
+    )
+  )
+
+predicted_year <- predicted_year %>%
+  mutate(FU_join = tolower(stringi::stri_trans_general(FU, "Latin-ASCII"))) %>%
+  left_join(fu_map, by = c("FU_join" = "FU_clean")) %>%
+  mutate(
+    FU_display = dplyr::coalesce(FU_full, stringi::stri_trans_general(FU, "Title")),
+    FU_display = enc2utf8(FU_display)
+  )
+
+predicted_year$FU_display <- factor(predicted_year$FU_display, levels = fu_map$FU_full)
+
+p <- ggplot(predicted_year, aes(x = Year, y = FU_display, fill = residual_med)) +
+  geom_tile(width = 1, na.rm = TRUE) +
+  scale_fill_gradient2(low = "blue", mid = "white", high = "red", midpoint = 0,
+                       name = "Residual (median)") +
+  geom_point(
+    data = subset(predicted_year, mismatch_category != "Other"),
+    aes(color = mismatch_category), size = 2.8
+  ) +
+  labs(x = "Year", y = NULL, color = "Mismatch Type") +
+  theme_minimal(base_size = 20) +
+  theme(
+    axis.text.x = element_text(size = 16, angle = 45, hjust = 1),
+    axis.text.y = element_text(size = 16)
+  ) +
+  scale_x_continuous(breaks = seq(2015, 2025, 2), expand = expansion(add = 0.5))
+
+p
+ggsave("Mismatch.pdf", p, width = 14, height = 6)
+```
+
+```{r}
+library(brms)
+library(posterior)
+library(ggplot2)
+library(bayesplot)
+
+fit <- tat_zika_model_3
+summ <- posterior::summarise_draws(as_draws(fit), "rhat", "ess_bulk", "ess_tail")
+
+p_rhat <- ggplot(summ, aes(x = rhat)) +
+  geom_histogram(bins = 40) +
+  geom_vline(xintercept = 1.01, linetype = 2) +
+  geom_vline(xintercept = 1.05, linetype = 2) +
+  labs(title = "R-hat distribution (TAT model)",
+       x = "R-hat", y = "Count") +
+  theme_minimal(base_size = 20)
+
+p_ess <- ggplot(summ, aes(x = ess_bulk)) +
+  geom_histogram(bins = 40) +
+  labs(title = "Bulk ESS distribution (TAT model)",
+       x = "ESS (bulk)", y = "Count") +
+  theme_minimal(base_size = 20)
+
+worst <- summ %>%
+  arrange(desc(rhat)) %>%
+  slice(1:6) %>%
+  pull(variable)
+
+draws_arr <- posterior::as_draws_array(fit)
+p_trace <- bayesplot::mcmc_trace(draws_arr, pars = worst, n_warmup = 0) +
+  bayesplot::theme_default(base_size = 20)
+fig_diag <- (
+  (p_rhat | p_ess) +
+    plot_layout(guides = "collect")   
+) /
+  p_trace +
+  plot_layout(heights = c(1, 1.25)) +   
+  plot_annotation(tag_levels = "A")       
+
+fig_diag
+ggsave("fig_convergence_diag.pdf", fig_diag, width = 14, height = 10)
+```
