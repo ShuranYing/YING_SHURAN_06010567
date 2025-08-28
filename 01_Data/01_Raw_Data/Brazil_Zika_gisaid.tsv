@@ -1,0 +1,460 @@
+Virus name	Lineage	Accession ID	Collection date	Location	Host	Passage	Specimen	Additional host information	Sequencing technology	Assembly method	Sequence Length	Comment	Comment type
+ZikaV/monkey/Brazil/un-FEEVALE-AG5643/2019	African	EPI_ISL_18002658	2019-03-27	South America / Brazil	Other: Alouatta guariba	Original	Other: Liver		Illumina	Geneious v. 9.1.8	1500		
+hZikaV/Brazil/un-UL-800/2016	Asian	EPI_ISL_18002691	2016-07-25	South America / Brazil	Human	Original			unknown		10676	Gap of 1 nucleotides when compared to the reference sequence.	info
+hZikaV/Brazil/un-LNCC-U1/2016	Asian	EPI_ISL_18002705	2016-01-14	South America / Brazil	Human	Original	Urine		Illumina	Ray v. 2.2	10807		
+hZikaV/Brazil/un-LNCC-S1/2016	Asian	EPI_ISL_18002706	2016-01-29	South America / Brazil	Human	Original	Saliva		Illumina	Ray v. 2.2.0	10807		
+hZikaV/Brazil/PE-MIT-243/2015	Asian	EPI_ISL_18002709	2015-05-13	South America / Brazil / Pernambuco	Human	Original			Illumina	trinityrnaseq v. r2013-02-25	10803		
+hZikaV/Brazil/un-USAMRIID-09/2016	Asian	EPI_ISL_18002827	2016-05-05	South America / Brazil	Human	Original	Urine		Illumina	bowtie2 v. 2.1.6	10792		
+hZikaV/Brazil/un-USAMRIID-17/2016	Asian	EPI_ISL_18002828	2016-04-19	South America / Brazil	Human	Original	Urine		Illumina	bowtie2 v. 2.1.6	10752		
+hZikaV/Brazil/un-USAMRIID-27/2016	Asian	EPI_ISL_18002829	2016-04-19	South America / Brazil	Human	Original	Semen		Illumina	bowtie2 v. 2.1.6	10753		
+hZikaV/Brazil/un-USAMRIID-37/2016	Asian	EPI_ISL_18002830	2016-07-27	South America / Brazil	Human	Original	Semen		Illumina	bowtie2 v. 2.1.6	10731		
+hZikaV/Brazil/un-USAMRIID-47/2016	Asian	EPI_ISL_18002831	2016-07-19	South America / Brazil	Human	Original	Semen		Illumina	bowtie2 v. 2.1.6	10694		
+hZikaV/Brazil/un-USAMRIID-57/2016	Asian	EPI_ISL_18002832	2016-07-12	South America / Brazil	Human	Original	Semen		Illumina	bowtie2 v. 2.1.6	10784		
+hZikaV/Brazil/un-USAMRIID-67/2016	Asian	EPI_ISL_18002833	2016-07-05	South America / Brazil	Human	Original	Semen		Illumina	bowtie2 v. 2.1.6	10604		
+hZikaV/Brazil/un-USAMRIID-77/2016	Asian	EPI_ISL_18002834	2016-06-28	South America / Brazil	Human	Original	Semen		Illumina	bowtie2 v. 2.1.6	10782		
+hZikaV/Brazil/un-USAMRIID-87/2016	Asian	EPI_ISL_18002835	2016-06-16	South America / Brazil	Human	Original	Semen		Illumina	bowtie2 v. 2.1.6	10777		
+hZikaV/Brazil/un-USAMRIID-97/2016	Asian	EPI_ISL_18002836	2016-06-08	South America / Brazil	Human	Original	Semen		Illumina	bowtie2 v. 2.1.6	10753		
+hZikaV/Brazil/un-USAMRIID-107/2016	Asian	EPI_ISL_18002837	2016-06-03	South America / Brazil	Human	Original	Semen		Illumina	bowtie2 v. 2.1.6	10725		
+hZikaV/Brazil/un-USAMRIID-119/2016	Asian	EPI_ISL_18002838	2016-05-12	South America / Brazil	Human	Original	Semen		Illumina	bowtie2 v. 2.1.6	10767		
+hZikaV/Brazil/un-USAMRIID-17Es/2016	Asian	EPI_ISL_18002840	2016-05-24	South America / Brazil	Human	Original	Semen		Illumina	bowtie2 v. 2.1.6	10752		
+hZikaV/Brazil/un-USAMRIID-17As/2016	Asian	EPI_ISL_18002841	2016-04-26	South America / Brazil	Human	Original	Semen		Illumina	bowtie2 v. 2.1.6	10753		
+hZikaV/Brazil/un-USAMRIID-17Ds/2016	Asian	EPI_ISL_18002842	2016-05-17	South America / Brazil	Human	Original	Semen		Illumina	bowtie2 v. 2.1.6	10752		
+hZikaV/Brazil/un-USAMRIID-17Cs/2016	Asian	EPI_ISL_18002843	2016-05-10	South America / Brazil	Human	Original	Semen		Illumina	bowtie2 v. 2.1.6	10752		
+hZikaV/Brazil/un-USAMRIID-17Au/2016	Asian	EPI_ISL_18002844	2016-04-26	South America / Brazil	Human	Original	Urine		Illumina	bowtie2 v. 2.1.6	10752		
+hZikaV/Brazil/un-USAMRIID-17Bs/2016	Asian	EPI_ISL_18002845	2016-05-03	South America / Brazil	Human	Original	Semen		Illumina	bowtie2 v. 2.1.6	10752		
+hZikaV/Brazil/un-USAMRIID-19Cs/2016	Asian	EPI_ISL_18002846	2016-05-19	South America / Brazil	Human	Original	Semen		Illumina	bowtie2 v. 2.1.6	10791		
+hZikaV/Brazil/un-USAMRIID-19Ds/2016	Asian	EPI_ISL_18002847	2016-05-24	South America / Brazil	Human	Original	Semen		Illumina	bowtie2 v. 2.1.6	10791		
+hZikaV/Brazil/un-USAMRIID-19Es/2016	Asian	EPI_ISL_18002848	2016-06-02	South America / Brazil	Human	Original	Semen		Illumina	bowtie2 v. 2.1.6	10752		
+hZikaV/Brazil/un-USAMRIID-19ur/2016	Asian	EPI_ISL_18002856	2016-04-30	South America / Brazil	Human	Original	Urine		Illumina	bowtie2 v. 2.1.6	10783	Gap of 1 nucleotides when compared to the reference sequence.	info
+hZikaV/Brazil/un-USAMRIID-19Fs/2016	Asian	EPI_ISL_18002858	2016-06-09	South America / Brazil	Human	Original	Semen		Illumina	bowtie2 v. 2.1.6	10782		
+hZikaV/Brazil/un-UCSF-08/2015	Asian	EPI_ISL_18002896	2015-07-15	South America / Brazil	Human	Original			Illumina	SURPI+ v. v1.0; Geneious v. v8.0	10551	Stretches of NNNs (16.13% of overall sequence).	warn
+hZikaV/Brazil/un-UCSF-09/2015	Asian	EPI_ISL_18002899	2015-08-01	South America / Brazil	Human	Original			Illumina	SURPI+ v. v1.0; Geneious v. v8.0	10525		
+hZikaV/Brazil/un-UCSF-07/2015	Asian	EPI_ISL_18002909	2015-07-01	South America / Brazil	Human	Original			Illumina	SURPI+ v. v1.0; Geneious v. v8.0	10676	Gap of 1 nucleotides when compared to the reference sequence.	info
+hZikaV/Brazil/un-UW-Brazil/2016	Asian	EPI_ISL_18002917	2016-06-14	South America / Brazil	Human	VERO			Illumina	Trinity v. 2.1.0	10766		
+hZikaV/Brazil/AM-Fiocruz-16800005/2016	Asian	EPI_ISL_18002953	2016-01-08	South America / Brazil / Amazonas / Manaus	Human	Original	Plasma		unknown		10731		
+hZikaV/Brazil/AM-Fiocruz-049/2016	Asian	EPI_ISL_18002961	2016-02-10	South America / Brazil / Amazonas / Manaus	Human	Original	Serum		unknown		9703		
+hZikaV/Brazil/AM-Fiocruz-052/2016	Asian	EPI_ISL_18002962	2016-02-02	South America / Brazil / Amazonas / Manaus	Human	Original	Serum		unknown		9421	Long stretches of NNNs (34.65% of overall sequence). NS2B without BLAST coverage. Partial NS5 gene sequence is reported.	alert
+hZikaV/Brazil/AM-Fiocruz-050/2016	Asian	EPI_ISL_18002963	2016-02-10	South America / Brazil / Amazonas / Manaus	Human	Original	Serum		unknown		9703	Stretches of NNNs (10.00% of overall sequence).	warn
+hZikaV/Brazil/AM-Fiocruz-051/2016	Asian	EPI_ISL_18002964	2016-01-25	South America / Brazil / Amazonas / Manaus	Human	Original	Serum		unknown		9703	Stretches of NNNs (16.83% of overall sequence).	warn
+hZikaV/Brazil/AM-Fiocruz-070/2016	Asian	EPI_ISL_18002965	2016-01-29	South America / Brazil / Amazonas / Manaus	Human	Original	Serum		unknown		8821	Stretches of NNNs (8.80% of overall sequence). Partial NS5 gene sequence is reported.	warn
+hZikaV/Brazil/AM-Fiocruz-067/2016	Asian	EPI_ISL_18002966	2016-01-05	South America / Brazil / Amazonas / Manaus	Human	Original	Serum		unknown		9421	Long stretches of NNNs (25.19% of overall sequence). prM without BLAST coverage. Partial NS5 gene sequence is reported.	alert
+hZikaV/Brazil/AM-Fiocruz-053/2016	Asian	EPI_ISL_18002967	2016-01-25	South America / Brazil / Amazonas / Manaus	Human	Original	Urine		unknown		9703		
+hZikaV/Brazil/AM-Fiocruz-066/2016	Asian	EPI_ISL_18002968	2016-01-23	South America / Brazil / Amazonas / Manaus	Human	Original	Serum		unknown		9421	Partial NS5 gene sequence is reported.	
+hZikaV/Brazil/AM-Fiocruz-065/2016	Asian	EPI_ISL_18002969	2016-01-30	South America / Brazil / Amazonas / Manaus	Human	Original	Serum		unknown		10338		
+hZikaV/Brazil/AM-Fiocruz-058/2016	Asian	EPI_ISL_18002970	2016-01-20	South America / Brazil / Amazonas / Manaus	Human	Original	Serum		unknown		9703	Stretches of NNNs (6.62% of overall sequence).	warn
+hZikaV/Brazil/AM-Fiocruz-057/2016	Asian	EPI_ISL_18002971	2016-01-14	South America / Brazil / Amazonas / Manaus	Human	Original	Serum		unknown		9421	Partial NS5 gene sequence is reported.	
+hZikaV/Brazil/AM-Fiocruz-062/2016	Asian	EPI_ISL_18002972	2016-01-25	South America / Brazil / Amazonas / Manaus	Human	Original	Serum		unknown		10269	Stretches of NNNs (5.77% of overall sequence).	warn
+hZikaV/Brazil/AM-Fiocruz-059/2016	Asian	EPI_ISL_18002973	2016-01-14	South America / Brazil / Amazonas / Manaus	Human	Original	Serum		unknown		8821	Long stretches of NNNs (44.36% of overall sequence). NS2B without BLAST coverage. Partial NS5 gene sequence is reported.	alert
+hZikaV/Brazil/AM-Fiocruz-055/2016	Asian	EPI_ISL_18002974	2016-01-26	South America / Brazil / Amazonas / Manaus	Human	Original	Serum		unknown		8803	Stretches of NNNs (12.67% of overall sequence). Partial C gene sequence is reported. Partial NS5 gene sequence is reported.	warn
+hZikaV/Brazil/AM-Fiocruz-061/2015	Asian	EPI_ISL_18002975	2015-12-16	South America / Brazil / Amazonas / Manaus	Human	Original	Serum		unknown		9421	Long stretches of NNNs (39.36% of overall sequence). Partial NS5 gene sequence is reported.	alert
+hZikaV/Brazil/AM-Fiocruz-082/2017	Asian	EPI_ISL_18002976	2017-03-24	South America / Brazil / Amazonas / Manaus	Human	Original	Plasma		unknown		9703	Stretches of NNNs (18.18% of overall sequence). 2K without BLAST coverage. NS4A without BLAST coverage.	warn
+hZikaV/Brazil/AM-Fiocruz-027/2016	Asian	EPI_ISL_18002977	2016-02-15	South America / Brazil / Amazonas / Manaus	Human	Original	Plasma		unknown		9703	Stretches of NNNs (17.15% of overall sequence).	warn
+hZikaV/Brazil/AM-Fiocruz-080/2017	Asian	EPI_ISL_18002978	2017-03-22	South America / Brazil / Amazonas / Manaus	Human	Original	Serum		unknown		8803	Long stretches of NNNs (37.24% of overall sequence). Partial C gene sequence is reported. Partial NS5 gene sequence is reported.	alert
+hZikaV/Brazil/AM-Fiocruz-026/2016	Asian	EPI_ISL_18002979	2016-02-11	South America / Brazil / Amazonas / Manaus	Human	Original	Plasma		unknown		5788	Long stretches of NNNs (44.26% of overall sequence). C without BLAST coverage. NS2B without BLAST coverage. NS5 without BLAST coverage. prM without BLAST coverage. Partial E gene sequence is reported. Partial NS5 gene sequence is reported.	alert
+hZikaV/Brazil/AM-Fiocruz-024/2017	Asian	EPI_ISL_18002980	2017-04-27	South America / Brazil / Amazonas / Manaus	Human	Original	Plasma		unknown		7287	Long stretches of NNNs (46.88% of overall sequence). C without BLAST coverage. NS2B without BLAST coverage. prM without BLAST coverage. Partial E gene sequence is reported. Partial NS5 gene sequence is reported.	alert
+hZikaV/Brazil/AM-Fiocruz-023/2017	Asian	EPI_ISL_18002981	2017-04-26	South America / Brazil / Amazonas / Manaus	Human	Original	Saliva		unknown		3077	Long stretches of NNNs (31.07% of overall sequence). NS4A without BLAST coverage. NS2B without BLAST coverage. prM without BLAST coverage. NS4B without BLAST coverage. NS3 without BLAST coverage. 2K without BLAST coverage. C without BLAST coverage. NS5 without BLAST coverage.	alert
+hZikaV/Brazil/AM-Fiocruz-022/2016	Asian	EPI_ISL_18002982	2016-05-16	South America / Brazil / Amazonas / Manaus	Human	Original	Plasma		unknown		10338	Stretches of NNNs (8.49% of overall sequence).	warn
+hZikaV/Brazil/AM-Fiocruz-021/2016	Asian	EPI_ISL_18002983	2016-04-25	South America / Brazil / Amazonas / Manaus	Human	Original	Plasma		unknown		10338	Stretches of NNNs (6.45% of overall sequence).	warn
+hZikaV/Brazil/AM-Fiocruz-020/2016	Asian	EPI_ISL_18002984	2016-04-26	South America / Brazil / Amazonas / Manaus	Human	Original	Plasma		unknown		10338		
+hZikaV/Brazil/AM-Fiocruz-019/2016	Asian	EPI_ISL_18002985	2016-04-08	South America / Brazil / Amazonas / Manaus	Human	Original	Plasma		unknown		10338	Stretches of NNNs (5.95% of overall sequence).	warn
+hZikaV/Brazil/AM-Fiocruz-016/2016	Asian	EPI_ISL_18002986	2016-04-05	South America / Brazil / Amazonas / Manaus	Human	Original	Plasma		unknown		10338	Stretches of NNNs (13.76% of overall sequence).	warn
+hZikaV/Brazil/AM-Fiocruz-015/2016	Asian	EPI_ISL_18002987	2016-04-05	South America / Brazil / Amazonas / Manaus	Human	Original	Plasma		unknown		8821	Stretches of NNNs (17.61% of overall sequence). Partial NS5 gene sequence is reported.	warn
+hZikaV/Brazil/AM-Fiocruz-032/2016	Asian	EPI_ISL_18002988	2016-04-05	South America / Brazil / Amazonas / Manaus	Human	Original	Plasma		unknown		9421	Long stretches of NNNs (34.62% of overall sequence). NS2B without BLAST coverage. Partial NS5 gene sequence is reported.	alert
+hZikaV/Brazil/AM-Fiocruz-036/2016	Asian	EPI_ISL_18002989	2016-03-01	South America / Brazil / Amazonas / Manaus	Human	Original	Plasma		unknown		9421	Long stretches of NNNs (34.64% of overall sequence). NS2B without BLAST coverage. Partial NS5 gene sequence is reported.	alert
+hZikaV/Brazil/AM-Fiocruz-035/2016	Asian	EPI_ISL_18002990	2016-02-29	South America / Brazil / Amazonas / Manaus	Human	Original	Plasma		unknown		9421	Long stretches of NNNs (28.25% of overall sequence). Partial NS5 gene sequence is reported.	alert
+hZikaV/Brazil/AM-Fiocruz-038/2016	Asian	EPI_ISL_18002991	2016-03-02	South America / Brazil / Amazonas / Manaus	Human	Original	Plasma		unknown		9421	Long stretches of NNNs (34.60% of overall sequence). NS2B without BLAST coverage. Partial NS5 gene sequence is reported.	alert
+hZikaV/Brazil/AM-Fiocruz-037/2016	Asian	EPI_ISL_18002992	2016-03-01	South America / Brazil / Amazonas / Manaus	Human	Original	Plasma		unknown		9703	Stretches of NNNs (19.26% of overall sequence). 2K without BLAST coverage.	warn
+hZikaV/Brazil/AM-Fiocruz-048/2016	Asian	EPI_ISL_18002993	2016-02-02	South America / Brazil / Amazonas / Manaus	Human	Original	Serum		unknown		9703		
+hZikaV/Brazil/AM-Fiocruz-041/2016	Asian	EPI_ISL_18002994	2016-02-03	South America / Brazil / Amazonas / Manaus	Human	Original	Serum		unknown		10338	Stretches of NNNs (5.83% of overall sequence).	warn
+hZikaV/Brazil/AM-Fiocruz-06/2016	Asian	EPI_ISL_18002995	2016-03-15	South America / Brazil / Amazonas / Manaus	Human	Original	Plasma		unknown		9703	Stretches of NNNs (12.32% of overall sequence).	warn
+hZikaV/Brazil/AM-Fiocruz-09/2016	Asian	EPI_ISL_18002996	2016-03-18	South America / Brazil / Amazonas / Manaus	Human	Original	Plasma		unknown		10338	Stretches of NNNs (8.53% of overall sequence).	warn
+hZikaV/Brazil/AM-Fiocruz-05/2016	Asian	EPI_ISL_18002998	2016-03-10	South America / Brazil / Amazonas / Manaus	Human	Original	Plasma		unknown		10338	Stretches of NNNs (15.83% of overall sequence).	warn
+hZikaV/Brazil/AM-Fiocruz-043/2016	Asian	EPI_ISL_18002999	2016-02-10	South America / Brazil / Amazonas / Manaus	Human	Original	Serum		unknown		9421	Long stretches of NNNs (35.16% of overall sequence). NS2B without BLAST coverage. Partial NS5 gene sequence is reported.	alert
+hZikaV/Brazil/AM-Fiocruz-042/2016	Asian	EPI_ISL_18003000	2016-02-10	South America / Brazil / Amazonas / Manaus	Human	Original	Serum		unknown		9421	Stretches of NNNs (8.52% of overall sequence). Partial NS5 gene sequence is reported.	warn
+hZikaV/Brazil/AM-Fiocruz-045/2016	Asian	EPI_ISL_18003001	2016-01-08	South America / Brazil / Amazonas / Manaus	Human	Original	Serum		unknown		10338		
+hZikaV/Brazil/AM-Fiocruz-02/2016	Asian	EPI_ISL_18003002	2016-02-19	South America / Brazil / Amazonas / Manaus	Human	Original	Saliva		unknown		10338	Stretches of NNNs (8.60% of overall sequence).	warn
+hZikaV/Brazil/AM-Fiocruz-044/2016	Asian	EPI_ISL_18003003	2016-01-29	South America / Brazil / Amazonas / Manaus	Human	Original	Serum		unknown		9703		
+hZikaV/Brazil/AM-Fiocruz-046/2016	Asian	EPI_ISL_18003004	2016-02-10	South America / Brazil / Amazonas / Manaus	Human	Original	Serum		unknown		9703		
+hZikaV/Brazil/AM-Fiocruz-047/2016	Asian	EPI_ISL_18003005	2016-02-02	South America / Brazil / Amazonas / Manaus	Human	Original	Serum		unknown		9703		
+hZikaV/Brazil/AM-Fiocruz-033/2016	Asian	EPI_ISL_18003006	2016-02-19	South America / Brazil / Amazonas / Manaus	Human	Original	Plasma		unknown		8821	Long stretches of NNNs (34.74% of overall sequence). NS2B without BLAST coverage. Partial NS5 gene sequence is reported.	alert
+hZikaV/Brazil/AM-Fiocruz-072/2017	Asian	EPI_ISL_18003007	2017-03-20	South America / Brazil / Amazonas / Manaus	Human	Original	Urine		unknown		6075	Long stretches of NNNs (46.70% of overall sequence). prM without BLAST coverage. C without BLAST coverage. Partial E gene sequence is reported. Partial NS5 gene sequence is reported.	alert
+hZikaV/Brazil/AM-Fiocruz-084/2017	Asian	EPI_ISL_18003008	2017-03-27	South America / Brazil / Amazonas / Manaus	Human	Original	Plasma		unknown		9132	Long stretches of NNNs (27.41% of overall sequence). Partial NS5 gene sequence is reported.	alert
+hZikaV/Brazil/AM-Fiocruz-013/2016	Asian	EPI_ISL_18003009	2016-04-01	South America / Brazil / Amazonas / Manaus	Human	Original	Plasma		unknown		10338	Stretches of NNNs (16.30% of overall sequence). prM without BLAST coverage.	warn
+hZikaV/Brazil/AM-Fiocruz-014/2016	Asian	EPI_ISL_18003010	2016-04-06	South America / Brazil / Amazonas / Manaus	Human	Original	Saliva		unknown		9703	Stretches of NNNs (6.75% of overall sequence).	warn
+hZikaV/Brazil/AM-Fiocruz-0302/2015	Asian	EPI_ISL_18003011	2015-12-08	South America / Brazil / Amazonas / Manaus	Human	Original	Serum		unknown		10338		
+hZikaV/Brazil/AM-Fiocruz-Z02/2015	Asian	EPI_ISL_18003012	2015-12-15	South America / Brazil / Amazonas / Manaus	Human	Original	Serum		unknown		9421	Stretches of NNNs (6.66% of overall sequence). Partial NS5 gene sequence is reported.	warn
+hZikaV/Brazil/GO-Fiocruz-25/2016	Asian	EPI_ISL_18003013	2016-03-31	South America / Brazil / Goias / Goiania	Human	Original	Urine		unknown		10385	Stretches of NNNs (13.91% of overall sequence).	warn
+hZikaV/Brazil/GO-Fiocruz-24/2016	Asian	EPI_ISL_18003014	2016-04-01	South America / Brazil / Goias / Goiania	Human	Original	Urine		unknown		10386	Long stretches of NNNs (27.00% of overall sequence). 2K without BLAST coverage. NS4A without BLAST coverage. NS2B without BLAST coverage.	alert
+hZikaV/Brazil/GO-Fiocruz-28/2016	Asian	EPI_ISL_18003015	2016-04-24	South America / Brazil / Goias / Goiania	Human	Original	Serum		unknown		10388		
+hZikaV/Brazil/GO-Fiocruz-31/2016	Asian	EPI_ISL_18003016	2016-02-22	South America / Brazil / Goias / Goiania	Human	Original	Serum		unknown		10386	Stretches of NNNs (14.47% of overall sequence).	warn
+hZikaV/Brazil/GO-Fiocruz-36/2017	Asian	EPI_ISL_18003017	2017-06-01	South America / Brazil / Goias / Inhumas	Human	Original	Serum		unknown		10385		
+hZikaV/Brazil/GO-Fiocruz-38/2017	Asian	EPI_ISL_18003018	2017-11-23	South America / Brazil / Goias / Aparecida de Goiania	Human	Original	Serum		unknown		10100	Stretches of NNNs (17.36% of overall sequence).	warn
+hZikaV/Brazil/GO-Fiocruz-39/2017	Asian	EPI_ISL_18003019	2017-12-07	South America / Brazil / Goias / Aparecida de Goiania	Human	Original	Urine		unknown		10093	Stretches of NNNs (12.24% of overall sequence).	warn
+hZikaV/Brazil/GO-Fiocruz-50/2017	Asian	EPI_ISL_18003020	2017-01-02	South America / Brazil / Goias / Goiania	Human	Original	Serum		unknown		10388	Stretches of NNNs (14.75% of overall sequence).	warn
+hZikaV/Brazil/GO-Fiocruz-52/2017	Asian	EPI_ISL_18003021	2017-01-20	South America / Brazil / Goias / Goiania	Human	Original	Serum		unknown		10089	Stretches of NNNs (8.49% of overall sequence).	warn
+hZikaV/Brazil/GO-Fiocruz-53/2017	Asian	EPI_ISL_18003022	2017-02-23	South America / Brazil / Goias / Goiania	Human	Original	Urine		unknown		10385	Stretches of NNNs (21.20% of overall sequence). 2K without BLAST coverage. NS4A without BLAST coverage.	warn
+hZikaV/Brazil/GO-Fiocruz-19/2016	Asian	EPI_ISL_18003023	2016-07-20	South America / Brazil / Goias / Goianira	Human	Original	Urine		unknown		10381	Stretches of NNNs (22.85% of overall sequence).	warn
+hZikaV/Brazil/GO-Fiocruz-56/2018	Asian	EPI_ISL_18003024	2018-04-18	South America / Brazil / Goias / Aparecida de Goiania	Human	Original	Urine		unknown		10385	Stretches of NNNs (9.28% of overall sequence).	warn
+hZikaV/Brazil/GO-Fiocruz-54/2017	Asian	EPI_ISL_18003025	2017-03-08	South America / Brazil / Goias / Goiania	Human	Original	Urine		unknown		10385		
+hZikaV/Brazil/GO-Fiocruz-57/2018	Asian	EPI_ISL_18003026	2018-01-26	South America / Brazil / Goias / Aparecida de Goiania	Human	Original	Serum		unknown		8302	Long stretches of NNNs (26.93% of overall sequence). 2K without BLAST coverage. NS4A without BLAST coverage. Partial NS5 gene sequence is reported.	alert
+hZikaV/Brazil/GO-Fiocruz-59/2018	Asian	EPI_ISL_18003027	2018-03-26	South America / Brazil / Goias / Goiatuba	Human	Original	Serum		unknown		10097	Stretches of NNNs (9.50% of overall sequence).	warn
+hZikaV/Brazil/GO-Fiocruz-58/2018	Asian	EPI_ISL_18003028	2018-03-23	South America / Brazil / Goias / Goiatuba	Human	Original	Serum		unknown		10385	Stretches of NNNs (8.81% of overall sequence).	warn
+hZikaV/Brazil/GO-Fiocruz-70/2017	Asian	EPI_ISL_18003029	2017-03-17	South America / Brazil / Goias / Goiania	Human	Original	Serum		unknown		10385	Stretches of NNNs (21.47% of overall sequence). 2K without BLAST coverage. NS4A without BLAST coverage.	warn
+hZikaV/Brazil/AM-Fiocruz-88/2017	Asian	EPI_ISL_18003030	2017-03-28	South America / Brazil / Amazonas / Manaus	Human	Original	Urine		unknown		10338	Stretches of NNNs (12.81% of overall sequence).	warn
+hZikaV/Brazil/GO-Fiocruz-30/2016	Asian	EPI_ISL_18003031	2016-02-22	South America / Brazil / Goias / Goiania	Human	Original	Serum		unknown		10098	Stretches of NNNs (19.15% of overall sequence).	warn
+hZikaV/Brazil/AM-Fiocruz-85/2017	Asian	EPI_ISL_18003032	2017-03-27	South America / Brazil / Amazonas / Manaus	Human	Original	Plasma		unknown		8821	Stretches of NNNs (14.50% of overall sequence). Partial NS5 gene sequence is reported.	warn
+hZikaV/Brazil/AM-Fiocruz-89/2017	Asian	EPI_ISL_18003033	2017-03-28	South America / Brazil / Amazonas / Manaus	Human	Original	Urine		unknown		10338	Stretches of NNNs (12.38% of overall sequence).	warn
+hZikaV/Brazil/AM-Fiocruz-90/2017	Asian	EPI_ISL_18003034	2017-03-29	South America / Brazil / Amazonas / Manaus	Human	Original	Urine		unknown		10338	Stretches of NNNs (15.24% of overall sequence).	warn
+hZikaV/Brazil/AM-Fiocruz-91/2017	Asian	EPI_ISL_18003035	2017-04-07	South America / Brazil / Amazonas / Manaus	Human	Original	Urine		unknown		9959	Stretches of NNNs (10.99% of overall sequence).	warn
+hZikaV/Brazil/GO-Fiocruz-18/2016	Asian	EPI_ISL_18003036	2016-06-02	South America / Brazil / Goias / Aparecida de Goiania	Human	Original	Serum		unknown		10375	Stretches of NNNs (19.60% of overall sequence).	warn
+hZikaV/Brazil/GO-Fiocruz-43/2017	Asian	EPI_ISL_18003037	2017-06-30	South America / Brazil / Goias / Aparecida de Goiania	Human	Original	Serum		unknown		10386		
+hZikaV/Brazil/AM-Fiocruz-71/2017	Asian	EPI_ISL_18003038	2017-03-20	South America / Brazil / Amazonas / Manaus	Human	Original	Urine		unknown		8821	Long stretches of NNNs (42.36% of overall sequence). Partial NS5 gene sequence is reported.	alert
+hZikaV/Brazil/GO-Fiocruz-15/2016	Asian	EPI_ISL_18003039	2016-05-01	South America / Brazil / Goias / Goiania	Human	Original	Urine		unknown		10388		
+hZikaV/Brazil/GO-Fiocruz-10/2016	Asian	EPI_ISL_18003040	2016-04-20	South America / Brazil / Goias / Goiania	Human	Original	Serum		unknown		10385	Stretches of NNNs (11.57% of overall sequence).	warn
+hZikaV/Brazil/AM-Fiocruz-Z03/2015	Asian	EPI_ISL_18003041	2015-12-15	South America / Brazil / Amazonas / Manaus	Human	Original	Serum		unknown		9421	Stretches of NNNs (13.81% of overall sequence). Partial NS5 gene sequence is reported.	warn
+hZikaV/Brazil/AM-Fiocruz-68/2016	Asian	EPI_ISL_18003043	2016-02-01	South America / Brazil / Amazonas / Manaus	Human	Original	Serum		unknown		9421	Long stretches of NNNs (43.65% of overall sequence). NS2B without BLAST coverage. Partial NS5 gene sequence is reported.	alert
+hZikaV/Brazil/GO-Fiocruz-14/2016	Asian	EPI_ISL_18003044	2016-04-29	South America / Brazil / Goias / Jatai	Human	Original	Other: Blood		unknown		10387		
+hZikaV/Brazil/un-USP-Z001/2016	Asian	EPI_ISL_18003269	2016-05-10	South America / Brazil	Human	Original	Semen		Illumina	Bowtie2 v. v.2.3.4	10639		
+hZikaV/Brazil/un-USP-Z002/2016	Asian	EPI_ISL_18003270	2016-06-16	South America / Brazil	Human	Original	Semen		Illumina	Bowtie2 v. v.2.3.4	10651		
+hZikaV/Brazil/un-USP-Z003/2016	Asian	EPI_ISL_18003271	2016-05-07	South America / Brazil	Human	Original	Semen		Illumina	Bowtie2 v. v.2.3.4	10648	2K without BLAST coverage.	warn
+hZikaV/Brazil/un-USP-Z005/2016	Asian	EPI_ISL_18003273	2016-04-26	South America / Brazil	Human	Original	Semen		Illumina	Bowtie2 v. v.2.3.4	10639		
+hZikaV/Brazil/un-IEC-BRZ01/2015	Asian	EPI_ISL_18003685	2015-09-01	South America / Brazil	Human	Original			unknown		2809	NS4A without BLAST coverage. prM without BLAST coverage. NS4B without BLAST coverage. 2K without BLAST coverage. C without BLAST coverage. NS5 without BLAST coverage. Partial E gene sequence is reported. Partial NS3 gene sequence is reported.	warn
+hZikaV/Brazil/un-FUNED-1377/2016	Asian	EPI_ISL_18003693	2016-03-24	South America / Brazil	Human	Original	Other: Post mortem tissue		Oxford Nanopore technologies	Porechop v. 2019	9702	Stretches of NNNs (23.03% of overall sequence). Gap of 12 nucleotides when compared to the reference sequence. C without BLAST coverage. Partial prM gene sequence is reported.	warn
+hZikaV/Brazil/un-FUNED-2032/2016	Asian	EPI_ISL_18003694	2016-04-11	South America / Brazil	Human	Original	Serum		Oxford Nanopore technologies	Porechop v. 2019	10092	Gap of 12 nucleotides when compared to the reference sequence. Partial C gene sequence is reported.	info
+hZikaV/Brazil/un-FUNED-1524/2016	Asian	EPI_ISL_18003695	2016-04-05	South America / Brazil	Human	Original	Serum		Oxford Nanopore technologies	Porechop v. 2019	10370	Stretches of NNNs (23.69% of overall sequence). Gap of 13 nucleotides when compared to the reference sequence.	warn
+hZikaV/Brazil/un-FUNED-1295/2016	Asian	EPI_ISL_18003696	2016-03-21	South America / Brazil	Human	Original	Serum		Oxford Nanopore technologies	Porechop v. 2019	9749	Stretches of NNNs (11.68% of overall sequence). Gap of 12 nucleotides when compared to the reference sequence. C without BLAST coverage. Partial prM gene sequence is reported.	warn
+hZikaV/Brazil/un-FUNED-1820/2016	Asian	EPI_ISL_18003697	2016-04-06	South America / Brazil	Human	Original	Serum		Oxford Nanopore technologies	Porechop v. 2019	10627	Long stretches of NNNs (38.62% of overall sequence). Gap of 13 nucleotides when compared to the reference sequence.	alert
+hZikaV/Brazil/un-FUNED-1008/2016	Asian	EPI_ISL_18003698	2016-03-18	South America / Brazil	Human	Original	Serum		Oxford Nanopore technologies	Porechop v. 2019	10625	Long stretches of NNNs (31.87% of overall sequence). Gap of 13 nucleotides when compared to the reference sequence.	alert
+hZikaV/Brazil/un-FUNED-1609/2016	Asian	EPI_ISL_18003699	2016-04-06	South America / Brazil	Human	Original	Serum		Oxford Nanopore technologies	Porechop v. 2019	10627	Stretches of NNNs (14.52% of overall sequence). Gap of 13 nucleotides when compared to the reference sequence.	warn
+hZikaV/Brazil/un-FUNED-1685/2016	Asian	EPI_ISL_18003700	2016-04-12	South America / Brazil	Human	Original	Serum		Oxford Nanopore technologies	Porechop v. 2019	10627	Stretches of NNNs (11.24% of overall sequence). Gap of 13 nucleotides when compared to the reference sequence.	warn
+hZikaV/Brazil/un-FUNED-1860/2016	Asian	EPI_ISL_18003701	2016-04-14	South America / Brazil	Human	Original	Serum		Oxford Nanopore technologies	Porechop v. 2019	10627	Long stretches of NNNs (26.84% of overall sequence). Gap of 13 nucleotides when compared to the reference sequence.	alert
+hZikaV/Brazil/un-FUNED-2012/2016	Asian	EPI_ISL_18003702	2016-04-20	South America / Brazil	Human	Original	Serum		Oxford Nanopore technologies	Porechop v. 2019	10627	Stretches of NNNs (19.00% of overall sequence). Gap of 13 nucleotides when compared to the reference sequence.	warn
+hZikaV/Brazil/un-Fiocruz-16288/2016	Asian	EPI_ISL_18003794	2016-02-01	South America / Brazil	Human	Original			Sanger	Phred/Phrap/Consed v. 19	10807		
+hZikaV/Brazil/un-Fiocruz-15261/2015	Asian	EPI_ISL_18003795	2015-06-01	South America / Brazil	Human	Original	Serum		Illumina	CLC genomic workbench v. 9	10807		
+hZikaV/Brazil/un-UFRJ-2433/2017	Asian	EPI_ISL_18003820	2017-06-29	South America / Brazil	Human	Original			Illumina	bowtie2 v. 2	10269		
+hZikaV/Brazil/un-Fiocruz-SSABR1/2015	Asian	EPI_ISL_18003899	2015-07-01	South America / Brazil	Human	Original	Serum		IonTorrent	Mira v. v. 4.0; Geneious v. v. 7	10648	Gap of 1 nucleotides when compared to the reference sequence.	info
+hZikaV/Brazil/un-UNESP-21/2016	Asian	EPI_ISL_18003900	2016-02-29	South America / Brazil	Human	Original			Sanger	DNASTAR Lasergene SeqMan Pro v. 7.1.0 (44.1)	10662	Gap of 1 nucleotides when compared to the reference sequence.	info
+hZikaV/Brazil/un-UNESP-61/2016	Asian	EPI_ISL_18003901	2016-04-05	South America / Brazil	Human	Original			Sanger	DNASTAR Lasergene SeqMan Pro v. 7.1.0 (44.1)	10662		
+hZikaV/Brazil/un-UNESP-1840/2016	Asian	EPI_ISL_18003902	2016-01-11	South America / Brazil	Human	Original			Sanger	DNASTAR Lasergene SeqMan Pro v. 7.1.0 (44.1)	10623		
+ZikaV/monkey/Brazil/un-FAMERP-19/2017	Asian	EPI_ISL_18003903	2017-03-03	South America / Brazil	Other: Callithrix sp.	Original			Illumina	Geneious v. R8	10210		
+ZikaV/monkey/Brazil/un-FAMERP-18/2017	Asian	EPI_ISL_18003904	2017-03-03	South America / Brazil	Other: Callithrix sp.	Original			Illumina	Geneious v. R8	9956	Stretches of NNNs (16.89% of overall sequence). Partial C gene sequence is reported.	warn
+ZikaV/monkey/Brazil/un-FAMERP-17/2017	Asian	EPI_ISL_18003905	2017-03-03	South America / Brazil	Other: Callithrix sp.	Original			Illumina	Geneious v. R8	10269		
+ZikaV/monkey/Brazil/un-FAMERP-05/2017	Asian	EPI_ISL_18003906	2017-01-26	South America / Brazil	Other: Callithrix sp.	Original			Illumina	Geneious v. R8	10131	Stretches of NNNs (6.92% of overall sequence).	warn
+hZikaV/Brazil/RJ-BROAD-6706/2016	Asian	EPI_ISL_18004069	2016-04-08	South America / Brazil / Rio de Janeiro	Human	Original	Serum		Illumina; Swift LC	github.com/broadinstitute/viral-ngs v. v1.13.3-72-gacf2b69-dirty	10366		
+hZikaV/Brazil/RJ-BROAD-DQ5D1/2016	Asian	EPI_ISL_18004074	2016-03-14	South America / Brazil / Rio de Janeiro	Human	Original	Urine		Illumina; Swift LC	github.com/broadinstitute/viral-ngs v. v1.13.3-72-gacf2b69-dirty	10366	Stretches of NNNs (11.19% of overall sequence).	warn
+hZikaV/Brazil/RJ-BROAD-6703/2016	Asian	EPI_ISL_18004077	2016-04-08	South America / Brazil / Rio de Janeiro	Human	Original	Serum		Illumina; Swift LC	github.com/broadinstitute/viral-ngs v. v1.13.3-72-gacf2b69-dirty	10343	Long stretches of NNNs (36.13% of overall sequence).	alert
+hZikaV/Brazil/RJ-BROAD-DQ116D1/2016	Asian	EPI_ISL_18004078	2016-04-14	South America / Brazil / Rio de Janeiro	Human	Original	Plasma		Illumina; Swift LC	github.com/broadinstitute/viral-ngs v. v1.13.3-72-gacf2b69-dirty	10455		
+hZikaV/Brazil/RJ-BROAD-5790/2016	Asian	EPI_ISL_18004084	2016-03-22	South America / Brazil / Rio de Janeiro	Human	Original	Serum		Illumina; Swift LC	github.com/broadinstitute/viral-ngs v. v1.13.3-72-gacf2b69-dirty	10034	Long stretches of NNNs (30.28% of overall sequence). 2K without BLAST coverage. NS4A without BLAST coverage. Partial C gene sequence is reported.	alert
+hZikaV/Brazil/RJ-BROAD-6863/2016	Asian	EPI_ISL_18004088	2016-04-12	South America / Brazil / Rio de Janeiro	Human	Original	Serum		Illumina; Swift LC	github.com/broadinstitute/viral-ngs v. v1.13.3-72-gacf2b69-dirty	10455		
+hZikaV/Brazil/RJ-BROAD-DQ60D1/2016	Asian	EPI_ISL_18004101	2016-03-30	South America / Brazil / Rio de Janeiro	Human	Original	Plasma		Illumina; Swift LC	github.com/broadinstitute/viral-ngs v. v1.13.3-72-gacf2b69-dirty	10364		
+hZikaV/Brazil/RJ-BROAD-6418/2016	Asian	EPI_ISL_18004102	2016-03-27	South America / Brazil / Rio de Janeiro	Human	Original	Serum		Illumina; Swift LC	github.com/broadinstitute/viral-ngs v. v1.13.3-72-gacf2b69-dirty	10363		
+hZikaV/Brazil/RJ-BROAD-DQ42D1/2016	Asian	EPI_ISL_18004104	2016-03-23	South America / Brazil / Rio de Janeiro	Human	Original	Urine		Illumina; Swift LC	github.com/broadinstitute/viral-ngs v. v1.13.3-69-g60e95dc	10751		
+hZikaV/Brazil/RJ-BROAD-DQ62D2/2016	Asian	EPI_ISL_18004114	2016-04-06	South America / Brazil / Rio de Janeiro	Human	Original	Urine		Illumina; Swift LC	github.com/broadinstitute/viral-ngs v. v1.13.3-72-gacf2b69-dirty	10732		
+hZikaV/Brazil/RJ-BROAD-DQ75D1/2016	Asian	EPI_ISL_18004117	2016-04-04	South America / Brazil / Rio de Janeiro	Human	Original	Urine		Illumina; Swift LC	github.com/broadinstitute/viral-ngs v. v1.13.3-72-gacf2b69-dirty	10365		
+hZikaV/Brazil/RJ-BROAD-DQ58D1/2016	Asian	EPI_ISL_18004118	2016-03-30	South America / Brazil / Rio de Janeiro	Human	Original	Plasma		Illumina; Swift LC	github.com/broadinstitute/viral-ngs v. v1.13.3-72-gacf2b69-dirty	10367		
+hZikaV/Brazil/RJ-BROAD-DQ122D1/2016	Asian	EPI_ISL_18004119	2016-04-15	South America / Brazil / Rio de Janeiro	Human	Original	Plasma		Illumina; Swift LC	github.com/broadinstitute/viral-ngs v. v1.13.3-72-gacf2b69-dirty	10455	Stretches of NNNs (5.10% of overall sequence).	warn
+hZikaV/Brazil/RJ-BROAD-DQ28D1/2016	Asian	EPI_ISL_18004126	2016-03-21	South America / Brazil / Rio de Janeiro	Human	Original	Urine		Illumina; Swift LC	github.com/broadinstitute/viral-ngs v. v1.13.3-69-g60e95dc	10752		
+hZikaV/Brazil/RJ-BROAD-DQ131D1/2016	Asian	EPI_ISL_18004127	2016-04-18	South America / Brazil / Rio de Janeiro	Human	Original	Urine		Illumina; Swift LC	github.com/broadinstitute/viral-ngs v. v1.13.3-69-g60e95dc	10788		
+hZikaV/Brazil/RJ-BROAD-6696/2016	Asian	EPI_ISL_18004131	2016-04-05	South America / Brazil / Rio de Janeiro	Human	Original	Serum		Illumina; Swift LC	github.com/broadinstitute/viral-ngs v. v1.13.3-69-g60e95dc	10366	Stretches of NNNs (10.53% of overall sequence).	warn
+hZikaV/Brazil/RJ-BROAD-DQ47D1/2016	Asian	EPI_ISL_18004135	2016-03-28	South America / Brazil / Rio de Janeiro	Human	Original	Plasma		Illumina; Swift LC	github.com/broadinstitute/viral-ngs v. v1.13.3-69-g60e95dc	10454		
+hZikaV/Brazil/RJ-BROAD-5905/2016	Asian	EPI_ISL_18004136	2016-03-23	South America / Brazil / Rio de Janeiro	Human	Original	Serum		Illumina; Swift LC	github.com/broadinstitute/viral-ngs v. v1.13.3-69-g60e95dc	10365	Long stretches of NNNs (27.96% of overall sequence). 2K without BLAST coverage. NS4A without BLAST coverage. prM without BLAST coverage.	alert
+hZikaV/Brazil/RJ-BROAD-DQ49D1/2016	Asian	EPI_ISL_18004137	2016-03-28	South America / Brazil / Rio de Janeiro	Human	Original	Plasma		Illumina; Swift LC	github.com/broadinstitute/viral-ngs v. v1.13.3-69-g60e95dc	10455		
+hZikaV/Brazil/RJ-BROAD-DQ107D1/2016	Asian	EPI_ISL_18004143	2016-04-13	South America / Brazil / Rio de Janeiro	Human	Original	Urine		Illumina; Swift LC	github.com/broadinstitute/viral-ngs v. v1.13.3-69-g60e95dc	10361		
+hZikaV/Brazil/RJ-BROAD-DQ192D1/2016	Asian	EPI_ISL_18004147	2016-05-10	South America / Brazil / Rio de Janeiro	Human	Original	Urine		Illumina; Swift LC	github.com/broadinstitute/viral-ngs v. v1.13.3-72-gacf2b69-dirty	7940	Long stretches of NNNs (36.26% of overall sequence). Partial C gene sequence is reported. Partial NS5 gene sequence is reported.	alert
+hZikaV/Brazil/RJ-BROAD-DQ68D1/2016	Asian	EPI_ISL_18004157	2016-04-01	South America / Brazil / Rio de Janeiro	Human	Original	Urine		Illumina; Swift LC	github.com/broadinstitute/viral-ngs v. v1.13.3-72-gacf2b69-dirty	6697	Long stretches of NNNs (45.81% of overall sequence). NS2B without BLAST coverage. NS5 without BLAST coverage. Partial C gene sequence is reported. Partial NS4B gene sequence is reported.	alert
+hZikaV/Brazil/RJ-BROAD-DQ62D1/2016	Asian	EPI_ISL_18004169	2016-03-30	South America / Brazil / Rio de Janeiro	Human	Original	Plasma		Illumina; Swift LC	github.com/broadinstitute/viral-ngs v. v1.13.3-72-gacf2b69-dirty	10123	Partial C gene sequence is reported.	
+hZikaV/Brazil/RJ-BROAD-6864/2016	Asian	EPI_ISL_18004173	2016-04-12	South America / Brazil / Rio de Janeiro	Human	Original	Urine		Illumina; Swift LC	github.com/broadinstitute/viral-ngs v. v1.13.3-69-g60e95dc	10602		
+hZikaV/Brazil/un-UFRJ-9/2015	Asian	EPI_ISL_18004315	2015-12-01	South America / Brazil	Human	Original			Illumina	Spades v. 3.7; Cap3 v. 1.0	10864		
+hZikaV/Brazil/un-UFRJ-00001/2016	Asian	EPI_ISL_18004316	2016-03-01	South America / Brazil	Human	Original			Illumina	SPAdes v. 3.8	10626		
+hZikaV/Brazil/un-UFRJ-00002/2015	Asian	EPI_ISL_18004317	2015-11-30	South America / Brazil	Human	Original	Other: Anminiotic liquid		Illumina	SPAdes v. 3.6	10793		
+ZikaV/mosquito/Brazil/un-UFBA-001/2017	Asian	EPI_ISL_18004389	2017-11-11	South America / Brazil	Aedes albopictus	Original			IonTorrent	SPAdes v. 3.12	10738		
+hZikaV/Brazil/MT-UFMT-H355/2015	Asian	EPI_ISL_18004395	2015-12-09	South America / Brazil / Mato Grosso / Sinop	Human	Original	Plasma		unknown		10640		
+hZikaV/Brazil/MT-UFMT-H366/2015	Asian	EPI_ISL_18004396	2015-12-11	South America / Brazil / Mato Grosso / Sinop	Human	C6/36	Plasma		unknown		10658		
+hZikaV/Brazil/MT-UFMT-H367/2015	Asian	EPI_ISL_18004397	2015-12-11	South America / Brazil / Mato Grosso / Sinop	Human	Original	Plasma		unknown		10658		
+hZikaV/Brazil/TO-OX-128/2016	Asian	EPI_ISL_18004398	2016-03-13	South America / Brazil / Tocantins / Palmas	Human	Original			Oxford Nanopore technologies	bwa/nanopolish v. 0.5	9673	Stretches of NNNs (10.58% of overall sequence).	warn
+hZikaV/Brazil/TO-OX-130/2016	Asian	EPI_ISL_18004399	2016-03-22	South America / Brazil / Tocantins / Palmas	Human	Original			Oxford Nanopore technologies	bwa/nanopolish v. 0.5	10520	Stretches of NNNs (6.20% of overall sequence).	warn
+hZikaV/Brazil/RJ-OX-1/2016	Asian	EPI_ISL_18004401	2016-01-15	South America / Brazil / Rio de Janeiro	Human	Original			Oxford Nanopore technologies	bwa/nanopolish v. 0.5	10010	Stretches of NNNs (10.69% of overall sequence). Partial C gene sequence is reported.	warn
+hZikaV/Brazil/RJ-OX-4/2016	Asian	EPI_ISL_18004402	2016-01-15	South America / Brazil / Rio de Janeiro	Human	Original			Oxford Nanopore technologies	bwa/nanopolish v. 0.5	10011	Stretches of NNNs (15.77% of overall sequence). Partial C gene sequence is reported.	warn
+hZikaV/Brazil/RJ-OX-6/2016	Asian	EPI_ISL_18004403	2016-02-16	South America / Brazil / Rio de Janeiro	Human	Original			Oxford Nanopore technologies	bwa/nanopolish v. 0.5	10353		
+hZikaV/Brazil/TO-OX-127/2016	Asian	EPI_ISL_18004405	2016-03-10	South America / Brazil / Tocantins / Palmas	Human	Original			Oxford Nanopore technologies	bwa/nanopolish v. 0.5	10306		
+hZikaV/Brazil/TO-OX-137/2016	Asian	EPI_ISL_18004406	2016-03-03	South America / Brazil / Tocantins / Palmas	Human	Original			Oxford Nanopore technologies	bwa/nanopolish v. 0.5	10565	Stretches of NNNs (7.66% of overall sequence).	warn
+hZikaV/Brazil/TO-OX-106/2016	Asian	EPI_ISL_18004407	2016-03-07	South America / Brazil / Tocantins / Palmas	Human	Original			Oxford Nanopore technologies	bwa/nanopolish v. 0.5	9391	Stretches of NNNs (9.96% of overall sequence). Partial NS5 gene sequence is reported.	warn
+hZikaV/Brazil/BA-OX-69/2016	Asian	EPI_ISL_18004408	2016-04-16	South America / Brazil / Bahia	Human	Original			Oxford Nanopore technologies	bwa/nanopolish v. 0.5	10309	Long stretches of NNNs (33.44% of overall sequence). NS2B without BLAST coverage.	alert
+hZikaV/Brazil/TO-OX-102/2016	Asian	EPI_ISL_18004409	2016-02-25	South America / Brazil / Tocantins / Porto Nacional	Human	Original			Oxford Nanopore technologies	bwa/nanopolish v. 0.5	10309	Stretches of NNNs (7.90% of overall sequence).	warn
+hZikaV/Brazil/RN-OX-105/2015	Asian	EPI_ISL_18004413	2015-02-23	South America / Brazil / Rio Grande do Norte	Human	Original			Oxford Nanopore technologies	bwa/nanopolish v. 0.5	10022		
+hZikaV/Brazil/PE-OX-14/2016	Asian	EPI_ISL_18004414	2016-01-15	South America / Brazil / Pernambuco	Human	Original			Oxford Nanopore technologies	bwa/nanopolish v. 0.5	8791	Partial NS5 gene sequence is reported.	
+hZikaV/Brazil/PE-OX-16/2016	Asian	EPI_ISL_18004415	2016-01-19	South America / Brazil / Pernambuco	Human	Original			Oxford Nanopore technologies	bwa/nanopolish v. 0.5	9092	Stretches of NNNs (21.05% of overall sequence). Partial C gene sequence is reported. Partial NS5 gene sequence is reported.	warn
+hZikaV/Brazil/PE-OX-18/2016	Asian	EPI_ISL_18004416	2016-01-06	South America / Brazil / Pernambuco	Human	Original			Oxford Nanopore technologies	bwa/nanopolish v. 0.5	9391	Stretches of NNNs (20.59% of overall sequence). Partial NS5 gene sequence is reported.	warn
+hZikaV/Brazil/PE-OX-25/2016	Asian	EPI_ISL_18004417	2016-01-18	South America / Brazil / Pernambuco	Human	Original			Oxford Nanopore technologies	bwa/nanopolish v. 0.5	8791	Long stretches of NNNs (35.31% of overall sequence). NS2B without BLAST coverage. Partial NS5 gene sequence is reported.	alert
+hZikaV/Brazil/PE-OX-28/2016	Asian	EPI_ISL_18004418	2016-01-18	South America / Brazil / Pernambuco	Human	Original			Oxford Nanopore technologies	bwa/nanopolish v. 0.5	9673	Stretches of NNNs (7.12% of overall sequence).	warn
+hZikaV/Brazil/PE-OX-301/2015	Asian	EPI_ISL_18004419	2015-05-13	South America / Brazil / Pernambuco	Human	Original			Oxford Nanopore technologies	bwa/nanopolish v. 0.5	10022		
+hZikaV/Brazil/PE-OX-302/2015	Asian	EPI_ISL_18004420	2015-05-13	South America / Brazil / Pernambuco	Human	Original			Oxford Nanopore technologies	bwa/nanopolish v. 0.5	10022		
+hZikaV/Brazil/PE-OX-303/2015	Asian	EPI_ISL_18004421	2015-05-14	South America / Brazil / Pernambuco	Human	Original			Oxford Nanopore technologies	bwa/nanopolish v. 0.5	9374	Long stretches of NNNs (37.37% of overall sequence). NS2B without BLAST coverage. Partial C gene sequence is reported.	alert
+hZikaV/Brazil/PE-OX-313/2015	Asian	EPI_ISL_18004422	2015-06-15	South America / Brazil / Pernambuco	Human	Original			Oxford Nanopore technologies	bwa/nanopolish v. 0.5	9673		
+hZikaV/Brazil/PE-OX-319/2016	Asian	EPI_ISL_18004423	2016-07-10	South America / Brazil / Pernambuco	Human	Original			Oxford Nanopore technologies	bwa/nanopolish v. 0.5	10565		
+hZikaV/Brazil/PE-OX-321/2015	Asian	EPI_ISL_18004424	2015-08-09	South America / Brazil / Pernambuco	Human	Original			Oxford Nanopore technologies	bwa/nanopolish v. 0.5	9673	Stretches of NNNs (10.62% of overall sequence).	warn
+hZikaV/Brazil/AL-OX-103/2015	Asian	EPI_ISL_18004425	2015-08-20	South America / Brazil / Alagoas	Human	Original			Oxford Nanopore technologies	bwa/nanopolish v. 0.5	10310	Stretches of NNNs (18.72% of overall sequence).	warn
+hZikaV/Brazil/AL-OX-107/2015	Asian	EPI_ISL_18004426	2015-09-09	South America / Brazil / Alagoas	Human	Original			Oxford Nanopore technologies	bwa/nanopolish v. 0.5	8791	Stretches of NNNs (15.66% of overall sequence). Partial NS5 gene sequence is reported.	warn
+hZikaV/Brazil/un-OX-100/2016	Asian	EPI_ISL_18004427	2016-05-19	South America / Brazil / Sao Paulo	Human	Original			Oxford Nanopore technologies	bwa/nanopolish v. 0.5	10309	Stretches of NNNs (6.81% of overall sequence).	warn
+hZikaV/Brazil/un-OX-16/2016	Asian	EPI_ISL_18004428	2016-04-25	South America / Brazil / Sao Paulo	Human	Original			Oxford Nanopore technologies	bwa/nanopolish v. 0.5	9673	Stretches of NNNs (6.70% of overall sequence).	warn
+hZikaV/Brazil/un-OX-15/2016	Asian	EPI_ISL_18004429	2016-04-24	South America / Brazil / Sao Paulo	Human	Original			Oxford Nanopore technologies	bwa/nanopolish v. 0.5	10565		
+hZikaV/Brazil/un-OX-14/2016	Asian	EPI_ISL_18004430	2016-04-24	South America / Brazil / Sao Paulo	Human	Original			Oxford Nanopore technologies	bwa/nanopolish v. 0.5	10310	Long stretches of NNNs (27.58% of overall sequence).	alert
+hZikaV/Brazil/un-OX-13/2016	Asian	EPI_ISL_18004431	2016-04-24	South America / Brazil / Sao Paulo	Human	Original			Oxford Nanopore technologies	bwa/nanopolish v. 0.5	10565		
+hZikaV/Brazil/un-OX-12/2016	Asian	EPI_ISL_18004432	2016-04-19	South America / Brazil / Sao Paulo	Human	Original			Oxford Nanopore technologies	bwa/nanopolish v. 0.5	10565		
+hZikaV/Brazil/TO-OX-103/2016	Asian	EPI_ISL_18004433	2016-05-24	South America / Brazil / Tocantins / Araguaina	Human	Original			Oxford Nanopore technologies	bwa/nanopolish v. 0.5	10309	Stretches of NNNs (7.82% of overall sequence).	warn
+hZikaV/Brazil/un-OX-11/2016	Asian	EPI_ISL_18004434	2016-04-19	South America / Brazil / Sao Paulo	Human	Original			Oxford Nanopore technologies	bwa/nanopolish v. 0.5	10310	Stretches of NNNs (9.03% of overall sequence).	warn
+hZikaV/Brazil/un-OX-7/2016	Asian	EPI_ISL_18004435	2016-04-19	South America / Brazil / Sao Paulo	Human	Original			Oxford Nanopore technologies	bwa/nanopolish v. 0.5	10309	Stretches of NNNs (17.85% of overall sequence).	warn
+hZikaV/Brazil/un-OX-6/2016	Asian	EPI_ISL_18004436	2016-04-19	South America / Brazil / Sao Paulo	Human	Original			Oxford Nanopore technologies	bwa/nanopolish v. 0.5	9673	Long stretches of NNNs (28.76% of overall sequence).	alert
+hZikaV/Brazil/un-OX-4/2016	Asian	EPI_ISL_18004437	2016-04-18	South America / Brazil / Sao Paulo	Human	Original			Oxford Nanopore technologies	bwa/nanopolish v. 0.5	10565		
+hZikaV/Brazil/un-OX-2/2016	Asian	EPI_ISL_18004438	2016-04-18	South America / Brazil / Sao Paulo	Human	Original			Oxford Nanopore technologies	bwa/nanopolish v. 0.5	10565	Stretches of NNNs (5.73% of overall sequence).	warn
+hZikaV/Brazil/un-OX-1/2016	Asian	EPI_ISL_18004439	2016-04-18	South America / Brazil / Sao Paulo	Human	Original			Oxford Nanopore technologies	bwa/nanopolish v. 0.5	10565		
+hZikaV/Brazil/AL-OX-116/2015	Asian	EPI_ISL_18004440	2015-08-28	South America / Brazil / Alagoas	Human	Original			Oxford Nanopore technologies	bwa/nanopolish v. 0.5	10310	Stretches of NNNs (5.10% of overall sequence).	warn
+hZikaV/Brazil/un-OX-8/2016	Asian	EPI_ISL_18004441	2016-04-19	South America / Brazil / Sao Paulo	Human	Original			Oxford Nanopore technologies	bwa/nanopolish v. 0.5	10310	Stretches of NNNs (15.60% of overall sequence).	warn
+hZikaV/Brazil/un-IAL-18147/2016	Asian	EPI_ISL_18004506	2016-10-10	South America / Brazil	Human	C6/36 Vero			Sanger		1515		
+hZikaV/Brazil/un-IAL-19147/2016	Asian	EPI_ISL_18004507	2016-11-11	South America / Brazil	Human	Culture			Sanger		1515		
+hZikaV/Brazil/un-IAL-17829/2016	Asian	EPI_ISL_18004508	2016-03-05	South America / Brazil	Human	Culture			Sanger		1515		
+hZikaV/Brazil/un-IAL-22482/2016	Asian	EPI_ISL_18004509	2016-03-05	South America / Brazil	Human	Culture			Sanger		1515		
+hZikaV/Brazil/un-IAL-2716-1/2016	Asian	EPI_ISL_18004510	2016-07-07	South America / Brazil	Human	Culture			Sanger		1515		
+hZikaV/Brazil/un-IAL-31016/2016	Asian	EPI_ISL_18004511	2016-06-05	South America / Brazil	Human	C6/36 Vero			Sanger		1515		
+hZikaV/Brazil/un-IAL-310161/2016	Asian	EPI_ISL_18004512	2016-06-05	South America / Brazil	Human	Original	Urine		Sanger		1515		
+hZikaV/Brazil/un-Fiocruz-BM1/2016	Asian	EPI_ISL_18004538	2016-02-12	South America / Brazil	Human	Original	Breast milk		Sanger		10807		
+hZikaV/Brazil/AM-ZB2208301_0_151026V02/2018	Asian	EPI_ISL_18059199	2018-04-25	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10369		
+hZikaV/Brazil/AM-ZB2208003_0_251083V03/2018	Asian	EPI_ISL_18059200	2018-04-23	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10369		
+hZikaV/Brazil/AM-ZB2207919_0_251089V01/2018	Asian	EPI_ISL_18059201	2018-04-21	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10367		
+hZikaV/Brazil/AM-ZB2207895_0_251086V02/2018	Asian	EPI_ISL_18059202	2018-04-21	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10555		
+hZikaV/Brazil/AM-ZB2207876_0_251088V01/2018	Asian	EPI_ISL_18059203	2018-04-21	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10354		
+hZikaV/Brazil/AM-ZB2207802_0_251082V02/2018	Asian	EPI_ISL_18059204	2018-04-20	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10626		
+hZikaV/Brazil/AM-ZB2207769_0_251083V02/2018	Asian	EPI_ISL_18059205	2018-04-20	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10367		
+hZikaV/Brazil/AM-ZB2207439_1_251076V03/2018	Asian	EPI_ISL_18059206	2018-04-17	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		8158	Stretches of NNNs (14.65% of overall sequence). C without BLAST coverage. Partial NS5 gene sequence is reported. Partial prM gene sequence is reported.	warn
+hZikaV/Brazil/AM-ZB2207197_0_251080V01/2018	Asian	EPI_ISL_18059207	2018-04-15	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10368		
+hZikaV/Brazil/AM-ZB2207185_0_151023V01/2018	Asian	EPI_ISL_18059208	2018-04-15	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10367		
+hZikaV/Brazil/AM-ZB2207157_0/2018	Asian	EPI_ISL_18059209	2018-04-14	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10367		
+hZikaV/Brazil/AM-ZB2207114_0_151020V03/2018	Asian	EPI_ISL_18059210	2018-04-14	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10366		
+hZikaV/Brazil/AM-ZB2207069_0/2018	Asian	EPI_ISL_18059211	2018-04-13	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10368		
+hZikaV/Brazil/AM-ZB2207005_0_V00/2018	Asian	EPI_ISL_18059212	2018-04-13	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10447		
+hZikaV/Brazil/AM-ZB2207004_0/2018	Asian	EPI_ISL_18059213	2018-04-13	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10367		
+hZikaV/Brazil/AM-ZB2206977_0_251074V02/2018	Asian	EPI_ISL_18059214	2018-04-13	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10368	Stretches of NNNs (5.24% of overall sequence).	warn
+hZikaV/Brazil/AM-ZB2206892_0_251074V01/2018	Asian	EPI_ISL_18059215	2018-04-12	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10367		
+hZikaV/Brazil/AM-ZB2206829_0_151019V01/2018	Asian	EPI_ISL_18059216	2018-04-11	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10367		
+hZikaV/Brazil/AM-ZB2206747_0/2018	Asian	EPI_ISL_18059217	2018-04-09	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10367	Stretches of NNNs (5.24% of overall sequence).	warn
+hZikaV/Brazil/AM-ZB2206695_0_251071V02/2018	Asian	EPI_ISL_18059218	2018-04-09	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10625		
+hZikaV/Brazil/AM-ZB2206640_0_251065V03/2018	Asian	EPI_ISL_18059219	2018-04-09	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10345		
+hZikaV/Brazil/AM-ZB2206620_0_251063V04/2018	Asian	EPI_ISL_18059220	2018-04-09	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10367		
+hZikaV/Brazil/AM-ZB2206533_0/2018	Asian	EPI_ISL_18059221	2018-04-06	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10368		
+hZikaV/Brazil/AM-ZB2206434_0_251068V02/2018	Asian	EPI_ISL_18059222	2018-04-05	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10367		
+hZikaV/Brazil/AM-ZB2206229_0/2018	Asian	EPI_ISL_18059223	2018-04-03	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10368		
+hZikaV/Brazil/AM-ZB2206145_0/2018	Asian	EPI_ISL_18059224	2018-04-02	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10368		
+hZikaV/Brazil/AM-ZB2206142_0/2018	Asian	EPI_ISL_18059225	2018-04-02	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10368		
+hZikaV/Brazil/AM-ZB2206139_0/2018	Asian	EPI_ISL_18059226	2018-04-02	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10039	Long stretches of NNNs (28.20% of overall sequence). 2K without BLAST coverage. Partial C gene sequence is reported.	alert
+hZikaV/Brazil/AM-ZB2205948_0_V00/2018	Asian	EPI_ISL_18059227	2018-03-27	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10362	2K without BLAST coverage.	warn
+hZikaV/Brazil/AM-ZB2205575_0/2018	Asian	EPI_ISL_18059228	2018-03-21	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10367		
+hZikaV/Brazil/AM-ZB2205527_0/2018	Asian	EPI_ISL_18059229	2018-03-21	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10367		
+hZikaV/Brazil/AM-ZB2205516_0/2018	Asian	EPI_ISL_18059230	2018-03-21	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10371		
+hZikaV/Brazil/AM-ZB2205515_0_V00/2018	Asian	EPI_ISL_18059231	2018-03-21	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10354	Stretches of NNNs (12.00% of overall sequence). 2K without BLAST coverage. NS4A without BLAST coverage.	warn
+hZikaV/Brazil/AM-ZB2205514_0/2018	Asian	EPI_ISL_18059232	2018-03-21	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10368		
+hZikaV/Brazil/AM-ZB2205502_0_251056V01/2018	Asian	EPI_ISL_18059233	2018-03-21	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10340	Stretches of NNNs (7.57% of overall sequence).	warn
+hZikaV/Brazil/AM-ZB2205474_0_251053V03/2018	Asian	EPI_ISL_18059234	2018-03-20	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10367		
+hZikaV/Brazil/AM-ZB2205455_0_251055V01/2018	Asian	EPI_ISL_18059235	2018-03-20	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10614		
+hZikaV/Brazil/AM-ZB2205360_0_151013V03/2018	Asian	EPI_ISL_18059236	2018-03-19	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10367		
+hZikaV/Brazil/AM-ZB2104785_1/2018	Asian	EPI_ISL_18059237	2018-06-09	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10367		
+hZikaV/Brazil/AM-ZB2104785_0/2018	Asian	EPI_ISL_18059238	2018-06-09	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10367		
+hZikaV/Brazil/AM-ZB2104675_0_251134V02/2018	Asian	EPI_ISL_18059239	2018-06-08	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		9702	Long stretches of NNNs (32.88% of overall sequence). C without BLAST coverage. prM without BLAST coverage.	alert
+hZikaV/Brazil/AM-ZB2104663_0/2018	Asian	EPI_ISL_18059240	2018-06-08	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10367		
+hZikaV/Brazil/AM-ZB2104646_0/2018	Asian	EPI_ISL_18059241	2018-06-08	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10369		
+hZikaV/Brazil/AM-ZB2104636_1_251135V01/2018	Asian	EPI_ISL_18059242	2018-06-08	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10366		
+hZikaV/Brazil/AM-ZB2104636_0/2018	Asian	EPI_ISL_18059243	2018-06-08	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10367		
+hZikaV/Brazil/AM-ZB2104321_1/2018	Asian	EPI_ISL_18059244	2018-06-06	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10367		
+hZikaV/Brazil/AM-ZB2104057_0_251129V02/2018	Asian	EPI_ISL_18059245	2018-06-01	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10321	Stretches of NNNs (12.79% of overall sequence).	warn
+hZikaV/Brazil/AM-ZB2103875_0_251119V03/2018	Asian	EPI_ISL_18059246	2018-05-30	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10356	Stretches of NNNs (10.84% of overall sequence).	warn
+hZikaV/Brazil/AM-ZB2103851_0_251127V02/2018	Asian	EPI_ISL_18059247	2018-05-30	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10366	Stretches of NNNs (6.73% of overall sequence). NS4A without BLAST coverage.	warn
+hZikaV/Brazil/AM-ZB2103842_0_251126V02/2018	Asian	EPI_ISL_18059248	2018-05-30	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10353	Stretches of NNNs (7.75% of overall sequence).	warn
+hZikaV/Brazil/AM-ZB2103753_0_251127V01/2018	Asian	EPI_ISL_18059249	2018-05-29	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10354	Stretches of NNNs (13.91% of overall sequence).	warn
+hZikaV/Brazil/AM-ZB2103701_0_251126V01/2018	Asian	EPI_ISL_18059250	2018-05-29	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10367		
+hZikaV/Brazil/AM-ZB2103554_0_251119V02/2018	Asian	EPI_ISL_18059251	2018-05-28	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10367		
+hZikaV/Brazil/AM-ZB2103539_0_251118V02/2018	Asian	EPI_ISL_18059252	2018-05-28	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10346	Stretches of NNNs (10.05% of overall sequence). 2K without BLAST coverage. NS4A without BLAST coverage.	warn
+hZikaV/Brazil/AM-ZB2103518_0_251116V03/2018	Asian	EPI_ISL_18059253	2018-05-28	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10621		
+hZikaV/Brazil/AM-ZB2103407_0_251121V01/2018	Asian	EPI_ISL_18059254	2018-05-26	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10610		
+hZikaV/Brazil/AM-ZB2103397_0_251120V01/2018	Asian	EPI_ISL_18059255	2018-05-26	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10481		
+hZikaV/Brazil/AM-ZB2103386_0_251119V01/2018	Asian	EPI_ISL_18059256	2018-05-26	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10621		
+hZikaV/Brazil/AM-ZB2103327_0_251116V02/2018	Asian	EPI_ISL_18059257	2018-05-26	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10368		
+hZikaV/Brazil/AM-ZB2103296_0_151041V01/2018	Asian	EPI_ISL_18059258	2018-05-25	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10622		
+hZikaV/Brazil/AM-ZB2103241_0_251116V01/2018	Asian	EPI_ISL_18059259	2018-05-25	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10362	Stretches of NNNs (5.94% of overall sequence). NS4A without BLAST coverage.	warn
+hZikaV/Brazil/AM-ZB2103148_0_151038V04/2018	Asian	EPI_ISL_18059260	2018-05-24	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10548		
+hZikaV/Brazil/AM-ZB2103009_0_151037V03/2018	Asian	EPI_ISL_18059261	2018-05-23	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10618		
+hZikaV/Brazil/AM-ZB2102919_0_251107V03/2018	Asian	EPI_ISL_18059262	2018-05-22	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10368		
+hZikaV/Brazil/AM-ZB2102839_0_151040V03/2018	Asian	EPI_ISL_18059263	2018-05-22	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10367		
+hZikaV/Brazil/AM-ZB2102737_0_V00/2018	Asian	EPI_ISL_18059264	2018-05-17	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10353	Stretches of NNNs (9.83% of overall sequence). 2K without BLAST coverage. NS4A without BLAST coverage.	warn
+hZikaV/Brazil/AM-ZB2102729_0_251105V03/2018	Asian	EPI_ISL_18059265	2018-05-21	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10353	Stretches of NNNs (10.96% of overall sequence). NS4A without BLAST coverage.	warn
+hZikaV/Brazil/AM-ZB2102704_0_251100V02/2018	Asian	EPI_ISL_18059266	2018-05-14	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10361		
+hZikaV/Brazil/AM-ZB2102621_0_251102V02/2018	Asian	EPI_ISL_18059267	2018-05-14	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10366	Stretches of NNNs (7.50% of overall sequence).	warn
+hZikaV/Brazil/AM-ZB2102614_0_151030V05/2018	Asian	EPI_ISL_18059268	2018-05-14	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10355	Stretches of NNNs (8.69% of overall sequence).	warn
+hZikaV/Brazil/AM-ZB2102596_0_251094V03/2018	Asian	EPI_ISL_18059269	2018-05-14	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10030	Long stretches of NNNs (29.92% of overall sequence). 2K without BLAST coverage. NS4A without BLAST coverage. Partial C gene sequence is reported.	alert
+hZikaV/Brazil/AM-ZB2102563_0/2018	Asian	EPI_ISL_18059270	2018-05-14	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10368		
+hZikaV/Brazil/AM-ZB2102524_0_251113V01/2018	Asian	EPI_ISL_18059271	2018-05-19	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10369		
+hZikaV/Brazil/AM-ZB2102506_0_151037V02/2018	Asian	EPI_ISL_18059272	2018-05-19	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10367		
+hZikaV/Brazil/AM-ZB2102471_0_151040V01/2018	Asian	EPI_ISL_18059273	2018-05-18	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10359		
+hZikaV/Brazil/AM-ZB2102453_0_251107V02/2018	Asian	EPI_ISL_18059274	2018-05-18	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10367	Stretches of NNNs (5.92% of overall sequence). NS4A without BLAST coverage.	warn
+hZikaV/Brazil/AM-ZB2102444_0_251105V02/2018	Asian	EPI_ISL_18059275	2018-05-18	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10367		
+hZikaV/Brazil/AM-ZB2102373_0_251104V02/2018	Asian	EPI_ISL_18059276	2018-05-18	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10367		
+hZikaV/Brazil/AM-ZB2102353_0_251106V03/2018	Asian	EPI_ISL_18059277	2018-05-18	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10367		
+hZikaV/Brazil/AM-ZB2102314_0_151037V01/2018	Asian	EPI_ISL_18059278	2018-05-18	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10619		
+hZikaV/Brazil/AM-ZB2102313_0/2018	Asian	EPI_ISL_18059279	2018-05-18	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10367		
+hZikaV/Brazil/AM-ZB2102275_0_251110V01/2018	Asian	EPI_ISL_18059280	2018-05-17	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10332	Long stretches of NNNs (30.88% of overall sequence). 2K without BLAST coverage. NS4A without BLAST coverage.	alert
+hZikaV/Brazil/AM-ZB2102177_0_251106V02/2018	Asian	EPI_ISL_18059281	2018-05-17	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10621		
+hZikaV/Brazil/AM-ZB2102098_0_251107V01/2018	Asian	EPI_ISL_18059282	2018-05-16	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10366		
+hZikaV/Brazil/AM-ZB2102063_0_251106V01/2018	Asian	EPI_ISL_18059283	2018-05-16	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10367	Stretches of NNNs (7.81% of overall sequence).	warn
+hZikaV/Brazil/AM-ZB2102057_0/2018	Asian	EPI_ISL_18059284	2018-05-16	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10368		
+hZikaV/Brazil/AM-ZB2102001_0_251105V01/2018	Asian	EPI_ISL_18059285	2018-05-16	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10360	Stretches of NNNs (10.14% of overall sequence).	warn
+hZikaV/Brazil/AM-ZB2101974_0_251102V03/2018	Asian	EPI_ISL_18059286	2018-05-16	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10598		
+hZikaV/Brazil/AM-ZB2101955_0_251104V01/2018	Asian	EPI_ISL_18059287	2018-05-16	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10366		
+hZikaV/Brazil/AM-ZB2101868_0_251097V03/2018	Asian	EPI_ISL_18059288	2018-05-15	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10353	Stretches of NNNs (15.39% of overall sequence). 2K without BLAST coverage. NS4A without BLAST coverage.	warn
+hZikaV/Brazil/AM-ZB2101830_0_251102V01/2018	Asian	EPI_ISL_18059289	2018-05-12	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10356	Stretches of NNNs (12.89% of overall sequence). NS4A without BLAST coverage.	warn
+hZikaV/Brazil/AM-ZB2101804_0_151034V02/2018	Asian	EPI_ISL_18059290	2018-05-12	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10620		
+hZikaV/Brazil/AM-ZB2101798_1_151033V03/2018	Asian	EPI_ISL_18059291	2018-05-12	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10367		
+hZikaV/Brazil/AM-ZB2101771_0_251099V02/2018	Asian	EPI_ISL_18059292	2018-05-12	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10039	Long stretches of NNNs (27.93% of overall sequence). 2K without BLAST coverage. Partial C gene sequence is reported.	alert
+hZikaV/Brazil/AM-ZB2101752_0_151036V01/2018	Asian	EPI_ISL_18059293	2018-05-12	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10626		
+hZikaV/Brazil/AM-ZB2101651_0/2018	Asian	EPI_ISL_18059294	2018-05-11	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10369		
+hZikaV/Brazil/AM-ZB2101626_0/2018	Asian	EPI_ISL_18059295	2018-05-11	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10367		
+hZikaV/Brazil/AM-ZB2101613_1_151033V02/2018	Asian	EPI_ISL_18059296	2018-05-11	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10369		
+hZikaV/Brazil/AM-ZB2101613_0_151033V02/2018	Asian	EPI_ISL_18059297	2018-05-11	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10596		
+hZikaV/Brazil/AM-ZB2101604_0_251095V02/2018	Asian	EPI_ISL_18059298	2018-05-11	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10354		
+hZikaV/Brazil/AM-ZB2101522_0_151032V04/2018	Asian	EPI_ISL_18059299	2018-05-10	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10367		
+hZikaV/Brazil/AM-ZB2101465_1_151033V01/2018	Asian	EPI_ISL_18059300	2018-05-09	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10367	Stretches of NNNs (11.59% of overall sequence). NS4A without BLAST coverage.	warn
+hZikaV/Brazil/AM-ZB2101455_0_251095V01/2018	Asian	EPI_ISL_18059301	2018-05-09	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10367		
+hZikaV/Brazil/AM-ZB210105_0_251093V01/2018	Asian	EPI_ISL_18059302	2018-05-08	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10611		
+hZikaV/Brazil/AM-ZB210063_0151032_V03/2018	Asian	EPI_ISL_18059303	2018-05-08	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10612		
+hZikaV/Brazil/AM-ZB208968_0_251092V01/2018	Asian	EPI_ISL_18059304	2018-05-05	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10367		
+hZikaV/Brazil/AM-ZB208962_0_151032V02/2018	Asian	EPI_ISL_18059305	2018-05-05	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10610		
+hZikaV/Brazil/AM-ZB208930_0_151026V04/2018	Asian	EPI_ISL_18059306	2018-05-04	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10367		
+hZikaV/Brazil/AM-ZB208833_0_251091V01/2018	Asian	EPI_ISL_18059307	2018-05-04	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10367		
+hZikaV/Brazil/AM-ZB208661_0_151030V03/2018	Asian	EPI_ISL_18059308	2018-05-02	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10367	Stretches of NNNs (12.03% of overall sequence).	warn
+hZikaV/Brazil/AM-ZB208559_0_151030V02/2018	Asian	EPI_ISL_18059309	2018-04-28	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10348		
+hZikaV/Brazil/AM-ZB208433_1_151025V04/2018	Asian	EPI_ISL_18059310	2018-04-27	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10618		
+hZikaV/Brazil/AM-ZB208366_0_151026V03/2018	Asian	EPI_ISL_18059311	2018-04-26	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10625		
+hZikaV/Brazil/AM-ZB208173_0_151027V01/2018	Asian	EPI_ISL_18059312	2018-04-24	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10038	Stretches of NNNs (11.46% of overall sequence). Partial C gene sequence is reported.	warn
+hZikaV/Brazil/AM-ZB208163_0_151026V01/2018	Asian	EPI_ISL_18059313	2018-04-24	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10368		
+hZikaV/Brazil/AM-ZB205298_0_251053V02/2018	Asian	EPI_ISL_18059314	2018-03-16	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10367		
+hZikaV/Brazil/AM-ZB205292_0_151013V02/2018	Asian	EPI_ISL_18059315	2018-03-16	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10368		
+hZikaV/Brazil/AM-ZB205265_0_251054V02/2018	Asian	EPI_ISL_18059316	2018-03-16	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10428		
+hZikaV/Brazil/AM-ZB205217_0_251054V01/2018	Asian	EPI_ISL_18059317	2018-03-15	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10609		
+hZikaV/Brazil/AM-ZB205207_0_251053V01/2018	Asian	EPI_ISL_18059318	2018-03-15	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10367	Stretches of NNNs (5.53% of overall sequence).	warn
+hZikaV/Brazil/AM-ZB205157_0-151013V01/2018	Asian	EPI_ISL_18059319	2018-03-14	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10367		
+hZikaV/Brazil/AM-ZB205103_0/2018	Asian	EPI_ISL_18059320	2018-03-13	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10367		
+hZikaV/Brazil/AM-ZB205052_0/2018	Asian	EPI_ISL_18059321	2018-03-13	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10367	Stretches of NNNs (5.77% of overall sequence).	warn
+hZikaV/Brazil/AM-ZB204935_0_151012V01/2018	Asian	EPI_ISL_18059322	2018-03-10	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10506		
+hZikaV/Brazil/AM-ZB204917_0_251051V02/2018	Asian	EPI_ISL_18059323	2018-03-10	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10365		
+hZikaV/Brazil/AM-ZB204899_0_251050V02/2018	Asian	EPI_ISL_18059324	2018-03-09	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10357		
+hZikaV/Brazil/AM-ZB204872_0/2018	Asian	EPI_ISL_18059325	2018-03-09	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10368		
+hZikaV/Brazil/AM-ZB204848_0-151011V03/2018	Asian	EPI_ISL_18059326	2018-03-09	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10367		
+hZikaV/Brazil/AM-ZB204827_0-251050V01/2018	Asian	EPI_ISL_18059327	2018-03-08	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10226	Stretches of NNNs (18.02% of overall sequence).	warn
+hZikaV/Brazil/AM-ZB204807_0/2018	Asian	EPI_ISL_18059328	2018-03-08	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10367		
+hZikaV/Brazil/AM-ZB204753_0/2018	Asian	EPI_ISL_18059329	2018-03-07	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10368		
+hZikaV/Brazil/AM-ZB204722_0/2018	Asian	EPI_ISL_18059330	2018-03-07	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10367		
+hZikaV/Brazil/AM-ZB204638_0/2018	Asian	EPI_ISL_18059331	2018-03-06	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10368		
+hZikaV/Brazil/AM-ZB204612_0/2018	Asian	EPI_ISL_18059332	2018-03-06	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10368		
+hZikaV/Brazil/AM-ZB204552_0/2018	Asian	EPI_ISL_18059333	2018-03-05	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10367		
+hZikaV/Brazil/AM-ZB204384_0_151010V04/2018	Asian	EPI_ISL_18059334	2018-03-02	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10620		
+hZikaV/Brazil/AM-ZB204225_0/2018	Asian	EPI_ISL_18059335	2018-02-26	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10368		
+hZikaV/Brazil/AM-ZB204192_0-251037V02/2018	Asian	EPI_ISL_18059336	2018-02-24	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10555		
+hZikaV/Brazil/AM-ZB204008_0/2018	Asian	EPI_ISL_18059337	2018-02-21	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10367		
+hZikaV/Brazil/AM-ZB203987_0/2018	Asian	EPI_ISL_18059338	2018-02-20	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10367		
+hZikaV/Brazil/AM-ZB203985_0/2018	Asian	EPI_ISL_18059339	2018-02-20	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10367		
+hZikaV/Brazil/AM-ZB203915_0/2018	Asian	EPI_ISL_18059340	2018-02-19	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10367		
+hZikaV/Brazil/AM-ZB203899_0_151009V01/2018	Asian	EPI_ISL_18059341	2018-02-17	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10626		
+hZikaV/Brazil/AM-ZB203897_0/2018	Asian	EPI_ISL_18059342	2018-02-16	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10369		
+hZikaV/Brazil/AM-ZB203495_1-151008V02/2018	Asian	EPI_ISL_18059343	2018-02-02	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10367		
+hZikaV/Brazil/AM-ZB203443_0-251030V01/2018	Asian	EPI_ISL_18059344	2018-01-31	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10351	Stretches of NNNs (5.91% of overall sequence).	warn
+hZikaV/Brazil/AM-ZB203430_0/2018	Asian	EPI_ISL_18059345	2018-01-31	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10368		
+hZikaV/Brazil/AM-ZB203113_0/2018	Asian	EPI_ISL_18059346	2018-01-29	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10368		
+hZikaV/Brazil/AM-ZB203006_0_151005V01/2018	Asian	EPI_ISL_18059347	2018-01-26	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10621		
+hZikaV/Brazil/AM-ZB203004_0/2018	Asian	EPI_ISL_18059348	2018-01-25	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10368		
+hZikaV/Brazil/AM-ZB202977_0_251027V02/2018	Asian	EPI_ISL_18059349	2018-01-25	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10328	Stretches of NNNs (5.19% of overall sequence).	warn
+hZikaV/Brazil/AM-ZB202877_0-251027V01/2018	Asian	EPI_ISL_18059351	2018-01-23	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10367	Stretches of NNNs (6.74% of overall sequence).	warn
+hZikaV/Brazil/AM-ZB202736_0-251021V02/2018	Asian	EPI_ISL_18059352	2018-01-19	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10367		
+hZikaV/Brazil/AM-ZB202727_0_251020V02/2018	Asian	EPI_ISL_18059353	2018-01-19	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10368		
+hZikaV/Brazil/AM-ZB202643_0_251020V01/2018	Asian	EPI_ISL_18059354	2018-01-18	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10368		
+hZikaV/Brazil/AM-ZB202630_0/2018	Asian	EPI_ISL_18059355	2018-01-17	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10367		
+hZikaV/Brazil/AM-ZB202568_0/2018	Asian	EPI_ISL_18059356	2018-01-16	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10367		
+hZikaV/Brazil/AM-ZB202566_0/2018	Asian	EPI_ISL_18059357	2018-01-16	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10368		
+hZikaV/Brazil/AM-ZB202562_0/2018	Asian	EPI_ISL_18059358	2018-01-16	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10367		
+hZikaV/Brazil/AM-ZB202506_0/2018	Asian	EPI_ISL_18059359	2018-01-15	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10367		
+hZikaV/Brazil/AM-ZB202503_0_V00/2018	Asian	EPI_ISL_18059360	2018-01-15	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10367		
+hZikaV/Brazil/AM-ZB200803_0_151006V01/2018	Asian	EPI_ISL_18059361	2018-01-30	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10367		
+hZikaV/Brazil/AM-ZB200214_1/2017	Asian	EPI_ISL_18059362	2017-09-01	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10367		
+hZikaV/Brazil/AM-ZB200154_1/2017	Asian	EPI_ISL_18059363	2017-08-23	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10368		
+hZikaV/Brazil/AM-SNI179017A/2019	Asian	EPI_ISL_18059364	2019-08-06	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10010	Long stretches of NNNs (41.16% of overall sequence). Partial C gene sequence is reported.	alert
+hZikaV/Brazil/AM-SNI178201A/2019	Asian	EPI_ISL_18059365	2019-07-08	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10368		
+hZikaV/Brazil/AM-SNI178009A/2019	Asian	EPI_ISL_18059366	2019-07-01	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10367		
+hZikaV/Brazil/AM-SNI177984A/2019	Asian	EPI_ISL_18059367	2019-07-01	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10367	Stretches of NNNs (7.72% of overall sequence). NS4A without BLAST coverage.	warn
+hZikaV/Brazil/AM-SNI177335A/2019	Asian	EPI_ISL_18059368	2019-06-19	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10368		
+hZikaV/Brazil/AM-SNI177060A/2019	Asian	EPI_ISL_18059369	2019-06-14	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10227	Long stretches of NNNs (28.61% of overall sequence). Partial C gene sequence is reported.	alert
+hZikaV/Brazil/AM-SNI177028A/2019	Asian	EPI_ISL_18059370	2019-06-13	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10242	Long stretches of NNNs (27.08% of overall sequence). Partial C gene sequence is reported.	alert
+hZikaV/Brazil/AM-SNI176893A/2019	Asian	EPI_ISL_18059371	2019-06-11	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10215	Long stretches of NNNs (38.09% of overall sequence). Partial C gene sequence is reported.	alert
+hZikaV/Brazil/AM-SNI175538A/2019	Asian	EPI_ISL_18059372	2019-05-20	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10367		
+hZikaV/Brazil/AM-SNI175319A/2019	Asian	EPI_ISL_18059373	2019-05-17	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10367	Stretches of NNNs (8.76% of overall sequence). 2K without BLAST coverage.	warn
+hZikaV/Brazil/AM-SNI174708A/2019	Asian	EPI_ISL_18059374	2019-05-09	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10367		
+hZikaV/Brazil/AM-SNI174013A/2019	Asian	EPI_ISL_18059375	2019-04-30	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10368		
+hZikaV/Brazil/AM-SNI173555A/2019	Asian	EPI_ISL_18059376	2019-04-26	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10367		
+hZikaV/Brazil/AM-SNI173505A/2019	Asian	EPI_ISL_18059377	2019-04-26	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10367		
+hZikaV/Brazil/AM-SNI173504A/2019	Asian	EPI_ISL_18059378	2019-04-26	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10367		
+hZikaV/Brazil/AM-SNI173359A/2019	Asian	EPI_ISL_18059379	2019-04-25	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10368		
+hZikaV/Brazil/AM-SNI173076A/2019	Asian	EPI_ISL_18059380	2019-04-23	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10362	Stretches of NNNs (10.84% of overall sequence). NS4A without BLAST coverage.	warn
+hZikaV/Brazil/AM-SNI173058A_151035V17/2019	Asian	EPI_ISL_18059381	2019-04-23	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10621		
+hZikaV/Brazil/AM-SNI173057A_151035V17/2019	Asian	EPI_ISL_18059382	2019-04-23	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10625		
+hZikaV/Brazil/AM-SNI172884A/2019	Asian	EPI_ISL_18059383	2019-04-22	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10369		
+hZikaV/Brazil/AM-SNI171291A/2019	Asian	EPI_ISL_18059384	2019-04-08	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10367		
+hZikaV/Brazil/AM-SNI170925A/2019	Asian	EPI_ISL_18059385	2019-04-04	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10367		
+hZikaV/Brazil/AM-SNI170444A/2019	Asian	EPI_ISL_18059386	2019-04-01	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10367		
+hZikaV/Brazil/AM-SNI170378A/2019	Asian	EPI_ISL_18059387	2019-04-01	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10367		
+hZikaV/Brazil/AM-SNI170078A/2019	Asian	EPI_ISL_18059388	2019-03-29	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10367		
+hZikaV/Brazil/AM-SNI170043A_151064V04/2019	Asian	EPI_ISL_18059389	2019-03-29	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10405		
+hZikaV/Brazil/AM-SNI169538A/2019	Asian	EPI_ISL_18059390	2019-03-27	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10491	Stretches of NNNs (8.59% of overall sequence).	warn
+hZikaV/Brazil/AM-SNI169096A/2019	Asian	EPI_ISL_18059391	2019-03-23	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10021	Stretches of NNNs (16.09% of overall sequence). Partial C gene sequence is reported.	warn
+hZikaV/Brazil/AM-SNI169047A_251069V17/2019	Asian	EPI_ISL_18059392	2019-03-22	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10612		
+hZikaV/Brazil/AM-SNI168894A/2019	Asian	EPI_ISL_18059393	2019-03-22	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10273	Stretches of NNNs (21.24% of overall sequence). Partial C gene sequence is reported.	warn
+hZikaV/Brazil/AM-SNI168811A/2019	Asian	EPI_ISL_18059394	2019-03-21	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10244	Long stretches of NNNs (28.50% of overall sequence). Partial C gene sequence is reported.	alert
+hZikaV/Brazil/AM-SNI166492A/2019	Asian	EPI_ISL_18059395	2019-02-27	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10367		
+hZikaV/Brazil/AM-SNI156304A/2018	Asian	EPI_ISL_18059396	2018-11-27	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10194	Long stretches of NNNs (35.66% of overall sequence). Partial C gene sequence is reported.	alert
+hZikaV/Brazil/AM-SNI156218A_151022V13/2018	Asian	EPI_ISL_18059397	2018-11-26	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10532	Stretches of NNNs (7.11% of overall sequence).	warn
+hZikaV/Brazil/AM-SNI151590A/2018	Asian	EPI_ISL_18059398	2018-10-15	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10235	Long stretches of NNNs (35.24% of overall sequence). C without BLAST coverage.	alert
+hZikaV/Brazil/AM-SNI151157A/2018	Asian	EPI_ISL_18059399	2018-10-10	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10114	Long stretches of NNNs (43.15% of overall sequence). C without BLAST coverage.	alert
+hZikaV/Brazil/AM-SNI149867A/2018	Asian	EPI_ISL_18059400	2018-10-01	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10192	Long stretches of NNNs (33.12% of overall sequence). C without BLAST coverage.	alert
+hZikaV/Brazil/AM-SNI147551A/2018	Asian	EPI_ISL_18059401	2018-09-14	South America / Brazil / Amazonas	Human	Original			Illumina MiSeq		20853	Long stretches of NNNs (26.99% of overall sequence). Insertion of 10623 nucleotides when compared to the reference sequence. Partial C gene sequence is reported.	alert
+hZikaV/Brazil/AM-SNI143677A_251160V02/2018	Asian	EPI_ISL_18059402	2018-08-17	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10369		
+hZikaV/Brazil/AM-SNI143650A/2018	Asian	EPI_ISL_18059403	2018-08-17	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10018	Long stretches of NNNs (30.95% of overall sequence). NS2B without BLAST coverage. Partial C gene sequence is reported.	alert
+hZikaV/Brazil/AM-SNI143352A/2018	Asian	EPI_ISL_18059404	2018-08-15	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10127	Long stretches of NNNs (28.30% of overall sequence). Partial C gene sequence is reported.	alert
+hZikaV/Brazil/AM-SNI142833A/2018	Asian	EPI_ISL_18059405	2018-08-13	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10368		
+hZikaV/Brazil/AM-SNI142734A/2018	Asian	EPI_ISL_18059407	2018-08-13	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10229	Stretches of NNNs (22.26% of overall sequence). Partial C gene sequence is reported.	warn
+hZikaV/Brazil/AM-SNI142430A/2018	Asian	EPI_ISL_18059408	2018-08-10	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10367		
+hZikaV/Brazil/AM-SNI142216A/2018	Asian	EPI_ISL_18059409	2018-08-09	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10629		
+hZikaV/Brazil/AM-SNI142200A/2018	Asian	EPI_ISL_18059410	2018-08-09	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10367	2K without BLAST coverage.	warn
+hZikaV/Brazil/AM-SNI141830A/2018	Asian	EPI_ISL_18059411	2018-08-07	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10368		
+hZikaV/Brazil/AM-SNI141773A/2018	Asian	EPI_ISL_18059412	2018-08-07	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10353	Stretches of NNNs (12.09% of overall sequence). 2K without BLAST coverage. NS4A without BLAST coverage.	warn
+hZikaV/Brazil/AM-SNI140117A/2018	Asian	EPI_ISL_18059413	2018-07-26	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10367		
+hZikaV/Brazil/AM-SNI139270A/2018	Asian	EPI_ISL_18059414	2018-07-21	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10545	Stretches of NNNs (11.57% of overall sequence).	warn
+hZikaV/Brazil/AM-SNI139107A_251064V09/2018	Asian	EPI_ISL_18059415	2018-07-20	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10367		
+hZikaV/Brazil/AM-SNI138976A/2018	Asian	EPI_ISL_18059416	2018-07-20	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10368		
+hZikaV/Brazil/AM-SNI138306A/2018	Asian	EPI_ISL_18059417	2018-07-16	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10130	Long stretches of NNNs (37.89% of overall sequence). Partial C gene sequence is reported.	alert
+hZikaV/Brazil/AM-SNI137134A/2018	Asian	EPI_ISL_18059418	2018-07-10	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10353		
+hZikaV/Brazil/AM-SNI136316A/2018	Asian	EPI_ISL_18059419	2018-07-05	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10030	Stretches of NNNs (16.63% of overall sequence). Partial C gene sequence is reported.	warn
+hZikaV/Brazil/AM-SNI136090A/2018	Asian	EPI_ISL_18059420	2018-07-04	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10369		
+hZikaV/Brazil/AM-SNI135926A/2018	Asian	EPI_ISL_18059421	2018-07-02	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10368		
+hZikaV/Brazil/AM-SNI135694A/2018	Asian	EPI_ISL_18059422	2018-07-02	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10353		
+hZikaV/Brazil/AM-SNI135652A_V00/2018	Asian	EPI_ISL_18059423	2018-07-02	South America / Brazil / Amazonas	Human	Original			Illumina Miseq		10356		
+hZikaV/Brazil/GO-USP-20120F1/2015	Asian	EPI_ISL_18705718	2015-06-13	South America / Brazil / Goias	Human	Original			Illumina	Bowtie2 v. 2.4.1	10672		
+hZikaV/Brazil/GO-USP-20408F1/2016	Asian	EPI_ISL_18705719	2016-03-14	South America / Brazil / Goias	Human	Original			Illumina	Bowtie2 v. 2.4.1	10693		
+hZikaV/Brazil/BA-FIOCRUZ-TRDP274/2015	Asian	EPI_ISL_18707716	2015-05-20	South America / Brazil / Bahia / Salvador	Human	Original			Oxford Nanopore	Guppy v. 3.4.4; Porechop v. 0.2.4; Burrows-Wheeler Aligner v. 0.7.17-r1188; nanopolish v. 0.11.3; VCFtools v. 0.1.16; SAMtools v. 1.10; Seqtk v. 1.3-r106	9464	Partial NS5 gene sequence is reported.	
+hZikaV/Brazil/BA-FIOCRUZ-TRDP333/2015	Asian	EPI_ISL_18707717	2015-05-27	South America / Brazil / Bahia / Salvador	Human	Original			Oxford Nanopore	Guppy v. 3.4.4; Porechop v. 0.2.4; Burrows-Wheeler Aligner v. 0.7.17-r1188; nanopolish v. 0.11.3; VCFtools v. 0.1.16; SAMtools v. 1.10; Seqtk v. 1.3-r106	9462	Stretches of NNNs (7.92% of overall sequence). Partial NS5 gene sequence is reported.	warn
+hZikaV/Brazil/BA-FIOCRUZ-TRDP309/2015	Asian	EPI_ISL_18707718	2015-05-26	South America / Brazil / Bahia / Salvador	Human	Original			Oxford Nanopore	Guppy v. 3.4.4; Porechop v. 0.2.4; Burrows-Wheeler Aligner v. 0.7.17-r1188; nanopolish v. 0.11.3; VCFtools v. 0.1.16; SAMtools v. 1.10; Seqtk v. 1.3-r106	10372	Stretches of NNNs (8.37% of overall sequence).	warn
+hZikaV/Brazil/BA-FIOCRUZ-TRDP173/2015	Asian	EPI_ISL_18707719	2015-05-06	South America / Brazil / Bahia / Salvador	Human	Original			Oxford Nanopore	Guppy v. 3.4.4; Porechop v. 0.2.4; Burrows-Wheeler Aligner v. 0.7.17-r1188; nanopolish v. 0.11.3; VCFtools v. 0.1.16; SAMtools v. 1.10; Seqtk v. 1.3-r106	10638		
+hZikaV/Brazil/BA-FIOCRUZ-TRDP300/2015	Asian	EPI_ISL_18708113	2015-05-22	South America / Brazil / Bahia / Salvador	Human	Original			Oxford Nanopore	Guppy v. 3.4.4; Porechop v. 0.2.4; Burrows-Wheeler Aligner v. 0.7.17-r1188; nanopolish v. 0.11.3; VCFtools v. 0.1.16; SAMtools v. 1.10; Seqtk v. 1.3-r106	9464	Stretches of NNNs (6.49% of overall sequence). Partial NS5 gene sequence is reported.	warn
+hZikaV/Brazil/BA-FIOCRUZ-TRDP433/2015	Asian	EPI_ISL_18708114	2015-07-09	South America / Brazil / Bahia / Salvador	Human	Original			Oxford Nanopore	Guppy v. 3.4.4; Porechop v. 0.2.4; Burrows-Wheeler Aligner v. 0.7.17-r1188; nanopolish v. 0.11.3; VCFtools v. 0.1.16; SAMtools v. 1.10; Seqtk v. 1.3-r106	10639		
+hZikaV/Brazil/BA-FIOCRUZ-TRDP257/2015	Asian	EPI_ISL_18708115	2015-05-19	South America / Brazil / Bahia / Salvador	Human	Original			Oxford Nanopore	Guppy v. 3.4.4; Porechop v. 0.2.4; Burrows-Wheeler Aligner v. 0.7.17-r1188; nanopolish v. 0.11.3; VCFtools v. 0.1.16; SAMtools v. 1.10; Seqtk v. 1.3-r106	9466	Partial NS5 gene sequence is reported.	
+hZikaV/Brazil/BA-FIOCRUZ-TRDP256/2015	Asian	EPI_ISL_18708116	2015-05-19	South America / Brazil / Bahia / Salvador	Human	Original			Oxford Nanopore	Guppy v. 3.4.4; Porechop v. 0.2.4; Burrows-Wheeler Aligner v. 0.7.17-r1188; nanopolish v. 0.11.3; VCFtools v. 0.1.16; SAMtools v. 1.10; Seqtk v. 1.3-r106	10382	Stretches of NNNs (7.25% of overall sequence).	warn
+hZikaV/Brazil/BA-FIOCRUZ-TRDP252/2015	Asian	EPI_ISL_18708117	2015-05-19	South America / Brazil / Bahia / Salvador	Human	Original			Oxford Nanopore	Guppy v. 3.4.4; Porechop v. 0.2.4; Burrows-Wheeler Aligner v. 0.7.17-r1188; nanopolish v. 0.11.3; VCFtools v. 0.1.16; SAMtools v. 1.10; Seqtk v. 1.3-r106	9746		
+hZikaV/Brazil/BA-FIOCRUZ-ZK0152/2016	Asian	EPI_ISL_18708118	2016-04-09	South America / Brazil / Bahia / Campo Formoso	Human	Original			Oxford Nanopore	Guppy v. 3.4.4; Porechop v. 0.2.4; Burrows-Wheeler Aligner v. 0.7.17-r1188; nanopolish v. 0.11.3; VCFtools v. 0.1.16; SAMtools v. 1.10; Seqtk v. 1.3-r106	10383	Stretches of NNNs (12.09% of overall sequence).	warn
+hZikaV/Brazil/BA-FIOCRUZ-TRDP282/2015	Asian	EPI_ISL_18708119	2015-05-21	South America / Brazil / Bahia / Salvador	Human	Original			Oxford Nanopore	Guppy v. 3.4.4; Porechop v. 0.2.4; Burrows-Wheeler Aligner v. 0.7.17-r1188; nanopolish v. 0.11.3; VCFtools v. 0.1.16; SAMtools v. 1.10; Seqtk v. 1.3-r106	10381	Stretches of NNNs (7.47% of overall sequence).	warn
+hZikaV/Brazil/BA-FIOCRUZ-TRDP238/2015	Asian	EPI_ISL_18708852	2015-05-18	South America / Brazil / Bahia / Salvador	Human	Original			Oxford Nanopore	Guppy v. 3.4.4; Porechop v. 0.2.4; Burrows-Wheeler Aligner v. 0.7.17-r1188; nanopolish v. 0.11.3; VCFtools v. 0.1.16; SAMtools v. 1.10; Seqtk v. 1.3-r106	10639	Stretches of NNNs (8.36% of overall sequence).	warn
+hZikaV/Brazil/BA-FIOCRUZ-ZK0110/2016	Asian	EPI_ISL_18708853	2016-04-08	South America / Brazil / Bahia / Campo Formoso	Human	Original			Oxford Nanopore	Guppy v. 3.4.4; Porechop v. 0.2.4; Burrows-Wheeler Aligner v. 0.7.17-r1188; nanopolish v. 0.11.3; VCFtools v. 0.1.16; SAMtools v. 1.10; Seqtk v. 1.3-r106	10638		
+hZikaV/Brazil/BA-FIOCRUZ-TRDP317/2015	Asian	EPI_ISL_18708854	2015-05-26	South America / Brazil / Bahia / Salvador	Human	Original			Oxford Nanopore	Guppy v. 3.4.4; Porechop v. 0.2.4; Burrows-Wheeler Aligner v. 0.7.17-r1188; nanopolish v. 0.11.3; VCFtools v. 0.1.16; SAMtools v. 1.10; Seqtk v. 1.3-r106	10638	Stretches of NNNs (10.61% of overall sequence).	warn
+hZikaV/Brazil/un-KUL-243/2015	Asian	EPI_ISL_19321261	2015-01-01	South America / Brazil	Human	Original			Illumina	metaSPAdes v. v. v. 2017	10272		

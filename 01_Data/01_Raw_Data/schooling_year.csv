@@ -1,0 +1,53 @@
+﻿"Tabela 7126 - Número médio de anos de estudo das pessoas de 15 anos ou mais, por sexo e grupo de idade"
+"Variável - Número médio de anos de estudo das pessoas de 15 anos ou mais de idade (%)"
+"Unidade da Federação","Grupo de idade","Ano x Sexo"
+"Unidade da Federação","Grupo de idade","2016","2017","2018","2019","2022","2023","2024"
+"Unidade da Federação","Grupo de idade","Total","Total","Total","Total","Total","Total","Total"
+"Rondônia","15 anos ou mais","8.5","8.8","9.0","9.3","9.5","9.3","9.5"
+"Acre","15 anos ou mais","8.5","8.8","8.9","9.1","9.6","9.3","9.5"
+"Amazonas","15 anos ou mais","9.3","9.6","9.7","9.9","10.2","10.3","10.4"
+"Roraima","15 anos ou mais","9.8","10.2","10.3","10.5","10.6","10.7","10.9"
+"Pará","15 anos ou mais","8.5","8.6","8.9","9.0","9.3","9.4","9.6"
+"Amapá","15 anos ou mais","9.8","10.0","10.0","10.1","10.4","10.5","10.5"
+"Tocantins","15 anos ou mais","8.8","9.0","9.2","9.2","9.8","9.8","10.0"
+"Maranhão","15 anos ou mais","7.8","8.0","8.2","8.4","8.9","9.0","9.0"
+"Piauí","15 anos ou mais","7.9","8.1","8.2","8.3","8.6","8.8","9.0"
+"Ceará","15 anos ou mais","8.1","8.5","8.8","8.8","9.1","9.2","9.2"
+"Rio Grande do Norte","15 anos ou mais","8.6","8.7","8.9","9.0","9.3","9.3","9.6"
+"Paraíba","15 anos ou mais","8.1","8.3","8.3","8.4","8.5","8.8","8.9"
+"Pernambuco","15 anos ou mais","8.5","8.7","9.0","9.1","9.1","9.4","9.4"
+"Alagoas","15 anos ou mais","7.6","7.7","8.0","8.1","8.7","8.8","8.9"
+"Sergipe","15 anos ou mais","8.3","8.4","8.4","8.6","8.9","9.2","9.2"
+"Bahia","15 anos ou mais","8.2","8.3","8.4","8.6","8.9","8.9","9.2"
+"Minas Gerais","15 anos ou mais","9.3","9.3","9.4","9.5","9.8","9.9","10.1"
+"Espírito Santo","15 anos ou mais","9.4","9.6","9.7","9.8","10.0","10.1","10.3"
+"Rio de Janeiro","15 anos ou mais","10.1","10.3","10.6","10.8","11.1","11.2","11.2"
+"São Paulo","15 anos ou mais","10.4","10.6","10.7","10.8","11.0","11.0","11.0"
+"Paraná","15 anos ou mais","9.5","9.6","9.8","10.0","10.1","10.2","10.2"
+"Santa Catarina","15 anos ou mais","9.6","10.0","10.1","10.1","10.4","10.4","10.6"
+"Rio Grande do Sul","15 anos ou mais","9.7","9.8","9.8","10.1","10.3","10.3","10.5"
+"Mato Grosso do Sul","15 anos ou mais","9.2","9.5","9.6","9.8","10.2","10.4","10.4"
+"Mato Grosso","15 anos ou mais","9.1","9.3","9.5","9.8","9.9","10.1","10.4"
+"Goiás","15 anos ou mais","9.4","9.6","9.7","9.9","10.1","10.3","10.5"
+"Distrito Federal","15 anos ou mais","11.1","11.4","11.5","11.5","11.8","12.0","12.0"
+"Fonte: IBGE - Pesquisa Nacional por Amostra de Domicílios Contínua Anual - 2º trimestre"
+
+"Notas"
+"A partir de 01 de agosto de 2022, as estimativas deste tema passaram a ser divulgadas com base no novo método de ponderação da pesquisa, conforme a Nota Técnica 03/2021. Consequentemente, a série histórica dos indicadores foi atualizada."
+""
+"Legenda"
+"Símbolo","Significado"
+"-","Zero absoluto, não resultante de um cálculo ou arredondamento.
+Ex: Em determinado município não existem pessoas de 14 anos de idade sem instrução."
+"0","Zero resultante de um cálculo ou arredondamento.
+Ex: A inflação do feijão em determinada Região Metropolitana foi 0.
+Determinado município produziu 400 kg de sementes de girassol e os dados da tabela são expressos em toneladas."
+"X","Valor inibido para não identificar o informante.
+Ex: Determinado município só possui uma empresa produtora de cimento, logo o valor de sua produção deve ser inibido."
+"..","Valor não se aplica.
+Ex: Não se pode obter o total da produção agrícola em determinado município quando os produtos agrícolas são contabilizados com unidades de medida distintas."
+"...","Valor não disponível.
+Ex: A produção de feijão em determinado município não foi pesquisada ou determinado município não existia no ano da pesquisa."
+"A a Z
+(exceto X)","Significa uma faixa de valores. Varia em função da tabela (se for o caso).
+Ex: O nível de precisão da produção estimada de combustíveis está na faixa A (95 a 100%)"
