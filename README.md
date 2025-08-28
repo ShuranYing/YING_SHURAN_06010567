@@ -6,6 +6,7 @@ This repository contains a pipeline to clean and merge genomic sequence metadata
 
 ## Repository Structure
 
+```text
 MSc_Shuran_Ying/
 ├─ .gitignore
 ├─ MSc_Shuran_Ying.Rproj # RStudio project (double-click to open)
@@ -20,6 +21,7 @@ MSc_Shuran_Ying/
 ├─ 02_Cases.R # case series fetch, clean, aggregate (FU-week/year)
 ├─ 03_EDA.Rmd # exploratory data analysis; figures and tables
 └─ 04_Modelling.Rmd # brms models, LOO, posterior residual gap map
+```
 
 ### Reproducible Workflow
 
