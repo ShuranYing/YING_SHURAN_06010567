@@ -8,7 +8,7 @@ This repository contains a pipeline to clean and merge genomic sequence metadata
 ```text
 MSc_Shuran_Ying/
 ├─ .gitignore
-├─ MSc_Shuran_Ying.Rproj # RStudio project (double-click to open)
+├─ YING_SHURAN_06010567.Rproj # RStudio project (double-click to open)
 ├─ README # this file
 │
 ├─ 01_Data/
