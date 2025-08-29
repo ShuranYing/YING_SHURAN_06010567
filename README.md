@@ -3,7 +3,7 @@
 
 This repository contains a pipeline to clean and merge genomic sequence metadata with reported cases, perform exploratory analysis, and fit Bayesian models to assess sequencing performance (including a posterior residual gap analysis).
 
-## Repository Structure
+## Repository Structure 
 
 ```text
 MSc_Shuran_Ying/

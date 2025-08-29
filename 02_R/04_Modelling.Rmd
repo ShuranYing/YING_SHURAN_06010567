@@ -111,63 +111,6 @@ summary(chi_data$N_sequences)
 var(chi_data$N_sequences)
 ```
 
-
-```{r}
-# Uncomment when having these models in local file.
-# dengue_model_1 <- readRDS(here("02_R", "05_outputs", "dengue_model_1.rds"))
-# dengue_model_2 <- readRDS(here("02_R", "05_outputs", "dengue_model_2.rds"))
-# dengue_model_3 <- readRDS(here("02_R", "05_outputs", "dengue_model_3.rds"))
-# dengue_model_4 <- readRDS(here("02_R", "05_outputs", "dengue_model_4.rds"))
-# dengue_model_5 <- readRDS(here("02_R", "05_outputs", "dengue_model_5.rds"))
-# dengue_model_6 <- readRDS(here("02_R", "05_outputs", "dengue_model_6.rds"))
-
-# zika_model_1 <- readRDS(here("02_R", "05_outputs", "zika_model_1.rds"))
-# zika_model_2 <- readRDS(here("02_R", "05_outputs", "zika_model_2.rds"))
-# zika_model_3 <- readRDS(here("02_R", "05_outputs", "zika_model_3.rds"))
-# zika_model_4 <- readRDS(here("02_R", "05_outputs", "zika_model_4.rds"))
-# zika_model_5 <- readRDS(here("02_R", "05_outputs", "zika_model_5.rds"))
-# zika_model_6 <- readRDS(here("02_R", "05_outputs", "zika_model_6.rds"))
-# zika_model_7 <- readRDS(here("02_R", "05_outputs", "zika_model_7.rds"))
-# zika_model_8 <- readRDS(here("02_R", "05_outputs", "zika_model_8.rds"))
-# zika_model_9 <- readRDS(here("02_R", "05_outputs", "zika_model_9.rds"))
-
-# chi_model_1 <- readRDS(here("02_R", "05_outputs", "chi_model_1.rds"))
-# chi_model_2 <- readRDS(here("02_R", "05_outputs", "chi_model_2.rds"))
-# chi_model_3 <- readRDS(here("02_R", "05_outputs", "chi_model_3.rds"))
-# chi_model_4 <- readRDS(here("02_R", "05_outputs", "chi_model_4.rds"))
-# chi_model_5 <- readRDS(here("02_R", "05_outputs", "chi_model_5.rds"))
-# chi_model_6 <- readRDS(here("02_R", "05_outputs", "chi_model_6.rds"))
-# chi_model_7 <- readRDS(here("02_R", "05_outputs", "chi_model_7.rds"))
-# chi_model_8 <- readRDS(here("02_R", "05_outputs", "chi_model_8.rds"))
-# chi_model_9 <- readRDS(here("02_R", "05_outputs", "chi_model_9.rds"))
-
-# tat_dengue_model_1 <- readRDS(here("02_R", "05_outputs", "tat_dengue_model_1.rds"))
-# tat_dengue_model_2 <- readRDS(here("02_R", "05_outputs", "tat_dengue_model_2.rds"))
-
-# tat_zika_model_1 <- readRDS(here("02_R", "05_outputs", "tat_zika_model_1.rds"))
-# tat_zika_model_2 <- readRDS(here("02_R", "05_outputs", "tat_zika_model_2.rds"))
-# tat_zika_model_3 <- readRDS(here("02_R", "05_outputs", "tat_zika_model_3.rds"))
-# tat_zika_model_4 <- readRDS(here("02_R", "05_outputs", "tat_zika_model_4.rds"))
-# tat_zika_model_5 <- readRDS(here("02_R", "05_outputs", "tat_zika_model_5.rds"))
-# tat_zika_model_6 <- readRDS(here("02_R", "05_outputs", "tat_zika_model_6.rds"))
-
-# tat_chi_model_1 <- readRDS(here("02_R", "05_outputs", "tat_chi_model_1.rds"))
-# tat_chi_model_2 <- readRDS(here("02_R", "05_outputs", "tat_chi_model_2.rds"))
-# tat_chi_model_3 <- readRDS(here("02_R", "05_outputs", "tat_chi_model_3.rds"))
-# tat_chi_model_4 <- readRDS(here("02_R", "05_outputs", "tat_chi_model_4.rds"))
-# tat_chi_model_5 <- readRDS(here("02_R", "05_outputs", "tat_chi_model_5.rds"))
-
-# combined_model_1 <- readRDS(here("02_R", "05_outputs", "combined_model_1.rds"))
-# combined_model_2 <- readRDS(here("02_R", "05_outputs", "combined_model_2.rds"))
-# combined_model_3 <- readRDS(here("02_R", "05_outputs", "combined_model_3.rds"))
-# combined_model_4 <- readRDS(here("02_R", "05_outputs", "combined_model_4.rds"))
-
-# tat_combined_model_1 <- readRDS(here("02_R", "05_outputs", "tat_combined_model_1.rds"))
-# tat_combined_model_2 <- readRDS(here("02_R", "05_outputs", "tat_combined_model_2.rds"))
-# tat_combined_model_3 <- readRDS(here("02_R", "05_outputs", "tat_combined_model_3.rds"))
-# tat_combined_model_4 <- readRDS(here("02_R", "05_outputs", "tat_combined_model_4.rds"))
-```
-
 ```{r}
 dengue_model_1 <- brm(
   N_sequences ~ scale(schooling_year) + scale(HDI) + Region + scale(unemployment) + scale(hospital) +
@@ -184,7 +127,6 @@ dengue_model_1 <- brm(
   control = list(adapt_delta = 0.99)
 )
 summary(dengue_model_1)
-saveRDS(dengue_model_1, file = here("02_R", "05_outputs", "dengue_model_1.rds"))
 
 dengue_model_2 <- brm(
   N_sequences ~ scale(schooling_year) + scale(HDI) + Region + scale(unemployment) + scale(hospital) +
@@ -201,7 +143,6 @@ dengue_model_2 <- brm(
   control = list(adapt_delta = 0.99)
 )
 summary(dengue_model_2)
-saveRDS(dengue_model_2, file = here("02_R", "05_outputs", "dengue_model_2.rds"))
 
 dengue_model_3 <- brm(
   N_sequences ~ scale(schooling_year) + scale(HDI) + Region + scale(unemployment) + scale(hospital) +
@@ -218,7 +159,6 @@ dengue_model_3 <- brm(
   control = list(adapt_delta = 0.99)
 )
 summary(dengue_model_3)
-saveRDS(dengue_model_3, file = here("02_R", "05_outputs", "dengue_model_3.rds"))
 ```
 
 ```{r}
@@ -238,7 +178,6 @@ dengue_model_4 <- brm(
   control = list(adapt_delta = 0.99)
 )
 summary(dengue_model_4)
-saveRDS(dengue_model_4, file = here("02_R", "05_outputs", "dengue_model_4.rds"))
 
 dengue_model_5 <- brm(
   N_sequences ~ scale(schooling_year) + scale(unemployment) + scale(HDI) + scale(hospital) * scale(logTR) + Region +
@@ -256,7 +195,6 @@ dengue_model_5 <- brm(
   control = list(adapt_delta = 0.99)
 )
 summary(dengue_model_5)
-saveRDS(dengue_model_5, file = here("02_R", "05_outputs", "dengue_model_5.rds"))
 
 dengue_model_6 <- brm(
   N_sequences ~ scale(schooling_year) + scale(logTR) * scale(HDI) + Region + scale(unemployment) + scale(hospital) +
@@ -274,7 +212,6 @@ dengue_model_6 <- brm(
   control = list(adapt_delta = 0.99)
 )
 summary(dengue_model_6)
-saveRDS(dengue_model_6, file = here("02_R", "05_outputs", "dengue_model_6.rds"))
 ```
 
 ```{r ModelComparison, echo=FALSE}
@@ -363,7 +300,6 @@ zika_model_1 <- brm(
   control = list(adapt_delta = 0.99)
 )
 summary(zika_model_1)
-saveRDS(zika_model_1, file = here("02_R", "05_outputs", "zika_model_1.rds"))
 
 zika_model_2 <- brm(
   N_sequences ~ scale(schooling_year) + scale(HDI) + Region + scale(unemployment) + scale(logTR)+
@@ -380,7 +316,6 @@ zika_model_2 <- brm(
   control = list(adapt_delta = 0.99)
 )
 summary(zika_model_2)
-saveRDS(zika_model_2, file = here("02_R", "05_outputs", "zika_model_2.rds"))
 
 zika_model_3 <- brm(
   N_sequences ~ scale(schooling_year) + scale(HDI) + Region + scale(unemployment) + scale(logTR)+
@@ -397,7 +332,6 @@ zika_model_3 <- brm(
   control = list(adapt_delta = 0.99)
 )
 summary(zika_model_3)
-saveRDS(zika_model_3, file = here("02_R", "05_outputs", "zika_model_3.rds"))
 
 zika_model_4 <- brm(
   N_sequences ~ scale(schooling_year) + scale(HDI) + Region + scale(unemployment) + scale(logTR)+
@@ -415,7 +349,6 @@ zika_model_4 <- brm(
   control = list(adapt_delta = 0.99)
 )
 summary(zika_model_4)
-saveRDS(zika_model_4, file = here("02_R", "05_outputs", "zika_model_4.rds"))
 
 zika_model_5 <- brm(
   N_sequences ~ scale(schooling_year) + scale(HDI) + Region + scale(unemployment) + scale(logTR)+
@@ -433,7 +366,6 @@ zika_model_5 <- brm(
   control = list(adapt_delta = 0.99)
 )
 summary(zika_model_5)
-saveRDS(zika_model_5, file = here("02_R", "05_outputs", "zika_model_5.rds"))
 
 zika_model_6 <- brm(
   N_sequences ~ scale(schooling_year) + Region + scale(unemployment) + scale(logTR)+
@@ -451,7 +383,6 @@ zika_model_6 <- brm(
   control = list(adapt_delta = 0.99)
 )
 summary(zika_model_6)
-saveRDS(zika_model_6, file = here("02_R", "05_outputs", "zika_model_6.rds"))
 
 zika_model_7 <- brm(
   N_sequences ~ scale(schooling_year) * scale(logTR) + Region + scale(unemployment) +
@@ -469,7 +400,6 @@ zika_model_7 <- brm(
   control = list(adapt_delta = 0.99)
 )
 summary(zika_model_7)
-saveRDS(zika_model_7, file = here("02_R", "05_outputs", "zika_model_7.rds"))
 
 zika_model_8 <- brm(
   N_sequences ~ scale(GDP_per_capita) + Region + scale(unemployment) + scale(logTR)+
@@ -487,7 +417,6 @@ zika_model_8 <- brm(
   control = list(adapt_delta = 0.99)
 )
 summary(zika_model_8)
-saveRDS(zika_model_8, file = here("02_R", "05_outputs", "zika_model_8.rds"))
 
 zika_model_9 <- brm(
   N_sequences ~ scale(GDP_per_capita) + Region + scale(unemployment) + scale(logTR)+
@@ -505,7 +434,6 @@ zika_model_9 <- brm(
   control = list(adapt_delta = 0.99)
 )
 summary(zika_model_9)
-saveRDS(zika_model_9, file = here("02_R", "05_outputs", "zika_model_9.rds"))
 ```
 
 ```{r ModelComparison2, echo=FALSE}
@@ -615,7 +543,6 @@ chi_model_1 <- brm(
   control = list(adapt_delta = 0.99)
 )
 summary(chi_model_1)
-saveRDS(chi_model_1, file = here("02_R", "05_outputs", "chi_model_1.rds"))
 
 chi_model_2 <- brm(
   N_sequences ~ scale(schooling_year) + scale(HDI) + Region + scale(unemployment) + scale(hospital) +
@@ -632,7 +559,6 @@ chi_model_2 <- brm(
   control = list(adapt_delta = 0.99)
 )
 summary(chi_model_2)
-saveRDS(chi_model_2, file = here("02_R", "05_outputs", "chi_model_2.rds"))
 
 chi_model_3 <- brm(
   N_sequences ~ scale(schooling_year) + scale(HDI) + Region + scale(unemployment) + scale(hospital) +
@@ -649,7 +575,6 @@ chi_model_3 <- brm(
   control = list(adapt_delta = 0.99)
 )
 summary(chi_model_3)
-saveRDS(chi_model_3, file = here("02_R", "05_outputs", "chi_model_3.rds"))
 
 chi_model_4 <- brm(
   N_sequences ~ scale(schooling_year) + scale(HDI) + Region + scale(unemployment) + scale(hospital) +
@@ -666,7 +591,6 @@ chi_model_4 <- brm(
   control = list(adapt_delta = 0.99)
 )
 summary(chi_model_4)
-saveRDS(chi_model_4, file = here("02_R", "05_outputs", "chi_model_4.rds"))
 
 chi_model_5 <- brm(
   N_sequences ~ scale(schooling_year) + scale(HDI) + Region + scale(unemployment) + scale(hospital) + scale(logTR) +
@@ -684,7 +608,6 @@ chi_model_5 <- brm(
   control = list(adapt_delta = 0.99)
 )
 summary(chi_model_5)
-saveRDS(chi_model_5, file = here("02_R", "05_outputs", "chi_model_5.rds"))
 
 chi_model_6 <- brm(
   N_sequences ~ scale(schooling_year) + scale(unemployment) + scale(HDI) + scale(hospital) * scale(logTR) + Region +
@@ -702,7 +625,6 @@ chi_model_6 <- brm(
   control = list(adapt_delta = 0.99)
 )
 summary(chi_model_6)
-saveRDS(chi_model_6, file = here("02_R", "05_outputs", "chi_model_6.rds"))
 
 chi_model_7 <- brm(
   N_sequences ~ scale(schooling_year) + scale(logTR) * scale(HDI) + Region + scale(unemployment) + scale(hospital) +
@@ -720,7 +642,6 @@ chi_model_7 <- brm(
   control = list(adapt_delta = 0.99)
 )
 summary(chi_model_7)
-saveRDS(chi_model_7, file = here("02_R", "05_outputs", "chi_model_7.rds"))
 ```
 
 ```{r chimodel2, echo=FALSE}
@@ -740,7 +661,6 @@ chi_model_8 <- brm(
   control = list(adapt_delta = 0.99)
 )
 summary(chi_model_8)
-saveRDS(chi_model_8, file = here("02_R", "05_outputs", "chi_model_8.rds"))
 
 chi_model_9 <- brm(
   N_sequences ~ scale(GDP_per_capita) + scale(logTR) * scale(HDI) + Region + scale(hospital) +
@@ -758,8 +678,6 @@ chi_model_9 <- brm(
   control = list(adapt_delta = 0.99)
 )
 summary(chi_model_9)
-saveRDS(chi_model_9, file = here("02_R", "05_outputs", "chi_model_9.rds"))
-
 ```
 
 ```{r ModelComparison3, echo=FALSE}
@@ -887,7 +805,6 @@ combined_model_1 <- brm(
   control = list(adapt_delta = 0.99)
 )
 summary(combined_model_1)
-saveRDS(combined_model_1, file = here("02_R", "05_outputs", "combined_model_1.rds"))
 
 combined_model_2 <- brm(
   N_sequences ~ scale(schooling_year) + scale(HDI) + Region + scale(unemployment) + scale(hospital) + scale(logTR) +
@@ -905,7 +822,6 @@ combined_model_2 <- brm(
   control = list(adapt_delta = 0.99)
 )
 summary(combined_model_2)
-saveRDS(combined_model_2, file = here("02_R", "05_outputs", "combined_model_2.rds"))
 
 combined_model_3 <- brm(
   N_sequences ~ scale(schooling_year) + scale(unemployment) + scale(HDI) + scale(hospital) * scale(logTR) + Region +
@@ -923,7 +839,6 @@ combined_model_3 <- brm(
   control = list(adapt_delta = 0.99)
 )
 summary(combined_model_3)
-saveRDS(combined_model_3, file = here("02_R", "05_outputs", "combined_model_3.rds"))
 
 combined_model_4 <- brm(
   N_sequences ~ scale(schooling_year) + scale(logTR) * scale(HDI) + Region + scale(unemployment) + scale(hospital) +
@@ -941,8 +856,6 @@ combined_model_4 <- brm(
   control = list(adapt_delta = 0.99)
 )
 summary(combined_model_4)
-saveRDS(combined_model_4, file = here("02_R", "05_outputs", "combined_model_4.rds"))
-
 ```
 
 ```{r ModelComparison7, echo=FALSE}
@@ -1092,7 +1005,6 @@ tat_dengue_model_1 <- brm(
   control = list(adapt_delta = 0.99)
 )
 summary(tat_dengue_model_1)
-saveRDS(tat_dengue_model_1, file = here("02_R", "05_outputs", "tat_dengue_model_1.rds"))
 
 tat_dengue_model_2 <- brm(
   TAT_mean_year ~ scale(Transmission_risk) * scale(GDP_per_capita) + Region + scale(unemployment) + scale(hospital) +
@@ -1110,7 +1022,6 @@ tat_dengue_model_2 <- brm(
   control = list(adapt_delta = 0.99)
 )
 summary(tat_dengue_model_2)
-saveRDS(tat_dengue_model_2, file = here("02_R", "05_outputs", "tat_dengue_model_2.rds"))
 ```
 
 ```{r ModelComparison4, echo=FALSE}
@@ -1172,7 +1083,6 @@ tat_zika_model_1 <- brm(
   control = list(adapt_delta = 0.99)
 )
 summary(tat_zika_model_1)
-saveRDS(tat_zika_model_1, file = here("02_R", "05_outputs", "tat_zika_model_1.rds"))
 
 tat_zika_model_2 <- brm(
   TAT_mean_year ~ scale(Transmission_risk) * scale(GDP_per_capita) + scale(unemployment) + Region + 
@@ -1190,7 +1100,6 @@ tat_zika_model_2 <- brm(
   control = list(adapt_delta = 0.99)
 )
 summary(tat_zika_model_2)
-saveRDS(tat_zika_model_2, file = here("02_R", "05_outputs", "tat_zika_model_2.rds"))
 
 tat_zika_model_3 <- brm(
   log(TAT_mean_year) ~ scale(Transmission_risk) * scale(GDP_per_capita) + scale(unemployment) + Region + 
@@ -1207,7 +1116,6 @@ tat_zika_model_3 <- brm(
   control = list(adapt_delta = 0.99)
 )
 summary(tat_zika_model_3)
-saveRDS(tat_zika_model_3, file = here("02_R", "05_outputs", "tat_zika_model_3.rds"))
 
 tat_zika_model_4 <- brm(
   TAT_mean_year ~ scale(Transmission_risk) * scale(GDP_per_capita) + scale(unemployment) + Region + 
@@ -1225,7 +1133,6 @@ tat_zika_model_4 <- brm(
   control = list(adapt_delta = 0.99)
 )
 summary(tat_zika_model_4)
-saveRDS(tat_zika_model_4, file = here("02_R", "05_outputs", "tat_zika_model_4.rds"))
 
 tat_zika_model_5 <- brm(
   TAT_mean_year ~ scale(Transmission_risk) * scale(GDP_per_capita) + scale(unemployment) + Region + 
@@ -1243,7 +1150,6 @@ tat_zika_model_5 <- brm(
   control = list(adapt_delta = 0.99)
 )
 summary(tat_zika_model_5)
-saveRDS(tat_zika_model_5, file = here("02_R", "05_outputs", "tat_zika_model_5.rds"))
 
 tat_zika_model_6 <- brm(
   TAT_mean_year ~ scale(Transmission_risk) + scale(schooling_year) + scale(unemployment) + Region + 
@@ -1261,7 +1167,6 @@ tat_zika_model_6 <- brm(
   control = list(adapt_delta = 0.99)
 )
 summary(tat_zika_model_6)
-saveRDS(tat_zika_model_6, file = here("02_R", "05_outputs", "tat_zika_model_6.rds"))
 ```
 
 ```{r ModelComparison5, echo=FALSE}
@@ -1346,7 +1251,6 @@ tat_chi_model_1 <- brm(
   control = list(adapt_delta = 0.99)
 )
 summary(tat_chi_model_1)
-saveRDS(tat_chi_model_1, file = here("02_R", "05_outputs", "tat_chi_model_1.rds"))
 
 tat_chi_model_2 <- brm(
   TAT_mean_year ~ scale(Transmission_risk) * scale(GDP_per_capita) + Region + scale(hospital) +
@@ -1364,7 +1268,6 @@ tat_chi_model_2 <- brm(
   control = list(adapt_delta = 0.99)
 )
 summary(tat_chi_model_2)
-saveRDS(tat_chi_model_2, file = here("02_R", "05_outputs", "tat_chi_model_2.rds"))
 
 tat_chi_model_3 <- brm(
   TAT_mean_year ~ scale(Transmission_risk) + scale(schooling_year) + Region + scale(unemployment) + scale(hospital) +
@@ -1382,7 +1285,6 @@ tat_chi_model_3 <- brm(
   control = list(adapt_delta = 0.99)
 )
 summary(tat_chi_model_3)
-saveRDS(tat_chi_model_3, file = here("02_R", "05_outputs", "tat_chi_model_3.rds"))
 
 tat_chi_model_4 <- brm(
   TAT_mean_year ~ scale(Transmission_risk) * scale(HDI) + scale(schooling_year) + Region + scale(unemployment) + scale(hospital) +
@@ -1400,7 +1302,6 @@ tat_chi_model_4 <- brm(
   control = list(adapt_delta = 0.99)
 )
 summary(tat_chi_model_4)
-saveRDS(tat_chi_model_4, file = here("02_R", "05_outputs", "tat_chi_model_4.rds"))
 
 tat_chi_model_5 <- brm(
   TAT_mean_year ~ scale(Transmission_risk) * scale(hospital) + scale(schooling_year) + Region + scale(unemployment) + scale(HDI) +
@@ -1418,7 +1319,6 @@ tat_chi_model_5 <- brm(
   control = list(adapt_delta = 0.99)
 )
 summary(tat_chi_model_5)
-saveRDS(tat_chi_model_5, file = here("02_R", "05_outputs", "tat_chi_model_5.rds"))
 ```
 
 ```{r ModelComparison6, echo=FALSE}
@@ -1501,7 +1401,6 @@ tat_combined_model_1 <- brm(
   control = list(adapt_delta = 0.99)
 )
 summary(tat_combined_model_1)
-saveRDS(tat_combined_model_1, file = here("02_R", "05_outputs", "tat_combined_model_1.rds"))
 
 tat_combined_model_2 <- brm(
   TAT_mean_year ~ scale(Transmission_risk) * scale(GDP_per_capita) + Region + scale(hospital) +
@@ -1519,7 +1418,6 @@ tat_combined_model_2 <- brm(
   control = list(adapt_delta = 0.99)
 )
 summary(tat_combined_model_2)
-saveRDS(tat_combined_model_2, file = here("02_R", "05_outputs", "tat_combined_model_2.rds"))
 
 tat_combined_model_3 <- brm(
   TAT_mean_year ~ scale(Transmission_risk) + scale(GDP_per_capita) + Region + scale(hospital) +
@@ -1537,7 +1435,6 @@ tat_combined_model_3 <- brm(
   control = list(adapt_delta = 0.99)
 )
 summary(tat_combined_model_3)
-saveRDS(tat_combined_model_3, file = here("02_R", "05_outputs", "tat_combined_model_3.rds"))
 
 tat_combined_model_4 <- brm(
   TAT_mean_year ~ scale(Transmission_risk) + scale(schooling_year) + Region + scale(hospital) + scale(unemployment) +
@@ -1555,7 +1452,6 @@ tat_combined_model_4 <- brm(
   control = list(adapt_delta = 0.99)
 )
 summary(tat_combined_model_4)
-saveRDS(tat_combined_model_4, file = here("02_R", "05_outputs", "tat_combined_model_4.rds"))
 ```
 
 ```{r ModelComparison8, echo=FALSE}
